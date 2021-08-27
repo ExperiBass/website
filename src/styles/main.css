@@ -1,0 +1,40 @@
+@font-face {
+    font-family: bicubik;
+    src: url(../fonts/bicubik.otf);
+}
+body {
+    font-family: bicubik;
+    background-color: #08111C;
+    color: white;
+    text-align: center;
+}
+div {
+    align-self: center;
+    padding: 0%;
+    margin: 0 auto;
+    width: 50%;
+}
+p {
+    word-wrap: break-word;
+}
+/*
+    Used for lists
+*/
+pre {
+    white-space: pre-line;
+    align-self: center;
+    font: inherit;
+}
+a {
+    text-decoration: unset;
+    color: #1B81F3;
+}
+a:visited {
+    color: #14268C;
+}
+a:hover {
+    color: #935A6B;
+}
+footer, h6 {
+    color: gray;
+}
