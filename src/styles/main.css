@@ -38,3 +38,6 @@ a:hover {
 footer, h6 {
     color: gray;
 }
+footer {
+    font-size: small;
+}
