@@ -2,21 +2,34 @@
     font-family: bicubik;
     src: url(../fonts/bicubik.otf);
 }
+
+/* Set variables here */
+:root {
+    --background-color: #08111C;
+    --text-color: white;
+    --links: #1B81F3;
+    --visited-links: #14268C;
+    --hover-links: #935A6B;
+}
+
 body {
     font-family: bicubik;
-    background-color: #08111C;
-    color: white;
+    background-color: var(--background-color);
+    color: var(--text-color);
     text-align: center;
 }
+
 div {
     align-self: center;
     padding: 0%;
     margin: 0 auto;
     width: 50%;
 }
+
 p {
     word-wrap: break-word;
 }
+
 /*
     Used for lists
 */
@@ -25,17 +38,39 @@ pre {
     align-self: center;
     font: inherit;
 }
+
 a {
     text-decoration: unset;
-    color: #1B81F3;
+    color: var(--links);
 }
+
 a:visited {
-    color: #14268C;
+    color: var(--visited-links);
 }
+
 a:hover {
-    color: #935A6B;
+    color: var(--hover-links);
 }
-footer, h2 {
+
+footer,
+h2 {
     color: gray;
     font-size: 12px;
+}
+
+/* Change the scrollbar if supported */
+
+/* width */
+::-webkit-scrollbar {
+    background: var(--background-color);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--background-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--links);
 }
