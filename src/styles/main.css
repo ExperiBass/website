@@ -63,6 +63,7 @@ h2 {
 /* width */
 ::-webkit-scrollbar {
     background: var(--background-color);
+    width: 10px;
 }
 
 /* Track */
