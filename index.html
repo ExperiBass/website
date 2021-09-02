@@ -15,6 +15,16 @@
     <meta property="og:title" content="Gingka/Ginger Pepper's Personal Site" />
     <meta property="og:url" content="https://gingkathfox.github.io" />
     <meta content="#08111C" data-react-helmet="true" name="theme-color" />
+
+    <!--Add  to all hyperlinks-->
+    <script>
+        function addBlankToLinks() {
+            const links = document.getElementsByTagName('a')
+            for (let link of links) {
+                link.target = "_blank"
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -34,7 +44,7 @@
     <div id="info">
         <h2>> info</h2>
         <h3>Info</h3>
-        <p>I'm a simple fox that makes music and uses JavaScript. I'm usually active on Matrix
+        <p>I'm a simple fox that makes music, writes code, and speedruns WipEout Pure. I'm usually active on Matrix
             (@experibassmusic:minteck.ro.lt).</p>
         <p>I've been using JS for about 9 years now, and NodeJS for about 8. Nothing professional sadly, but my
             open-source projects have been praised before by professionals.</p>
@@ -50,6 +60,7 @@
     <div id="links">
         <h2>> links</h2>
         <h3>Links</h3>
+        <a href="https://www.speedrun.com/user/ExperiBass">SpeedRun.com</a><br>
         <a href="https://github.com/experibass">GitHub</a><br>
         <a href="https://audius.co/experibass">Music</a><br>
         <a href="https://instagram.com/experibassmusic">Instagram</a><br>
@@ -92,6 +103,9 @@
         <p>XMR:<br>42mH1Lcgj1na9RsHcSpG5N5WcC9HSFw71Sz2tNHBvEMo919fj4m4bbRALhRABSCs4sKR47W2YmH8XEapef5WeWV7VQNHMaU</p>
     </div><br>
     <footer>Bicubik font from unknown source.</footer>
+    <script>
+        addBlankToLinks()
+    </script>
 </body>
 
 </html>
