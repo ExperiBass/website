@@ -1,22 +1,13 @@
-@font-face {
-    font-family: bicubik;
-    src: url(../fonts/bicubik.otf);
-}
-
+@import './font.css';
 /* Set variables here */
-:root {
-    --background-color: #08111C;
-    --text-color: white;
-    --links: #1B81F3;
-    --visited-links: #14268C;
-    --hover-links: #935A6B;
-}
+@import './variables.css';
 
 body {
     font-family: bicubik;
     background-color: var(--background-color);
     color: var(--text-color);
     text-align: center;
+    cursor: default;
 }
 
 div {

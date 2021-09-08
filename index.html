@@ -62,13 +62,14 @@
     <div id="links">
         <h2>> links</h2>
         <h3>Links</h3>
-        <a href="https://www.speedrun.com/user/ExperiBass">SpeedRun.com</a><br>
+        <a href="https://ko-fi.com/experibassmusic">Ko-Fi</a><br>
+        <a href="https://speedrun.com/user/ExperiBass">SpeedRun.com</a><br>
         <a href="https://github.com/experibass">GitHub</a><br>
         <a href="https://audius.co/experibass">Music</a><br>
         <a href="https://instagram.com/experibassmusic">Instagram</a><br>
         <a href="https://twitter.com/experibassmusic">Twitter</a><br>
         <a href="https://twitch.tv/experibassmusic">Twitch</a><br>
-        <a href="https://www.youtube.com/channel/UCx6VxDU880NuvLbWH8xT2GA">YouTube</a><br>
+        <a href="https://youtube.com/channel/UCx6VxDU880NuvLbWH8xT2GA">YouTube</a><br>
         <a href="https://linux-hardware.org/?probe=1ccf2e3d28">Hardware Probe</a>
     </div>
 
@@ -115,6 +116,21 @@
 
     <script>
         addBlankToLinks()
+    </script>
+
+    <!--Ko-Fi-->
+    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+    <script>
+        const style = getComputedStyle(document.body)
+        const BG_COLOR = style.getPropertyValue("--background-color")
+        const TEXT_COLOR = style.getPropertyValue("--text-color")
+        kofiWidgetOverlay.draw('experibassmusic', {
+            'type': 'floating-chat',
+            'floating-chat.donateButton.text': 'Donate to me!',
+            'floating-chat.donateButton.background-color': BG_COLOR,
+            'floating-chat.donateButton.text-color': TEXT_COLOR,
+            'floating-chat.stylesheets': '["src/styles/kofi.css"]'
+        })
     </script>
 </body>
 
