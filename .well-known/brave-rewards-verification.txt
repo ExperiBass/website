@@ -1,4 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: experibass.github.io
-Token: 500dc9af32a1dafc6e23ecba4a265efce9426512a22eb342761f3482d235d841
