@@ -8,6 +8,7 @@ body {
     color: var(--text-color);
     text-align: center;
     cursor: default;
+    overflow-wrap: break-word;
 }
 
 div {
@@ -38,7 +39,7 @@ a:visited {
     color: var(--visited-links);
 }
 
-a:hover {
+#pawprint:hover, a:hover {
     color: var(--hover-links);
 }
 

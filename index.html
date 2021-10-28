@@ -17,12 +17,20 @@
     <meta content="#08111C" data-react-helmet="true" name="theme-color" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!--Add  to all hyperlinks-->
+    <!-- util -->
     <script>
+        // Add to all hyperlinks
         function addBlankToLinks() {
             const links = document.getElementsByTagName('a')
             for (let link of links) {
                 link.target = "_blank"
+            }
+        }
+        async function copy() {
+            if (navigator.clipboard) {
+                await navigator.clipboard.writeText(`3F9E3F8428AC4B96F8930E8E971B7C5E1DCE`)
+            } else {
+                alert("Your browser doesn't support writing to the clipboard!")
             }
         }
     </script>
@@ -40,15 +48,15 @@
             <strong>Pronouns:</strong> He/Him She/Her
             <strong>Orientation:</strong> Bisexual
             <strong>Location:</strong> Universe 2, Quadrant C, Sector B
-            <strong>GPG Fingerprint:</strong> 531C3F9E3F8428AC4B96F8930E8E971B7C5E1DCE
+            <strong>GPG Fingerprint:</strong>
+            <b id="pawprint" onclick="copy()" onmouseover="this.title = 'Click to copy!'">3F9E 3F84 28AC 4B96 F893 0E8E 971B 7C5E 1DCE</b>
         </pre>
     </div>
 
     <div id="bio">
         <h2>> bio</h2>
         <h3>Bio</h3>
-        <p>I'm a simple fox that makes music, writes code, and speedruns WipEout Pure. I'm usually active on Matrix
-            (@experibassmusic:minteck.ro.lt).</p>
+        <p>I'm a simple fox that makes music, writes code, and speedruns WipEout Pure. I'm usually active on Discord and Matrix.</p>
         <p>I've been using JS for about 9 years now, and NodeJS for about 8. Nothing professional sadly, but my
             open-source projects have been praised before by professionals.</p>
         <p>The project I'm proudest of so far is <a href="https://github.com/experibass/esijs">esiJS</a>, a
@@ -72,12 +80,12 @@
         <a href="https://twitter.com/experibassmusic">Twitter</a><br>
         <a href="https://twitch.tv/experibassmusic">Twitch</a><br>
         <a href="https://youtube.com/channel/UCx6VxDU880NuvLbWH8xT2GA">YouTube</a><br>
-        <a href="https://linux-hardware.org/?probe=1ccf2e3d28">Hardware Probe</a>
+        <a href="https://linux-hardware.org/?probe=7b3cdda6e2">Hardware Probe</a>
     </div>
 
     <div id="commissions">
         <h2>> commissions</h3>
-            <h3>Commissions</h3>
+            <h3>Music Commissions</h3>
             <p>I do take music commissions. I do Hardstyle, Trap, and Techno, and the price ranges from $40 USD
                 to $80 USD (or the equivalent in an accepted crypto) depending on complexity.</p>
             <p>If you decide to commission me, I'll need a general mood of your track with reference songs. I do
@@ -85,7 +93,7 @@
                 $25 USD). If you want custom cover art that'll bump the price by whatever the chosen artist to create
                 the covers prices are.</p>
             <p>During the creation of your track, I'll send WIPs for your input, and once it's done to your liking and I
-                receive payment I'll send the .mp3 and .wav.</p>
+                receive payment I'll send the .mp3 (320 kbps) and .wav.</p>
             <h4>Contacting</h4>
             <p>You can contact me via Twitter, Discord (ExperiBassMusic#3335), Matrix (@experibassmusic:minteck.ro.lt)
                 and email (gingkagingerpepper at gmail
@@ -96,17 +104,24 @@
                 product for myself if I choose.</p>
             <p>Payment in fiat will be conducted through Zelle or Venmo.</p>
             <p>With crypto payment, the accepted coins are Ethereum, Bitcoin, Monero, Solana, Stellar Lumens, and USD
-                Coin. Other coins may be accepted. Payment in crypto will only be accepted once the transaction gets 3
-                to 5 confirmations.</i></p>
+                Coin. Other coins may be accepted. Payment in crypto will only be accepted once the transaction gets at
+                least 2 confirmations.</p>
 
+            <h3>Code Commissions</h3>
+            <p>I also write code on commission. I can do just about anything in JavaScript, including Discord bots and
+                Reddit bots. Other platforms like Telegram can be supported too.</p>
+            <p>My prices start at a base of $150 USD, and will increase depending on the complexity of the project. Any updates past the original details will have a $50 USD charge.</p>
+            <p>When I'm commissioned, I require the details to be fully laid out, preferably in a Trello board.</p>
+            <h4>Crypto Payment</h4>
+            <p>If you're paying in crypto, it will only be accepted after 3 to 5 confirmations. Only ETH, XMR, BTC, and LTC are accepted.</p>
     </div>
 
     <div id="currentsetup">
         <h2>> currentsetup</h2>
         <h3>Current Setup</h3>
         <pre>
-            <strong>2017 MacBook Air (13"):</strong>
-            8GB RAM
+            <strong>2020 MacBook Pro (13"):</strong>
+            16GB RAM
             Intel Core i5
             <a href="https://endeavouros.com/">EndeavourOS</a>/macOS Big Sur dualboot
 
@@ -128,10 +143,13 @@
         <h3>Wallet Addresses</h3>
         <p>If you enjoy my music or my code, feel free to send a bit of crypto :3</p>
         <p>AUDIO:<br>0x421f08065abffb2dbe467db5799dc3d5be58f1f9</p>
+        <p>ALGO:<br>ABQSH5MTDYR456EKT43W54SXCUFQCGGKM7BFPHVGMRJ26XCTKUJJWUWTIQ</p>
         <p>BTC:<br>bc1q5c094t3m4chn0prtsduxmqjqpvgnrmmsp3v06v</p>
         <p>ETH:<br>0xa8e46F2DEF4e55088453791910a16817528D7381</p>
+        <p>LTC:<br>Lh9F9g7CAMRpTtQff1aZ5N6U4NnCLz56Ey</p>
+        <p>SOL:<br>J9q4oCc97MgmqnFqYcwfWxRmGN5NoyMiEJcsArD8tYRv</p>
         <p>XLM:<br>GBZ5TCL2J2M7GTRHEH7O5COOV7RTNMATWJK3I7S7VQH2LHY556S2SM3O</p>
-        <p>XMR:<br>4AsbJEwdkd1Wxz7pn5JmJ948Dv6jEHKMnVRu7HzR5cPnQ3ZLKfvAoahJ2z79hPvTjKNTYeuHC9bpvMXjdQrUqqqP8bgYz2X</p>
+        <p>XMR: Ask :3</p>
     </div><br>
     <footer>Bicubik font from unknown source.</footer>
 
