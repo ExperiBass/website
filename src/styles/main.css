@@ -3,7 +3,7 @@
 @import './variables.css';
 
 body {
-    font-family: bicubik;
+    font-family: wipeout;
     background-color: var(--background-color);
     color: var(--text-color);
     text-align: center;
@@ -39,7 +39,7 @@ a:visited {
     color: var(--visited-links);
 }
 
-#pawprint:hover, a:hover {
+.hov:hover, a:hover {
     color: var(--hover-links);
 }
 

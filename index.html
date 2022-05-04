@@ -25,9 +25,9 @@
                 link.target = "_blank"
             }
         }
-        async function copy() {
+        async function copy(elm) {
             if (navigator.clipboard) {
-                await navigator.clipboard.writeText(`3F9E3F8428AC4B96F8930E8E971B7C5E1DCE`)
+                await navigator.clipboard.writeText(elm.innerText)
             } else {
                 alert("Your browser doesn't support writing to the clipboard!")
             }
@@ -40,7 +40,7 @@
         <h2>> aboutme</h2>
         <h3>About Me</h3>
         <pre>
-            <strong>Name:</strong> /Ging(ka|er){0,1}/ Pepper
+            <strong>Preferred Names:</strong> /Ging(ka|er){0,1}/ Pepper
             <strong>Age:</strong> N/A
             <strong>Gender:</strong> Fluid
             <strong>Sex:</strong> Male
@@ -48,19 +48,22 @@
             <strong>Orientation:</strong> Bisexual
             <strong>Location:</strong> Universe 2, Quadrant C, Sector B
             <strong>GPG Fingerprint:</strong>
-            <b id="pawprint" onclick="copy()" onmouseover="this.title = 'Click to copy!'">3F9E 3F84 28AC 4B96 F893 0E8E 971B 7C5E 1DCE</b>
+            <b id="pawprint" class="hov" onclick="copy(this)" onmouseover="this.title = 'Click to copy!'">3F9E 3F84 28AC 4B96 F893 0E8E 971B 7C5E 1DCE</b>
         </pre>
     </div>
 
     <div id="bio">
         <h2>> bio</h2>
         <h3>Bio</h3>
+        <h4>Overview</h4>
         <p>I'm a simple fox that makes music, writes code, and speedruns WipEout Pure. I'm usually active on Discord and
             Matrix.</p>
+        <h4>Programming</h4>
         <p>I've been using JS for about 9 years now, and NodeJS for about 8. Nothing professional sadly, but my
             open-source projects have been praised before by professionals.</p>
         <p>The project I'm proudest of so far is <a href="https://github.com/experibass/esijs">esiJS</a>, a
             custom-built wrapper for EvE Onlines API.</p>
+        <h4>Music</h4>
         <p>With my music, I mainly produce Hardstyle/Jumpstyle and Trap, with a bit of Techno sprinkled in. My main
             inspirations are <a href="https://www.djcoone.com/">DJ Coone</a>, <a href="http://www.datweekaz.com/">Da
                 Tweekaz</a>, and <a href="https://wildstylez.com/">Wildstylez</a>.</p>
@@ -95,7 +98,7 @@
         <pre>
             <strong>ﬧ Matrix:</strong> @experibassmusic:kde.org
             <strong>ﭮ Discord:</strong> ExperiBassMusic#3335
-            <strong> Email:</strong> gingkagingerpepper [at] gmail [dot] com
+            <strong> Email:</strong> <span class="hov" onclick="copy(this)">gingkagingerpepper [at] gmail [dot] com</span>
         </pre>
     </div>
 
@@ -140,7 +143,7 @@
             <strong>2020 MacBook Pro (13"):</strong>
             16GB RAM
             Intel Core i5
-            <a href="https://endeavouros.com/">EndeavourOS</a>/macOS Big Sur dualboot
+            <a href="https://endeavouros.com/">EndeavourOS</a>
 
             <strong>MIDI Devices:</strong>
             Akai Pro MPK Mini MKII
@@ -159,13 +162,17 @@
         <h2>> wallets</h2>
         <h3>Wallet Addresses</h3>
         <p>If you enjoy my music or my code, feel free to send a bit of crypto :3</p>
-        <p>ENS:<br>experibassmusic.eth</p>
-        <p>ALGO:<br>ABQSH5MTDYR456EKT43W54SXCUFQCGGKM7BFPHVGMRJ26XCTKUJJWUWTIQ</p>
-        <p>BTC:<br>bc1q5c094t3m4chn0prtsduxmqjqpvgnrmmsp3v06v</p>
-        <p>ETH & ERC tokens:<br>0xa8e46F2DEF4e55088453791910a16817528D7381</p>
-        <p>LTC:<br>Lh9F9g7CAMRpTtQff1aZ5N6U4NnCLz56Ey</p>
-        <p>SOL:<br>J9q4oCc97MgmqnFqYcwfWxRmGN5NoyMiEJcsArD8tYRv</p>
-        <p>XLM:<br>GBZ5TCL2J2M7GTRHEH7O5COOV7RTNMATWJK3I7S7VQH2LHY556S2SM3O</p>
+        <p>Click on an address to insert it into your clipboard! 
+            Make sure the addresses are correct, especially on windows, 
+            as there is malware that will replace addresses with the address of the attacker. </p>
+        <p>All coins:<br><span class="hov" onclick="copy(this)">experibassmusic.eth</span></p>
+        <p>For wallets that do not support ENS resolution, see below.</p>
+        <p>ETH & ERC tokens:<br><span class="hov" onclick="copy(this)">0x8Bb53bC2a63F2bd10B16bd0aD6fCDc1ffd49d114</span></p>
+        <p>ALGO:<br><span class="hov" onclick="copy(this)">ABQSH5MTDYR456EKT43W54SXCUFQCGGKM7BFPHVGMRJ26XCTKUJJWUWTIQ</span></p>
+        <p>BTC:<br><span class="hov" onclick="copy(this)">bc1q5c094t3m4chn0prtsduxmqjqpvgnrmmsp3v06v</span></p>
+        <p>LTC:<br><span class="hov" onclick="copy(this)">Lh9F9g7CAMRpTtQff1aZ5N6U4NnCLz56Ey</span></p>
+        <p>SOL:<br><span class="hov" onclick="copy(this)">J9q4oCc97MgmqnFqYcwfWxRmGN5NoyMiEJcsArD8tYRv</span></p>
+        <p>XLM:<br><span class="hov" onclick="copy(this)">GBZ5TCL2J2M7GTRHEH7O5COOV7RTNMATWJK3I7S7VQH2LHY556S2SM3O</span></p>
         <p>XMR:<br>ask</p>
     </div><br>
 
@@ -175,7 +182,7 @@
         <p>A list of the other pages on this site.</p>
         <p><a href="src/pages/gallery.html">EvE Photo Gallery</a></p>
     </div>
-    <footer>Bicubik font is (as far as I know) abandoned. Patched with <a
+    <footer>supErPhoniX2 font from <a href="https://github.com/NR74W/WipEout-Fonts/">NR74W/WipEout-Fonts</a>. Patched with <a
             href="https://www.nerdfonts.com/">NerdFonts</a>.</footer>
 
     <script>
