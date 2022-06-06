@@ -4,16 +4,16 @@
 
 <head>
     <meta name="google-site-verification" content="Z3ZJ8N01Oa7FFoyPM9nkPkjkjJqw7kbr1uMxV5zAqGQ" />
-    <title>Gingka/Ginger Pepper's Personal Site</title>
+    <title>Ging Pepper's Personal Site</title>
     <link rel="stylesheet" type="text/css" href="src/styles/main.css" />
     <!--Meta tags-->
     <meta charset="UTF-8" />
-    <meta name="author" content="Gingka/Ginger Pepper" />
-    <meta property="og:description" content="Gingka/Ginger Peppers personal site and hub for their links." />
+    <meta name="author" content="Ging Pepper" />
+    <meta property="og:description" content="Ging Peppers personal site and hub for their links." />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Gingka/Ginger Pepper's Personal Site" />
-    <meta property="og:url" content="https://experibassmusic.eth.link" />
-    <meta content="#08111C" data-react-helmet="true" name="theme-color" />
+    <meta property="og:title" content="Ging Pepper's Personal Site" />
+    <meta property="og:url" content="https://experibassmusic.eth.limo" />
+    <meta content="#000000" data-react-helmet="true" name="theme-color" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- util -->
@@ -21,10 +21,14 @@
         // Add to all hyperlinks
         function addBlankToLinks() {
             const links = document.getElementsByTagName('a')
-            for (let link of links) {
-                link.target = "_blank"
+            for (const link of links) {
+                console.log(link.href, link.href.includes('#'))
+                if (!link.href.includes("#")) {
+                    link.target = "_blank"
+                }
             }
         }
+
         async function copy(elm) {
             if (navigator.clipboard) {
                 await navigator.clipboard.writeText(elm.innerText)
@@ -97,7 +101,6 @@
         <h3>Contact</h3>
         <pre>
             <strong>ﬧ Matrix:</strong> @experibassmusic:kde.org
-            <strong>ﭮ Discord:</strong> ExperiBassMusic#3335
             <strong> Email:</strong> <span class="hov" onclick="copy(this)">gingkagingerpepper [at] icloud [dot] com</span>
         </pre>
     </div>
@@ -128,7 +131,7 @@
             <p>When I'm commissioned, I require the details to be fully laid out, preferably in a Trello board.</p>
             <h3>Payment</h3>
             <p>Payment in fiat will be conducted through Zelle or PayPal, whichever is easier. USD only.</p>
-            <p>With crypto payment, the accepted coins are listed in the <i>Wallets</i> section.</p>
+            <p>With crypto payment, the accepted coins are listed in the <a href="#wallets">Wallets</a> section.</p>
             <p>If you're paying in crypto, it will only be accepted after 3 to 5 confirmations, depending on the chain used.</p>
     </div>
 
