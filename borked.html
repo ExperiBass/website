@@ -34,19 +34,19 @@
                 grid-auto-columns: min-content;
                 gap: 0px;
                 box-sizing: border-box;
-                flex-shrink: 1;
                 flex-grow: 1;
-                max-width: fit-content;
-                max-height: fit-content;
+                justify-content: space-evenly;
             }
             #adspace-vert {
-                width: 25%;
+                min-width: 25%;
                 float: right;
                 grid-template-columns: 1fr;
+                justify-self: right;
             }
             #adspace-hor {
                 width: min-content;
                 min-width: fit-content;
+                justify-self: left;
             }
 
             /* ads */
@@ -55,18 +55,17 @@
                 padding: var(--padding);
                 align-content: center;
                 border: var(--border-thickness) solid var(--main-color);
-                width: min-content;
-                height: min-content;
                 box-sizing: border-box;
-                max-width: 100%;
-                max-height: fit-content;
+                width: 100%;
+                min-width: fit-content;
             }
             .ad-desc {
                 text-align: center;
                 width: 100%;
             }
             .ad-img {
-                width: 20vw;
+                max-width: 20vw;
+                object-fit: cover;
                 height: auto;
             }
 
@@ -76,6 +75,7 @@
                 display: flex;
                 flex-wrap: wrap;
                 flex-direction: row;
+                justify-content: center;
             }
         </style>
     </head>
