@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--import main css for Le Font-->
+        <link rel="stylesheet" type="text/css" href="src/styles/main.css" />
+        <!--then proceed to overwrite literally everything lol-->
+        <style>
+            :root {
+                /* define colors */
+                --main-color: #00ffff;
+                --secondary-color: #009191;
+                --bg-color: #000000;
+                --transition-quick: 300ms;
+                --border-radius: 4px;
+                --max-dims: 600px;
+                --underline-thickness: 0.15em;
+                --border-thickness: 2px;
+                --padding: 1%;
+                --width-default: 75%;
+                --width-wide: 90%;
+            }
+
+            body {
+                background-color: var(--bg-color);
+                color: var(--main-color);
+                text-underline-position: under;
+                display: inline-block;
+                margin: auto;
+            }
+
+            /* make links plain */
+            a {
+                text-decoration: none;
+            }
+            a:visited {
+                /* do nothing for now */
+            }
+            a:hover {
+                /* do nothing for now */
+            }
+
+            /* make sure images scale */
+            img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+
+            /* color of selections */
+            ::selection {
+                background-color: var(--secondary-color);
+                color: var(--bg-color);
+            }
+
+            /* set page dimensions */
+            #comicpage {
+                user-select: none;
+                max-width: var(--max-dims);
+                max-height: var(--max-dims);
+            }
+            div {
+                padding: 0%;
+                margin: 0 auto;
+                width: 50%;
+            }
+            hr {
+                width: 100%;
+                color: var(--text-color);
+            }
+
+            /* general classes */
+            .centered {
+                padding: 0%;
+                text-align: center;
+                margin: auto;
+            }
+            .bordered {
+                border: var(--border-thickness) solid var(--secondary-color);
+                border-radius: var(--border-radius);
+            }
+            #content {
+                max-width: max-content;
+            }
+            /* comic reader */
+            #container {
+                padding: auto;
+                height: 100%;
+            }
+
+            /* navbar */
+            #navbar {
+                width: var(--width-default);
+                user-select: none;
+            }
+
+            .navbar-button {
+                border: 1px solid var(--secondary-color);
+                border-radius: var(--border-radius);
+                padding-inline: var(--padding);
+                /*text-decoration: underline var(--underline-thickness) rgba(255, 255, 255, 0);*/
+                transition: text-decoration-color var(--transition-quick),
+                    background-color var(--transition-quick),
+                    color var(--transition-quick);
+            }
+            .navbar-button:hover {
+                text-decoration-color: var(--main-color);
+                background-color: var(--secondary-color);
+            }
+            .navbar-button:active {
+                background-color: var(--main-color);
+                color: var(--bg-color);
+            }
+
+            /* Page number display */
+            #pagenum {
+                text-decoration: underline var(--underline-thickness) var(--main-color);
+            }
+
+            /* buttons */
+            button {
+                background-color: var(--bg-color);
+                color: var(--main-color);
+                transition: border var(--transition-quick),
+                    background-color var(--transition-quick),
+                    color var(--transition-quick);
+            }
+            button:active {
+                background-color: var(--main-color);
+                color: var(--bg-color);
+                border: var(--border-thickness) solid var(--secondary-color);
+            }
+            button:hover:enabled:not(:active) {
+                border: var(--border-thickness) solid var(--main-color);
+            }
+            button:disabled {
+                color: var(--secondary-color);
+            }
+
+            /* comments and adspace divs */
+            #comments, #adspace {
+                margin: var(--padding);
+                padding: var(--padding);
+                display: table;
+            }
+            #comments {
+                width: var(--width-default);
+            }
+
+            /* each comment */
+            .comment {
+                user-select: text;
+                width: var(--width-wide);
+                margin: var(--padding) auto;
+                padding: var(--padding);
+                text-align: left;
+                word-wrap: break-word;
+            }
+            .comment-user {
+                color: var(--secondary-color);
+            }
+            .comment-timestamp {
+                color: var(--secondary-color);
+                float: right;
+                font-size: smaller;
+            }
+
+            /* ads */
+            .ad {
+                padding: var(--padding);
+                align-content: center;
+                border-bottom: var(--border-thickness) solid var(--main-color);
+                border-radius: 0%; /* unset, bottom border looks like shit otherwise */
+            }
+            .ad:last-child {
+                border-bottom: none;
+            }
+            .ad-desc {
+                text-align: center;
+            }
+
+            .comments-and-ads-container {
+                width: var(--width-default);
+                display:flex;
+            }
+        </style>
+        <title>If this isn't centered, i will commit many crimes</title>
+    </head>
+    <body>
+        <div class="centered bordered">
+            <p class="centered">This text <i>should</i> be centered. If not, something has gone horribly wrong.</p>
+        </div>
+        <p>This text is outside of the centered div.</p>
+    </body>
+</html>
