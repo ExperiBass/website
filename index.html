@@ -3,15 +3,15 @@
 <html>
 
 <head>
-    <meta name="google-site-verification" content="Z3ZJ8N01Oa7FFoyPM9nkPkjkjJqw7kbr1uMxV5zAqGQ" />
-    <title>Ging Pepper's Personal Site</title>
+    <title>Stimky Foxxo Does Stoof</title>
     <link rel="stylesheet" type="text/css" href="src/styles/main.css" />
     <!--Meta tags-->
     <meta charset="UTF-8" />
+    <meta name="google-site-verification" content="Z3ZJ8N01Oa7FFoyPM9nkPkjkjJqw7kbr1uMxV5zAqGQ" />
     <meta name="author" content="Ging Pepper" />
     <meta property="og:description" content="Ging Peppers personal site and hub for their links." />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Ging Pepper's Personal Site" />
+    <meta property="og:title" content="Stimky Foxxo Does Stoof" />
     <meta property="og:url" content="https://experibassmusic.eth.limo" />
     <meta content="#000000" data-react-helmet="true" name="theme-color" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,10 +22,28 @@
         function addBlankToLinks() {
             const links = document.getElementsByTagName('a')
             for (const link of links) {
-                console.log(link.href, link.href.includes('#'))
                 if (!link.href.includes("#")) {
                     link.target = "_blank"
                 }
+            }
+        }
+        function getAllTextElems() {
+            const textElems = [].concat(Array.from(document.getElementsByTagName("p")),
+                Array.from(document.getElementsByTagName("span")),
+                Array.from(document.getElementsByTagName("a")),
+                Array.from(document.getElementsByTagName("h1")),
+                Array.from(document.getElementsByTagName("h2")),
+                Array.from(document.getElementsByTagName("h3")) ).flat()
+            return textElems
+        }
+
+        function italiciseText() {
+            const ITALIC_REGEX = /\*(.+)\*/ig
+
+            for (const elm of getAllTextElems()) {
+                elm.innerHTML = elm.innerHTML.replace(ITALIC_REGEX, (_, p1) => {
+                    return `<i>${p1}</i>`
+                })
             }
         }
 
@@ -51,7 +69,7 @@
             <strong>Pronouns:</strong> He/Him She/Her (Ask)
             <strong>Orientation:</strong> Bisexual
             <strong>Location:</strong> Universe 2, Quadrant C, Sector B
-            <strong>GPG Fingerprint:</strong>
+            <strong>GPG Pawprint:</strong>
             <b id="pawprint" class="hov" onclick="copy(this)" onmouseover="this.title = 'Click to copy!'">3F9E 3F84 28AC 4B96 F893 0E8E 971B 7C5E 1DCE</b>
         </pre>
     </div>
@@ -59,20 +77,11 @@
     <div id="bio">
         <h2>> bio</h2>
         <h3>Bio</h3>
-        <h4>Overview</h4>
-        <p>I'm a simple fox that makes music, writes code, and speedruns WipEout Pure. I'm usually active on Discord and
-            Matrix.</p>
-        <h4>Programming</h4>
-        <p>I've been using JS for about 9 years now, and NodeJS for about 8. Nothing professional sadly, but my
-            open-source projects have been praised before by professionals.</p>
-        <p>The project I'm proudest of so far is <a href="https://github.com/experibass/esijs">esiJS</a>, a
-            custom-built wrapper for EvE Onlines API.</p>
-        <h4>Music</h4>
-        <p>I mainly produce Hardstyle/Jumpstyle and Trap, with a bit of Techno sprinkled in. My main
-            inspirations are <a href="https://www.djcoone.com/">DJ Coone</a>, <a href="http://www.datweekaz.com/">Da
-                Tweekaz</a>, and <a href="https://wildstylez.com/">Wildstylez</a>.</p>
-        <p>I try to blend the 90s to early 2000s style with my own style in my music, and I hope that I convey emotion
-            in each and every one of my releases.</p>
+        <p>Hai! I'm a stimky internet fox! I write code, do crime, and steal your garlic bread >:3<br>
+            I main JS, although I'm happy in most langs uwu<br>
+            I like making stupid scripts and bending JS to my will, you can see some (rough) samples on this page >:D<br>
+            I also make music! I seem to have stuck with Trap and early 2000s Hardstyle, but I like to dabble in everything :3<br>
+            My Audius is linked below, along with my other socials!</p>
     </div>
 
     <div id="links">
@@ -82,13 +91,13 @@
         <a href="https://speedrun.com/user/ExperiBass">省 SpeedRun.com</a><br>
         <a href="https://github.com/experibass"> GitHub</a><br>
         <a href="https://audius.co/experibass"> Music</a><br>
-        <a href="https://opensea.io/collection/experibass-releases">ﲹ ETH NFT Store</a><br>
-        <a href="https://instagram.com/experibassmusic"> Instagram</a><br>
+        <a href="">ﲹ ETH NFT Store (under construction)</a><br>
+        <a href="https://instagram.com/experibassmusic"> Instagram (teasers sometimes when I'm feeling *really* good about a release)</a><br>
         <a href="https://twitter.com/experibassmusic">暑 Twitter</a><br>
-        <a href="https://twitch.tv/experibassmusic">既 Twitch</a><br>
-        <a href="https://youtube.com/channel/UCx6VxDU880NuvLbWH8xT2GA"> YouTube</a><br>
+        <a href="https://twitch.tv/experibassmusic">既 Twitch (I stream sometimes :3)</a><br>
+        <a href="https://youtube.com/channel/UCx6VxDU880NuvLbWH8xT2GA"> YouTube (I upload visuals and speedruns here :3)</a><br>
         <a href="https://linux-hardware.org/?probe=7b3cdda6e2"> Hardware Probe</a><br>
-        <a href="https://github.com/ExperiBass/linux-dotfiles"> My Dotfiles (Linux)</a>
+        <a href="https://github.com/ExperiBass/linux-dotfiles"> My Dotfiles</a>
         <h3>Playlists</h3>
         <a href="https://music.apple.com/us/playlist/b%CE%B3iddim/pl.u-WabZv4ZieNAvxLY">Briddim</a><br>
         <a href="https://music.apple.com/us/playlist/colo%CE%B3-b%CE%BBss/pl.u-WabZvAVueNAvxLY">Color Bass</a><br>
@@ -162,15 +171,14 @@
         <h3>Wallet Addresses</h3>
         <p>If you enjoy my music or my code, feel free to send a bit of crypto :3</p>
         <p>Click on an address to insert it into your clipboard! 
-            Make sure the addresses are correct, especially on windows, 
+            Make sure the addresses are correct, especially on Windows, 
             as there is malware that will replace addresses with the address of the attacker. </p>
-        <p>All coins:<br><span class="hov" onclick="copy(this)">experibassmusic.eth</span></p>
+        <p>All coins:<br><span class="hov" onclick="copy(this)">*experibassmusic.eth*</span></p>
         <p>For wallets that do not support ENS resolution, see below.</p>
-        <p>ETH & ERC tokens:<br><span class="hov" onclick="copy(this)">0x8Bb53bC2a63F2bd10B16bd0aD6fCDc1ffd49d114</span></p>
-        <p>ALGO:<br><span class="hov" onclick="copy(this)">ABQSH5MTDYR456EKT43W54SXCUFQCGGKM7BFPHVGMRJ26XCTKUJJWUWTIQ</span></p>
         <p>BTC:<br><span class="hov" onclick="copy(this)">bc1q5c094t3m4chn0prtsduxmqjqpvgnrmmsp3v06v</span></p>
         <p>LTC:<br><span class="hov" onclick="copy(this)">Lh9F9g7CAMRpTtQff1aZ5N6U4NnCLz56Ey</span></p>
-        <p>SOL:<br><span class="hov" onclick="copy(this)">J9q4oCc97MgmqnFqYcwfWxRmGN5NoyMiEJcsArD8tYRv</span></p>
+        <p>ETH & ERC tokens:<br><span class="hov" onclick="copy(this)">0x8Bb53bC2a63F2bd10B16bd0aD6fCDc1ffd49d114</span></p>
+        <p>ALGO:<br><span class="hov" onclick="copy(this)">ABQSH5MTDYR456EKT43W54SXCUFQCGGKM7BFPHVGMRJ26XCTKUJJWUWTIQ</span></p>
         <p>XMR:<br>ask</p>
     </div><br>
 
@@ -185,6 +193,7 @@
 
     <script>
         addBlankToLinks()
+        italiciseText()
     </script>
 </body>
 
