@@ -21,7 +21,7 @@
         function addBlankToLinks() {
             const links = document.getElementsByTagName('a')
             for (const link of links) {
-                if (!link.href.includes("#")) {
+                if (!link.href.match(/(^\/|src|#)/i)) {
                     link.target = "_blank"
                 }
             }
