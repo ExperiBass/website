@@ -23,7 +23,7 @@ input, select {
 div {
     padding: 0%;
     margin: 0 auto;
-    width: 50%;
+    width: 75%;
 }
 
 p {
@@ -63,7 +63,7 @@ h2 {
 /* width */
 ::-webkit-scrollbar {
     background: var(--background-color);
-    width: 10px;
+    width: 5px;
 }
 
 /* Track */
@@ -73,5 +73,6 @@ h2 {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: var(--links);
+    background: var(--secondary-color);
+    border-radius: 12px;
 }
