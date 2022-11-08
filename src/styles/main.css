@@ -39,19 +39,15 @@ pre {
 a {
     text-decoration: unset;
     color: var(--links);
+    transition: color var(--transition-normal);
 }
-
-a:visited {
-    color: var(--visited-links);
-}
-
-.hov:hover, a:hover {
-    color: var(--hover-links);
+a:hover {
+    color: var(--link-hover-color);
 }
 
 footer,
 h2 {
-    color: gray;
+    color: #8F8299;
     font-size: 12px;
 }
 
@@ -72,4 +68,12 @@ h2 {
 ::-webkit-scrollbar-thumb {
     background: var(--secondary-color);
     border-radius: 12px;
+}
+
+.hov {
+    transition: color var(--transition-normal);
+}
+
+.hov:hover {
+    color: var(--hover-color);
 }
