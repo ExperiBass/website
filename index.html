@@ -2,224 +2,203 @@
 
 <html>
 
-<head>
-    <title>Stimky Foxxo Does Stoof</title>
-    <link rel="stylesheet" type="text/css" href="src/styles/main.css" />
-    <!--Meta tags-->
-    <meta charset="UTF-8" />
-    <meta name="google-site-verification" content="Z3ZJ8N01Oa7FFoyPM9nkPkjkjJqw7kbr1uMxV5zAqGQ" />
-    <meta name="author" content="Ging Pepper" />
-    <meta property="og:url" content="https://experibassmusic.eth.limo" />
-    <meta property="og:title" content="ΞXPΞRIBΛSS" />
-    <meta property="og:description" content="Gings hub for their socials." />
-    <meta property="og:type" content="website" />
-    <meta content="#a364d5" data-react-helmet="true" name="theme-color" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <head>
+        <title>Stimky Foxxo Does Stoof</title>
+        <link rel="stylesheet" type="text/css" href="src/styles/main.css" />
+        <!--Meta tags-->
+        <meta charset="UTF-8" />
+        <meta name="google-site-verification" content="Z3ZJ8N01Oa7FFoyPM9nkPkjkjJqw7kbr1uMxV5zAqGQ" />
+        <meta name="author" content="Ging Pepper" />
+        <meta property="og:url" content="https://experibassmusic.eth.limo" />
+        <meta property="og:title" content="ΞXPΞRIBΛSS" />
+        <meta property="og:description" content="Gings hub for their socials." />
+        <meta property="og:type" content="website" />
+        <meta content="#a364d5" data-react-helmet="true" name="theme-color" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- util -->
-    <script>
-        function addBlankToLinks() {
-            const links = document.getElementsByTagName('a')
-            const thisDomain = `${window.location.protocol}//${window.location.host}`
-            for (const link of links) {
-                if (!link.href.startsWith(thisDomain)) {
-                    link.target = "_blank" // open external links in a new tab
+        <!-- util -->
+        <script>
+            function addBlankToLinks() {
+                const links = document.getElementsByTagName('a')
+                const thisDomain = `${window.location.protocol}//${window.location.host}`
+                for (const link of links) {
+                    if (!link.href.startsWith(thisDomain)) {
+                        link.target = "_blank" // open external links in a new tab
+                    }
                 }
             }
-        }
 
-        function getAllTextElems() {
-            // not really *all* text elms, but the ones used on this site lol
-            const textElems = [].concat(Array.from(document.getElementsByTagName("p")),
-                Array.from(document.getElementsByTagName("span")),
-                Array.from(document.getElementsByTagName("a")),
-                Array.from(document.getElementsByTagName("h1")),
-                Array.from(document.getElementsByTagName("h2")),
-                Array.from(document.getElementsByTagName("h3")),
-                Array.from(document.getElementsByTagName("pre")) ).flat()
-            return textElems
-        }
-
-        function italiciseText() {
-            const ITALIC_REGEX = /\*(.+)\*/ig
-
-            for (const elm of getAllTextElems()) {
-                elm.innerHTML = elm.innerHTML.replace(ITALIC_REGEX, (_, p1) => {
-                    return `<i>${p1}</i>`
-                })
+            function getAllTextElems() {
+                // not really *all* text elms, but the ones used on this site lol
+                const textElems = [].concat(Array.from(document.getElementsByTagName("p")),
+                    Array.from(document.getElementsByTagName("span")),
+                    Array.from(document.getElementsByTagName("a")),
+                    Array.from(document.getElementsByTagName("h1")),
+                    Array.from(document.getElementsByTagName("h2")),
+                    Array.from(document.getElementsByTagName("h3")),
+                    Array.from(document.getElementsByTagName("pre"))).flat()
+                return textElems
             }
-        }
 
-        async function copy(elm) {
-            if (navigator.clipboard) {
-                await navigator.clipboard.writeText(elm.innerText)
-            } else {
-                alert("Your browser doesn't support the Clipboard API!")
-            }
-        }
+            function italiciseText() {
+                const ITALIC_REGEX = /\*(.+)\*/ig
 
-        function replaceEmotes() {
-            const emotes = [
-                'aaa.png',
-                'angy.png',
-                'dancin.gif',
-                'hyper.gif',
-                'owo.gif',
-                'pepeBASS.gif',
-                'pikaDance.gif',
-                'sadge.png',
-                'screem.png',
-                'thinkW.png',
-                'wiggleDog.gif',
-                'wolfAngel.png',
-                'wolfBlankie.png',
-                'wolfBlep.png',
-                'wolfClose.png',
-                'wolfConfused.png',
-                'wolfCool.png',
-                'wolfDead.png',
-                'wolfEasy.png',
-                'wolfEhh.png',
-                'wolfEvil.png',
-                'wolfFingerGuns.png',
-                'wolfGay.png',
-                'wolfGun.png',
-                'wolfHehehe.png',
-                'wolfLove.png',
-                'wolfNo.png',
-                'wolfRose.png',
-                'wolfSad.png',
-                'wolfSalute.png',
-                'wolfSing.png',
-                'wolfSmart.png',
-                'wolfSmug.png',
-                'wolfStab.png',
-                'wolfSurprised.png',
-                'wolfSurprisedBlush.png',
-                'wolfSweat.png',
-                'wolfThink.png',
-                'wolfWow.png'
-            ]
-            const emoteRegex = /:([\w_-])+:/ig // matches text between two colons (but not numbers)
-            const dims = 15
-            // abusing img tags, fun!
-            const emoteTemplate = `<img width="${dims}px" height="${dims}px" title="TITLE" src="src/images/emotes/EMOTE" />`
-
-            // start processing emotes
-            for (const elem of getAllTextElems()) {
-                const matches = elem.innerHTML.match(emoteRegex)
-
-                if (!matches) {
-                    continue
-                }
-                for (const match of matches) {
-                    const emoteName = match.slice(1, -1)
-                    const emote = emotes.filter((v) => v.startsWith(`${emoteName}.`))
-                    const img = emoteTemplate.replace("EMOTE", emote).replace("TITLE", emoteName) // replace the placeholders with their contents
-                    elem.innerHTML = elem.innerHTML.replace(match, img)
+                for (const elm of getAllTextElems()) {
+                    elm.innerHTML = elm.innerHTML.replace(ITALIC_REGEX, (_, p1) => {
+                        return `<i>${p1}</i>`
+                    })
                 }
             }
-        }
-    </script>
-</head>
 
-<body>
-    <h1>Stimky Foxxo Does Stoof</h1>
-    <hr />
-    <div id="aboutme">
-        <h2>> aboutme</h2>
-        <h3> About Me</h3>
-        <pre>
+            async function copy(elm) {
+                if (navigator.clipboard) {
+                    await navigator.clipboard.writeText(elm.innerText)
+                } else {
+                    alert("Your browser doesn't support the Clipboard API!")
+                }
+            }
+
+            function replaceEmotes() {
+                const emotes = [
+                    'GingBlep.png',
+                    'GingCri.png',
+                    'GingHappy.png',
+                    'GingkaCreep.png',
+                    'owo.gif',
+                    'eos.png'
+                ]
+                const emoteRegex = /:([\w_-])+:/ig // matches text between two colons (but not numbers)
+                const dims = 15
+                // abusing img tags, fun!
+                const emoteTemplate = `<img width="${dims}px" height="${dims}px" title="TITLE" src="src/images/emotes/EMOTE" />`
+
+                // start processing emotes
+                for (const elem of getAllTextElems()) {
+                    const matches = elem.innerHTML.match(emoteRegex)
+
+                    if (!matches) {
+                        continue
+                    }
+                    for (const match of matches) {
+                        const emoteName = match.slice(1, -1)
+                        const emote = emotes.filter((v) => v.startsWith(`${emoteName}.`))
+                        const img = emoteTemplate.replace("EMOTE", emote).replace("TITLE", emoteName) // replace the placeholders with their contents
+                        elem.innerHTML = elem.innerHTML.replace(match, img)
+                    }
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>Stimky Foxxo Does Stoof</h1>
+        <hr />
+        <div id="aboutme">
+            <h2>> aboutme</h2>
+            <h3> About Me</h3>
+            <pre>
             <strong>Preferred Names:</strong> /Ging(ka|er){0,1}/ Pepper
             <strong>Age:</strong> N/A
             <strong>Gender:</strong> Fluid
-            <strong>Sex:</strong> Male :wolfSad:
+            <strong>Sex:</strong> Male :GingCri:
             <strong>Pronouns:</strong> He/Him She/Her (Ask)
             <strong>Orientation:</strong> Bi
             <strong>Location:</strong> Universe 2, Quadrant C, Sector B
             <strong>GPG Pawprint:</strong>
             <b id="pawprint" class="hov" onclick="copy(this)" title="Click to copy!">3F9E 3F84 28AC 4B96 F893 0E8E 971B 7C5E 1DCE</b>
         </pre>
-    </div>
+        </div>
 
-    <div id="bio">
-        <h2>> bio</h2>
-        <h3>龎 Bio</h3>
-        <p>:wolfSalute: Hai! I'm a stimky internet fox! I write code, do crime, and steal your garlic bread :wolfEvil:<br>
-            I main JS, although I'm happy in most langs uwu<br>
-            I like making stupid scripts and bending JS to my will, you can see some samples in the source for this page (one being this emote system :wolfHehehe:)<br>
-            I speedrun WipEout Pure, slowly getting into running 2048 too uwu</p>
-        <p>I also make music! I seem to have stuck with Trap and early 2000s Hardstyle, but I like to dabble in everything :owo:<br>
-            My Audius is linked below, along with my other socials!</p>
-    </div>
+        <div id="bio">
+            <h2>> bio</h2>
+            <h3>:GingBlep: Hai! I'm a stimky internet fox! I write code, do crime, and steal your garlic bread
+                :GingkaCreep:<br>
+                I main JS, although I'm happy in most langs uwu<br>
+                I like making stupid scripts and bending JS to my will, you can see some samples in the source for this
+                page (one being this emote system :GingHappy:)<br>
+                I speedrun WipEout Pure, slowly getting into running 2048 too uwu</p>
+            <p>I also make music! I seem to have stuck with Trap and early 2000s Hardstyle, but I like to dabble in
+                everything :owo:<br>
+                My Audius is linked below, along with my other socials!</p>
+        </div>
 
-    <div id="links">
-        <h2>> links</h2>
-        <h3> Links</h3>
-        <a href="https://audius.co/experibass"> Audius</a><br>
-        <a href="https://pettingzoo.co/@experibassmusic" rel="me">ﳄ Mastodon</a><br>
-        <a href="https://youtube.com/channel/UCx6VxDU880NuvLbWH8xT2GA"> YouTube (I upload visuals and speedruns here :owo:)</a><br>
-        <a href="https://instagram.com/experibassmusic"> Instagram (teasers sometimes)</a><br>
-        <a href="https://twitter.com/experibassmusic">暑 Twitter</a><br>
-        <a href="https://twitch.tv/experibassmusic">既 Twitch (I stream sometimes :3)</a><br>
-        <a href="https://speedrun.com/user/ExperiBass">省 SpeedRun.com</a><br>
-        <a href="https://github.com/experibass"> GitHub</a><br>
-        <a href="https://linux-hardware.org/?probe=7b3cdda6e2"> Hardware Probe</a><br>
-        <a href="https://github.com/ExperiBass/linux-dotfiles"> My Dotfiles</a>
-        <h3> Playlists</h3>
-        <a href="https://music.apple.com/us/playlist/b%CE%B3iddim/pl.u-WabZv4ZieNAvxLY">Briddim</a><br>
-        <a href="https://music.apple.com/us/playlist/colo%CE%B3-b%CE%BBss/pl.u-WabZvAVueNAvxLY">Color Bass</a><br>
-        <a href="https://music.apple.com/us/playlist/h%CE%BB%CE%B3dstyl%CE%BE/pl.u-NpXmzeWF4yVpke7">Hardstyle</a><br>
-        <a href="https://music.apple.com/us/playlist/%CE%B3iddim/pl.u-NpXmza7t4yVpke7">Riddim</a><br>
-        <h2>more to come...</h2>
-    </div>
-    <div id="contact">
-        <h2>> contact</h2>
-        <h3> Contact</h3>
-        <pre>
+        <div id="links">
+            <h2>> links</h2>
+            <h3> Links</h3>
+            <a href="https://audius.co/experibass"> Audius</a><br>
+            <a href="https://pettingzoo.co/@experibassmusic" rel="me">ﳄ Mastodon</a><br>
+            <a href="https://youtube.com/channel/UCx6VxDU880NuvLbWH8xT2GA"> YouTube (I upload visuals and speedruns
+                here :owo:)</a><br>
+            <a href="https://instagram.com/experibassmusic"> Instagram (teasers sometimes)</a><br>
+            <a href="https://twitter.com/experibassmusic">暑 Twitter</a><br>
+            <a href="https://twitch.tv/experibassmusic">既 Twitch (I stream sometimes :3)</a><br>
+            <a href="https://speedrun.com/user/ExperiBass">省 SpeedRun.com</a><br>
+            <a href="https://github.com/experibass"> GitHub</a><br>
+            <a href="https://linux-hardware.org/?probe=7b3cdda6e2"> Hardware Probe</a><br>
+            <a href="https://github.com/ExperiBass/linux-dotfiles"> My Dotfiles</a>
+            <h3> Playlists</h3>
+            <a href="https://music.apple.com/us/playlist/b%CE%B3iddim/pl.u-WabZv4ZieNAvxLY">Briddim</a><br>
+            <a href="https://music.apple.com/us/playlist/colo%CE%B3-b%CE%BBss/pl.u-WabZvAVueNAvxLY">Color Bass</a><br>
+            <a
+                href="https://music.apple.com/us/playlist/h%CE%BB%CE%B3dstyl%CE%BE/pl.u-NpXmzeWF4yVpke7">Hardstyle</a><br>
+            <a href="https://music.apple.com/us/playlist/%CE%B3iddim/pl.u-NpXmza7t4yVpke7">Riddim</a><br>
+            <h2>more to come...</h2>
+        </div>
+        <div id="contact">
+            <h2>> contact</h2>
+            <h3> Contact</h3>
+            <pre>
             <strong>ﬧ Matrix:</strong> @experibassmusic:kde.org
             <strong> Email:</strong> <span class="hov" onclick="copy(this)">gingkagingerpepper [at] icloud [dot] com</span>
         </pre>
-    </div>
+        </div>
 
-    <div id="commissions">
-        <h2>> commissions</h3>
-            <h3>Music Commissions</h3>
-            <p>I do take music commissions. I do Hardstyle, Trap, and Techno, and the price ranges from USD$40
-                to USD$80 (or the equivalent in an accepted crypto) depending on complexity.</p>
-            <p>If you decide to commission me, I'll need a general mood of your track with reference songs. I do
-                <b>NOT</b> do vocals, though I <i>can</i> use pre-existing vocals (that would bump the price by
-                USD$25). If you want custom cover art that'll bump the price by whatever the chosen artist to create
-                the covers prices are.</p>
-            <p>During the creation of your track, I'll send WIPs for your input, and once it's done to your liking and I
-                receive payment I'll send the .mp3 (320 kbps) and .wav.</p>
-            <h4>Contacting</h4>
-            <p>You can contact me via Twitter, Discord, Matrix, or email.</p>
-            <h4>Terms and Conditions</h4>
-            <p>I will not use lewd sounds in my comissions. You can do anything you want to the track once it's finished
-                <i>except</i> resell without my explicit permission. I do reserve the right to use and edit the finished
-                product for myself if I choose.</p>
+        <div id="commissions">
+            <h2>> commissions</h3>
+                <h3>Music Commissions</h3>
+                <p>I do take music commissions. I do Hardstyle, Trap, and Techno, and the price ranges from USD$40
+                    to USD$80 (or the equivalent in an accepted crypto) depending on complexity.</p>
+                <p>If you decide to commission me, I'll need a general mood of your track with reference songs. I do
+                    <b>NOT</b> do vocals, though I <i>can</i> use pre-existing vocals (that would bump the price by
+                    USD$25). If you want custom cover art that'll bump the price by whatever the chosen artist to create
+                    the covers prices are.
+                </p>
+                <p>During the creation of your track, I'll send WIPs for your input, and once it's done to your liking
+                    and I
+                    receive payment I'll send the .mp3 (320 kbps) and .wav.</p>
+                <h4>Contacting</h4>
+                <p>You can contact me via Twitter, Discord, Matrix, or email.</p>
+                <h4>Terms and Conditions</h4>
+                <p>I will not use lewd sounds in my comissions. You can do anything you want to the track once it's
+                    finished
+                    <i>except</i> resell without my explicit permission. I do reserve the right to use and edit the
+                    finished
+                    product for myself if I choose.
+                </p>
 
-            <h3>Code Commissions</h3>
-            <p>I also write code on commission. I can do just about anything in JavaScript, including Discord bots and
-                Reddit bots. Other platforms like Telegram can be supported too.</p>
-            <p>My prices start at a base of USD$150, and will increase depending on the complexity of the project. Any
-                updates past the original details will have a USD$50 charge.</p>
-            <p>When I'm commissioned, I require the details to be fully laid out, preferably in a Trello board.</p>
-            <h3>Payment</h3>
-            <p>Payment in fiat will be conducted through Zelle or PayPal, whichever is easier. USD only.</p>
-            <p>With crypto payment, the accepted coins are listed in the <a href="#wallets">Wallets</a> section.</p>
-            <p>If you're paying in crypto, it will only be accepted after 3 to 5 confirmations, depending on the chain used.</p>
-    </div>
+                <h3>Code Commissions</h3>
+                <p>I also write code on commission. I can do just about anything in JavaScript, including Discord bots
+                    and
+                    Reddit bots. Other platforms like Telegram can be supported too.</p>
+                <p>My prices start at a base of USD$150, and will increase depending on the complexity of the project.
+                    Any
+                    updates past the original details will have a USD$50 charge.</p>
+                <p>When I'm commissioned, I require the details to be fully laid out, preferably in a Trello board.</p>
+                <h3>Payment</h3>
+                <p>Payment in fiat will be conducted through Zelle or PayPal, whichever is easier. USD only.</p>
+                <p>With crypto payment, the accepted coins are listed in the <a href="#wallets">Wallets</a> section.</p>
+                <p>If you're paying in crypto, it will only be accepted after 3 to 5 confirmations, depending on the
+                    chain used.</p>
+        </div>
 
-    <div id="currentsetup">
-        <h2>> currentsetup</h2>
-        <h3> Current Setup</h3>
-        <pre>
+        <div id="currentsetup">
+            <h2>> currentsetup</h2>
+            <h3> Current Setup</h3>
+            <pre>
             <strong>2020 MacBook Pro (13"):</strong>
             16GB RAM
             Intel Core i5
-            <a href="https://endeavouros.com/">EndeavourOS</a>
+            <a href="https://endeavouros.com/">EndeavourOS :eos:</a>
 
             <strong>MIDI Devices:</strong>
             Akai Pro MPK Mini MKII
@@ -232,37 +211,38 @@
             j5create 7-port USB Hub
             TP-Link USB WiFi card
         </pre>
-    </div><br>
+        </div><br>
 
-    <div id="wallets">
-        <h2>> wallets</h2>
-        <h3>廙 Wallet Addresses</h3>
-        <p>If you enjoy what I do, feel free to send a bit of crypto :3</p>
-        <p>Click on an address to insert it into your clipboard! 
-            Make sure the addresses are correct, especially on Windows, 
-            as there is malware that will replace addresses with the address of the attacker.</p>
-        <p>All coins:<br><span class="hov" onclick="copy(this)">*experibassmusic.eth*</span></p>
-        <p>For wallets that do not support ENS resolution, see below.</p>
-        <p>BTC (preferred):<br><span class="hov" onclick="copy(this)">bc1qlxpe2uw7pkdctxghdgvsu47rknvcmz2j27hxvx</span></p>
-        <p>BTC Lightning (preferred):<br>ask for invoice, max USD$1,000</p>
-        <p>ETH:<br><span class="hov" onclick="copy(this)">0x8Bb53bC2a63F2bd10B16bd0aD6fCDc1ffd49d114</span></p>
-        <p>XMR:<br>ask</p>
-    </div><br>
+        <div id="wallets">
+            <h2>> wallets</h2>
+            <h3>廙 Wallet Addresses</h3>
+            <p>If you enjoy what I do, feel free to send a bit of crypto :3</p>
+            <p>Click on an address to insert it into your clipboard!
+                Make sure the addresses are correct, especially on Windows,
+                as there is malware that will replace addresses with the address of the attacker.</p>
+            <p>All coins:<br><span class="hov" onclick="copy(this)">*experibassmusic.eth*</span></p>
+            <p>For wallets that do not support ENS resolution, see below.</p>
+            <p>BTC (preferred):<br><span class="hov"
+                    onclick="copy(this)">bc1qlxpe2uw7pkdctxghdgvsu47rknvcmz2j27hxvx</span></p>
+            <p>BTC Lightning (preferred):<br>ask for invoice, max USD$1,000</p>
+            <p>ETH:<br><span class="hov" onclick="copy(this)">0x8Bb53bC2a63F2bd10B16bd0aD6fCDc1ffd49d114</span></p>
+            <p>XMR:<br>ask</p>
+        </div><br>
 
-    <div id="webnav">
-        <h2>> otherpages</h2>
-        <h3>Other Pages</h3>
-        <p>A list of the other pages on this site.</p>
-        <p><a href="gallery.html">EvE Photo Gallery</a></p>
-    </div>
-    <footer>supErPhoniX2 font from <a href="https://github.com/NR74W/WipEout-Fonts/">NR74W/WipEout-Fonts</a>. Patched with <a
-            href="https://www.nerdfonts.com/">NerdFonts</a>.</footer>
+        <div id="webnav">
+            <h2>> otherpages</h2>
+            <h3>Other Pages</h3>
+            <p>A list of the other pages on this site.</p>
+            <p><a href="gallery.html">EvE Photo Gallery</a></p>
+        </div>
+        <footer>supErPhoniX2 font from <a href="https://github.com/NR74W/WipEout-Fonts/">NR74W/WipEout-Fonts</a>.
+            Patched with <a href="https://www.nerdfonts.com/">NerdFonts</a>.</footer>
 
-    <script>
-        addBlankToLinks()
-        italiciseText()
-        replaceEmotes()
-    </script>
-</body>
+        <script>
+            addBlankToLinks()
+            italiciseText()
+            replaceEmotes()
+        </script>
+    </body>
 
 </html>
