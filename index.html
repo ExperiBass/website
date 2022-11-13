@@ -20,9 +20,10 @@
     <script>
         function addBlankToLinks() {
             const links = document.getElementsByTagName('a')
+            const thisDomain = `${window.location.protocol}//${window.location.host}`
             for (const link of links) {
-                if (!link.href.match(/(^\/|src|#)/i)) {
-                    link.target = "_blank"
+                if (!link.href.startsWith(thisDomain)) {
+                    link.target = "_blank" // open external links in a new tab
                 }
             }
         }
@@ -252,7 +253,7 @@
         <h2>> otherpages</h2>
         <h3>Other Pages</h3>
         <p>A list of the other pages on this site.</p>
-        <p><a href="src/pages/gallery.html">EvE Photo Gallery</a></p>
+        <p><a href="gallery.html">EvE Photo Gallery</a></p>
     </div>
     <footer>supErPhoniX2 font from <a href="https://github.com/NR74W/WipEout-Fonts/">NR74W/WipEout-Fonts</a>. Patched with <a
             href="https://www.nerdfonts.com/">NerdFonts</a>.</footer>
