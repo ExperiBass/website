@@ -102,7 +102,7 @@
             const emoteRegex = /:([\w_-])+:/ig // matches text between two colons (but not numbers)
             const dims = 15
             // abusing img tags, fun!
-            const emoteTemplate = `<img width="${dims}px" height="${dims}px" title="TITLE" src="/src/images/emotes/EMOTE" />`
+            const emoteTemplate = `<img width="${dims}px" height="${dims}px" title="TITLE" src="src/images/emotes/EMOTE" />`
 
             // start processing emotes
             for (const elem of getAllTextElems()) {
