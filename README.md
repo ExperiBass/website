@@ -1,1 +1,1 @@
-Nothing to see here, just my personal site.
+Nothing to see here, just my site.
