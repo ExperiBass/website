@@ -13,7 +13,7 @@
         <meta property="og:title" content="ΞXPΞRIBΛSS" />
         <meta property="og:description" content="Gings hub for their socials." />
         <meta property="og:type" content="website" />
-        <meta content="#a364d5" data-react-helmet="true" name="theme-color" />
+        <meta content="#7477A4" data-react-helmet="true" name="theme-color" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <!-- util -->
@@ -70,7 +70,7 @@
                 const emoteRegex = /:([\w_-])+:/ig // matches text between two colons (but not numbers)
                 const dims = 15
                 // abusing img tags, fun!
-                const emoteTemplate = `<img width="${dims}px" height="${dims}px" title="TITLE" src="src/images/emotes/EMOTE" />`
+                const emoteTemplate = `<img width="${dims}px" height="${dims}px" class="emote" title="TITLE" src="src/images/emotes/EMOTE" />`
 
                 // start processing emotes
                 for (const elem of getAllTextElems()) {

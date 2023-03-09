@@ -2,10 +2,17 @@
 /* Set variables here */
 @import './variables.css';
 
-body {
-    font-family: wipeout;
+html, body {
     background-color: var(--background-color);
     color: var(--text-color);
+    min-height: 100%;
+}
+body {
+    font-family: wipeout;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
     text-align: center;
     cursor: default;
     overflow-wrap: break-word;
@@ -14,13 +21,8 @@ body {
 hr {
     color: var(--secondary-color);
     border-radius: 12px;
+    width: 100%;
 
-}
-
-div {
-    padding: 0%;
-    margin: 0 auto;
-    width: 75%;
 }
 
 p {
@@ -76,4 +78,8 @@ h2 {
 
 .hov:hover {
     color: var(--hover-color);
+}
+
+.emote {
+    padding-inline: 0.1rem;
 }

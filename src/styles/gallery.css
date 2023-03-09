@@ -1,0 +1,15 @@
+#gallery {
+    display: flex;
+    width: 90%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: inherit;
+}
+
+.img-desc {
+    font-size: 12px;
+}
+
+img {
+    width: 100%;
+}
