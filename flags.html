@@ -3,23 +3,29 @@
 
     <head>
         <style>
+            html,
             body {
                 background-color: #ddd;
-                display: flex;
-                flex-wrap: wrap;
-                gap: 20px;
+                min-height: 100%;
             }
 
-            body>div {
+            #flag-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                justify-content: space-between;
+            }
+
+            .flag {
                 min-width: 300px;
-                max-width: 400px;
+                max-width: 32%;
                 aspect-ratio: 3 / 2;
                 display: flex;
                 flex-direction: column;
                 flex: 1
             }
 
-            body>div>div {
+            .flag-stripe {
                 width: 100%;
                 flex: 1;
             }
@@ -27,29 +33,30 @@
             h3 {
                 font-family: sans-serif;
                 text-transform: capitalize;
-                display: block;
-                height: 10px;
                 margin: 0;
             }
         </style>
     </head>
 
     <body>
+        <h1>Cli-pride-flags Flag Preview</h1>
+        <div id="flag-container">
+        </div>
+        <footer>Thanks to <a href="https://github.com/KonkenBonken">@KonkenBonken</a> on GitHub</footer>
         <script>
-            const body = document.body
+            const flagDiv = document.getElementById('flag-container')
             async function buildFlags() {
                 const FLAGS = await (await fetch("https://raw.githubusercontent.com/ExperiBass/cli-pride-flags/master/src/flags.json")).json()
-                for (const [flag, colors] of Object.entries(FLAGS)) {
-                    let flagDiv = `<div id="${flag}">\n`
-                    for (const color of colors) {
-                        flagDiv += `<div style="background-color:${color.code};flex:${color.height}"></div>\n`
+                for (const [name, stripes] of Object.entries(FLAGS)) {
+                    let flag = `<div class="flag" id="${name}">\n`
+                    for (const stripe of stripes) {
+                        flag += `<div class="flag-stripe" style="background-color:${stripe.code};flex:${stripe.height}"></div>\n`
                     }
-                    flagDiv += `<h3>${flag}</h3>\n</div>`
-                    document.body.innerHTML += flagDiv
+                    flag += `<h3>${name}</h3>\n</div>`
+                    flagDiv.innerHTML += flag
                 }
             }
             buildFlags()
         </script>
     </body>
-
 </html>
