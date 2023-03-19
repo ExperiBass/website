@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <script src="/src/scripts/autocomplete.js"></script>
+        <script src="/src/scripts/terminal.js"></script>
+        <style>
+            @import './src/styles/variables.css';
+            :root {
+                --active-background-color: var(--background-color);
+            }
+            html, body {
+                height: 100%;
+                background-color: var(--background-color);
+                color: var(--text-color);
+            }
+            .promptdiv {
+                display: flex;
+                flex-direction: row;
+                padding-bottom: 0.2rem;
+            }
+            .prompt {
+                vertical-align: top;
+                user-select: none;
+                width: fit-content;
+                padding-inline-end: 0.5rem;
+            }
+            .promptbrace {
+                color: var(--secondary-color);
+            }
+            .promptuser {
+                font-weight: bold;
+            }
+
+            .promptinput {
+                white-space: -moz-pre-space;
+                display: inline-block;
+                flex: 1;
+                min-width: 10%;
+            }
+            .promptinput:focus-visible {
+                border: none;
+            }
+            .output {
+                background-color: var(--background-color);
+            }
+            #activeprompt {
+                caret-color: var(--text-color);
+                /*caret-shape: block; /* pls mozilla */
+                background-color: var(--active-background-color);
+                outline: none !important;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="term">
+            <p>Terminal</p>
+        </div>
+
+        <script>
+            const term = new Terminal(document.getElementById('term'))
+        </script>
+    </body>
+
+</html>
