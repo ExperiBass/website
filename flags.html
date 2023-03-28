@@ -44,16 +44,16 @@
         </div>
         <footer>Thanks to <a href="https://github.com/KonkenBonken">@KonkenBonken</a> on GitHub</footer>
         <script>
-            const flagDiv = document.getElementById('flag-container')
+            const flagContainer = document.getElementById('flag-container')
             async function buildFlags() {
                 const FLAGS = await (await fetch("https://raw.githubusercontent.com/ExperiBass/cli-pride-flags/master/src/flags.json")).json()
-                for (const [name, stripes] of Object.entries(FLAGS)) {
-                    let flag = `<div class="flag" id="${name}">\n`
-                    for (const stripe of stripes) {
-                        flag += `<div class="flag-stripe" style="background-color:${stripe.code};flex:${stripe.height}"></div>\n`
+                for (const [name, flag] of Object.entries(FLAGS)) {
+                    let flagDiv = `<div class="flag" id="${name}">\n`
+                    for (const stripe of flag.stripes) {
+                        flagDiv += `<div class="flag-stripe" style="background-color:${stripe.code};flex:${stripe.height}"></div>\n`
                     }
-                    flag += `<h3>${name}</h3>\n</div>`
-                    flagDiv.innerHTML += flag
+                    flagDiv += `<h3>${name}</h3>\n</div>`
+                    flagContainer.innerHTML += flagDiv
                 }
             }
             buildFlags()

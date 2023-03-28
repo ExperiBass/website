@@ -1,22 +1,23 @@
 class Autosuggest {
-    #elm = null
+    #inputElm = null
+    #completionElm = null
 
     #suggestions = []
     #lastSuggestion = ""
     #lastPosition = 0
 
-    constructor(elm, suggestions) {
-        this.#elm = elm
+    constructor(inputElm, completionElm, suggestions) {
+        this.#inputElm = inputElm
+        this.#completionElm = completionElm
         this.#suggestions = suggestions
-        this.#elm.addEventListener("keydown", (ev) => this.#keyDown(ev))
-        this.#elm.addEventListener("keyup", (ev) => this.#onInput(ev))
-        this.#elm.focus()
+        this.#inputElm.addEventListener("keydown", (ev) => this.#keyDown(ev))
+        this.#inputElm.addEventListener("keyup", (ev) => this.#onInput(ev))
     }
     #onInput(ev) {
         ev.preventDefault()
-        const cleanedInput = this.#elm.innerText.replace(/(\n|\r|\t)/ig, "")
 
-        if (!ev.key.match(/^[\w\d `~!@#$%^&*\(\)_\-+=\{\}\[\]|\/,.:;"']$/) && !ev.key.match(/(Backspace|Delete)/i)) {
+        if (!ev.key.match(/^[\w\d `~!@#$%^&*\(\)_\-+=\{\}\[\]|\/,.:;"']$/)
+            && !ev.key.match(/(Backspace|Delete)/i)) {
             return
         }
 
@@ -26,20 +27,29 @@ class Autosuggest {
         }
         // ignore only meta presses
         if (ev.key.match(/(Control|Shift|Alt|OS)/i)) {
-            console.log('returned')
             return
         }
 
+        const cleanedInput = this.#inputElm.innerText.replace(/(\n|\r|\t)/ig, "")
+        if (cleanedInput === "") {
+            this.#lastSuggestion = ""
+            this.#completionElm.innerText = ""
+            return
+        }
         const { input, suggestions } = this.#suggest(cleanedInput)
         this.#lastPosition = this.#getCaretPosition()
 
         if (suggestions.length > 0) {
             const firstSuggestion = suggestions[0].replace(input, "")
-            this.#elm.innerHTML = `${input}<i style="color:#444">${firstSuggestion}</i>`
+            this.#completionElm.innerText = `${firstSuggestion}`
 
-            this.#lastSuggestion = firstSuggestion
+            if (input === "") {
+                this.#lastSuggestion = ""
+            } else {
+                this.#lastSuggestion = suggestions[0]
+            }
         } else {
-            this.#elm.innerText = input // clear
+            this.#completionElm.innerText = "" // clear
         }
         // call cleanup method
         this.#afterInput(ev, input, suggestions)
@@ -48,12 +58,21 @@ class Autosuggest {
         if (ev.key.match(/(Control|Shift|Alt|OS)/i)) {
             return
         }
-        // set cursor to last known pos
-        this.#positionCaret(this.#lastPosition)
+        if (ev.key === "a" && ev.ctrlKey) {
+            ev.preventDefault()
+            return // no selecting here baby
+        }
+
+        if (ev.key === "Enter") {
+            ev.preventDefault()
+            return
+        }
 
         if (ev.key === "Tab") {
             ev.preventDefault()
-            this.#elm.innerText = this.#elm.innerText // remove the formatting
+            const completedText = `${this.#inputElm.innerText}${this.#completionElm.innerText}`
+            this.#completionElm.innerText = "" // clear completion
+            this.#inputElm.innerText = completedText
             this.#lastSuggestion = "" // clear suggestion
             this.#lastPosition = this.#getCaretPosition() // save cursor position
             this.#positionCaret() // and move the cursor to the end
@@ -62,26 +81,35 @@ class Autosuggest {
     }
     #afterInput(ev, input, suggestions) {
         // remove <br> that ff inserts
-        const lastNode = [...this.#elm.childNodes].pop()
-        if (lastNode && lastNode.tagName == "BR") {
-            this.#elm.removeChild(lastNode)
+        for (const node of this.#inputElm.childNodes) {
+            if (node && node.tagName == "BR") {
+                this.#inputElm.removeChild(node)
+            }
         }
         // reset cursor
-        if (this.#elm.childNodes && this.#elm.childNodes[0]) {
+        /*if (this.#inputElm.childNodes && this.#inputElm.childNodes[0]) {
             try {
                 this.#positionCaret(this.#lastPosition)
             } catch (e) {
                 console.error(e)
                 this.#positionCaret()
             }
-        }
+        }*/
 
         // WANTED: command coloring
     }
     #suggest(text) {
-        const userInput = text.replace(this.#lastSuggestion, "")
+        let userInput
+        if (text !== this.#lastSuggestion) {
+            userInput = text
+        } else {
+            userInput = text.replace(this.#lastSuggestion, "")
+        }
         if (userInput === "") {
-            return { input: "", suggestions: [] }
+            return {
+                input: userInput,
+                suggestions: []
+            }
         }
         const results = this.#suggestions.filter(v => v === userInput || v.startsWith(userInput))
         return {
@@ -91,7 +119,7 @@ class Autosuggest {
     }
     // from https://www.geeksforgeeks.org/how-to-set-cursor-position-in-content-editable-element-using-javascript/
     #positionCaret(pos) {
-        const tag = this.#elm
+        const tag = this.#inputElm
 
         if (!tag.childNodes || !tag.childNodes[0]) {
             return
@@ -121,7 +149,7 @@ class Autosuggest {
             caretPosition,
             tmp = document.createElement("div")
 
-        preCaretRange.selectNodeContents(this.#elm)
+        preCaretRange.selectNodeContents(this.#inputElm)
         preCaretRange.setEnd(range.endContainer, range.endOffset)
         tmp.appendChild(preCaretRange.cloneContents())
         caretPosition = tmp.innerText.length
@@ -129,6 +157,6 @@ class Autosuggest {
     }
     // https://stackoverflow.com/a/32809957
     stop() {
-        this.#elm.outerHTML = this.#elm.outerHTML
+        this.#inputElm.outerHTML = this.#inputElm.outerHTML
     }
 }
