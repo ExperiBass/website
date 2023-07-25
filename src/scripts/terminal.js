@@ -187,6 +187,7 @@ class Terminal {
         const MOTDElm = document.createElement('span')
         MOTDElm.innerHTML = this.#motd
         MOTDElm.id = "motd"
+        // focus on the input when the page is clicked
         this.#root.addEventListener('click', () => {
             const activePrompt = document.getElementById('activeprompt')
             if (!document.activeElement || document.activeElement !== activePrompt) {
@@ -296,6 +297,7 @@ class Terminal {
         const outputSpan = document.createElement('span')
         outputSpan.className = "output"
         outputSpan.innerHTML = outputHTML
+        replaceEmotesInElm(outputSpan)
 
         container.appendChild(outputSpan)
         this.#root.append(container)
