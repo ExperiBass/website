@@ -7,6 +7,9 @@ body {
     cursor: default !important;
     overflow-wrap: break-word;
 }
+p {
+    margin: 0;
+}
 
 /* term styling */
 @keyframes blinker { to { opacity: 0.2; } }
