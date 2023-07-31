@@ -15,7 +15,7 @@ const alert = (msg) => { return msg } // override global alert(), terminals dont
 
 class Terminal {
     #root = null
-    #motd = `Confused? Run "<span class="blinking">help</span>"!<br>This terminal has tab completion!`
+    #motd = `Confused? Run "<span class="blinking">help</span>"!<br>This terminal has tab completion!<br>Not working? <a href="/">Head to the main page!</a>`
     #completion = ["echo", "help", "info"]
     #commandsDef = {
         "echo": {
