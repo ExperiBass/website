@@ -1,2 +1,3 @@
-User-agent: Googlebot
-Disallow:
+User-agent: *
+Disallow: /.well-known/
+Disallow: /_redirects

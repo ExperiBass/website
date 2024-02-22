@@ -4,7 +4,7 @@ https://keybase.io/experibass
 
 I hereby claim:
 
-  * I am an admin of https://experibass.github.io
+  * I am an admin of https://experibassmusic.eth.limo
   * I am experibass (https://keybase.io/experibass) on keybase.
   * I have a public key ASAGpj5Zr9IBGrdZdofJjelfKulPhuZJQ2QFsG0KaK7qXQo
 
@@ -20,70 +20,13 @@ To do so, I am signing this object:
       "username": "experibass"
     },
     "merkle_root": {
-      "ctime": 1630684992,
-      "hash": "83a8e34d6b7f6f111b7067a695dd413701e2bb5bdf5b4bcb276031973511b6a38e4d89242462c70a7c44a2b97e86da5140dbf04682e22f082a8455519bb93a43",
-      "hash_meta": "6aa7c00df5edc72a6e2ace3e1d999ef71b8c16a0b071f674caf68e2a4335efed",
-      "seqno": 20693997
+      "ctime": 1708633155,
+      "hash": "9dbd11b04067d92d1ee91e3ac590846cdadce2254483686734e32a565e8df865b868847434c1a72099b131f879d5686e0b1ab712c033a21882a952c9eb73dc97",
+      "hash_meta": "3c3346794f783d033814d90e5312768f369212c1c9b1a9face6f61d7d6efbbcb",
+      "seqno": 25484983
     },
     "service": {
-      "entropy": "CrpMHu47solqT8CkW443d2w6",
-      "hostname": "experibass.github.io",
-      "protocol": "https:"
-    },
-    "type": "web_service_binding",
-    "version": 2
-  },
-  "client": {
-    "name": "keybase.io go client",
-    "version": "5.7.0"
-  },
-  "ctime": 1630685061,
-  "expire_in": 504576000,
-  "prev": "b2d2f1b5bba1899bc76b54087567eb7bba623a7e26b1fe9789e9b75c9cb96ae6",
-  "seqno": 47,
-  "tag": "signature"
-}
-
-which yields the signature:
-
-hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgBqY+Wa/SARq3WXaHyY3pXyrpT4bmSUNkBbBtCmiu6l0Kp3BheWxvYWTESpcCL8QgstLxtbuhiZvHa1QIdWfre7piOn4msf6Xiem3XJy5aubEIN01DfO25nrpLEAtYcJB3Xt0vX/5FrV42A29fx1Oj2uMAgHCo3NpZ8RANu1e9uCQpbeFIpGdla57P6Ig0aLs4NLNLTh1Ne9Hwy/8YiGzJbGLktqT9SUX72c/bHC1X8vg2YVp9e3mhKsrC6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEILOhOCiKNGy8oHUFTtdSvdOvLAq/4k7laCV9vJ6KMqDjo3RhZ80CAqd2ZXJzaW9uAQ==
-
-And finally, I am proving ownership of this host by posting or
-appending to this document.
-
-View my publicly-auditable identity here: https://keybase.io/experibass
-
-==================================================================
-
-==================================================================
-https://keybase.io/experibass
---------------------------------------------------------------------
-
-I hereby claim:
-
-  * I am an admin of https://experibassmusic.eth.limo
-  * I am experibass (https://keybase.io/experibass) on keybase.
-  * I have a public key ASBqNnPb3Ln68hPUEyg1vF8sg9_XovybGZVqB9P9To98tgo
-
-To do so, I am signing this object:
-
-{
-  "body": {
-    "key": {
-      "eldest_kid": "0120883e8057d7b7a74178453ea9be75d1264b0f676906dca265a44f4a7f615317140a",
-      "host": "keybase.io",
-      "kid": "01206a3673dbdcb9faf213d4132835bc5f2c83dfd7a2fc9b19956a07d3fd4e8f7cb60a",
-      "uid": "8a55d1436d8248146226419d75d83919",
-      "username": "experibass"
-    },
-    "merkle_root": {
-      "ctime": 1668742008,
-      "hash": "93353a6760a18f31bb14ef74fe5e06151722596f4689bc40d094bd1c17144bff8129d8592ae6d838b3ba19768765265b3d4158ea1aa715ba0637a0d68b9905b0",
-      "hash_meta": "319b79e986f94edd0b02464e40c2c88285f28a75ba737cd2d1bd9669a7b05c4d",
-      "seqno": 23571838
-    },
-    "service": {
-      "entropy": "RSUvp2O6tMhGlUtj2UdKkyuP",
+      "entropy": "cCgf3BJOzBj98Bw/djHIB5pC",
       "hostname": "experibassmusic.eth.limo",
       "protocol": "https:"
     },
@@ -92,18 +35,18 @@ To do so, I am signing this object:
   },
   "client": {
     "name": "keybase.io go client",
-    "version": "6.0.2"
+    "version": "6.2.7"
   },
-  "ctime": 1668742040,
+  "ctime": 1708633188,
   "expire_in": 504576000,
-  "prev": "22ef1cb59e1f53a9884afe8c3c56b5034d614cfbc2acd70b31574672a27997a1",
-  "seqno": 61,
+  "prev": "ccff67e98ce09e1ea25e042891032907bc2ea3857a17fcea5912a5cfb6e79bc3",
+  "seqno": 71,
   "tag": "signature"
 }
 
 which yields the signature:
 
-hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgajZz29y5+vIT1BMoNbxfLIPf16L8mxmVagfT/U6PfLYKp3BheWxvYWTESpcCPcQgIu8ctZ4fU6mISv6MPFa1A01hTPvCrNcLMVdGcqJ5l6HEIDnB667a8oyXnWck158FDPIQjK8B1d/3i0BNAJghdyrvAgHCo3NpZ8RAZdXs4twDRfc7sllQ2xYam5yW6VMkgDxNu2vbq4nF5YLP+lFyH3SpCdYp9t6kfWLxKuS4Db7jZEtpr/S9T28yB6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIEOuF+VnlQRotZJSOHw671en2I2FLy/6dU4i3wv7kIQ4o3RhZ80CAqd2ZXJzaW9uAQ==
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgBqY+Wa/SARq3WXaHyY3pXyrpT4bmSUNkBbBtCmiu6l0Kp3BheWxvYWTESpcCR8QgzP9n6Yzgnh6iXgQokQMpB7wuo4V6F/zqWRKlz7bnm8PEINdRLhbz5I/NSZnGFgiwJNzF8Af+QvSGR1RfxscQup+lAgHCo3NpZ8RAl0jUAM04sva5pDwzYn6pKAS9OVT3JSDp4El3UDtwC2TivDwT6e62li+aq5GOBXU99+3M829TfGRXYrf9MGI2C6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIH8T/khTyeFuSAvUcuV77n/gHu7jgDHkCBTLWX6+wJjNo3RhZ80CAqd2ZXJzaW9uAQ==
 
 And finally, I am proving ownership of this host by posting or
 appending to this document.
