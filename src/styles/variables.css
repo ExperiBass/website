@@ -4,6 +4,6 @@
     --hover-color: #AC7D69;
     --link-hover-color: #5F547B;
     --secondary-color: #7477A4;
-    --links: #7477A4;
+    --links: var(--secondary-color);
     --transition-normal: 250ms;
 }
