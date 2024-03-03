@@ -1,16 +1,18 @@
 @import './font.css';
 @import './variables.css';
 
-html, body {
+html,
+body {
     background-color: var(--background-color);
     color: var(--text-color);
     min-height: 100%;
 }
+
 body {
     font-family: wipeout;
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: var(--gap);
     align-items: center;
     text-align: center;
     cursor: default;
@@ -27,6 +29,7 @@ hr {
 
 p {
     word-wrap: break-word;
+    margin: 0.1rem; /* Why is the margin so BIG???? */
 }
 
 /*
@@ -42,42 +45,62 @@ a {
     color: var(--links);
     transition: color var(--transition-normal);
 }
-a:hover, a:focus {
+
+a:hover,
+a:focus {
     color: var(--link-hover-color);
 }
 
 footer,
 h2 {
     color: #8F8299;
-    font-size: 12px;
+    font-size: 0.8rem;
 }
 
-/* Change the scrollbar if supported */
-
-/* width */
-::-webkit-scrollbar {
-    background: var(--background-color);
-    width: 5px;
+h2, h3 {
+    margin: var(--gap);
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-    background: var(--background-color);
+/* Style the scrollbar if supported */
+
+
+
+@supports (scrollbar-color: auto) {
+    html,
+    body {
+        scrollbar-color: var(--secondary-color) var(--background-color);
+    }
 }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: var(--secondary-color);
-    border-radius: 12px;
+@supports selector(::-webkit-scrollbar) {
+    /* Track */
+    ::-webkit-scrollbar, ::-webkit-scrollbar-track {
+        background: var(--background-color);
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: var(--secondary-color);
+        border-radius: var(--border-radius);
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    margin-bottom: 1rem;
 }
 
 .hov {
     transition: color var(--transition-normal);
 }
 
-.hov:hover, .hov:focus {
+.hov:hover,
+.hov:focus {
     color: var(--hover-color);
 }
+
 .hov:active {
     color: var(--secondary-color);
 }

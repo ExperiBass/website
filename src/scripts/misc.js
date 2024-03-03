@@ -22,13 +22,17 @@ function addBlankToLinks() {
 
 function getAllTextElms() {
     // not really *all* text elms, but the ones used on this site lol
-    const textElems = [].concat(Array.from(document.getElementsByTagName("p")),
-        Array.from(document.getElementsByTagName("span")),
-        Array.from(document.getElementsByTagName("a")),
-        Array.from(document.getElementsByTagName("h1")),
-        Array.from(document.getElementsByTagName("h2")),
-        Array.from(document.getElementsByTagName("h3")),
-        Array.from(document.getElementsByTagName("pre"))).flat()
+    if (window._gingTextElems) {
+        return window._gingTextElems
+    }
+    const textElems = [...document.getElementsByTagName("p"),
+        ...document.getElementsByTagName("span"),
+        ...document.getElementsByTagName("a"),
+        ...document.getElementsByTagName("h1"),
+        ...document.getElementsByTagName("h2"),
+        ...document.getElementsByTagName("h3"),
+        ...document.getElementsByTagName("pre")]
+    window._gingTextElems = textElems
     return textElems
 }
 
@@ -68,11 +72,21 @@ function replaceEmotesInElm(elm) {
         return
     }
     // abusing img tags, fun!
-    const emoteTemplate = `<img width="${emoteDims}px" height="${emoteDims}px" class="emote" title="TITLE" src="src/images/emotes/EMOTE" />`
+    const emoteTemplate = `<img width="${emoteDims}px" height="${emoteDims}px" class="emote" alt=":TITLE:" src="src/images/emotes/EMOTE" />`
     for (const match of matches) {
-        const emoteName = match.slice(1, -1)
-        const emote = emotes.filter((v) => v.startsWith(`${emoteName}.`))
+        const emoteName = match.slice(1, -1) // trim :
+        const emote = emotes.filter((v) => v.startsWith(`${emoteName}.`)) // be sure its actually an emote
         const img = emoteTemplate.replace("EMOTE", emote).replace("TITLE", emoteName) // replace the placeholders with their contents
         elm.innerHTML = elm.innerHTML.replace(match, img)
+    }
+}
+
+
+// MAYBE: display different messages for ipfs and clearnet?
+function checkDomain() {
+    const url = window.location
+
+    if (url.protocol === "ipfs:") {
+
     }
 }
