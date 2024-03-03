@@ -1,3 +1,4 @@
 User-agent: *
-Disallow: /.well-known/
 Disallow: /_redirects
+Disallow: /.well-known/
+Disallow: /src/

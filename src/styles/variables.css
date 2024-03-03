@@ -2,8 +2,9 @@
     --background-color: #271424;
     --text-color: #DBB28D;
     --hover-color: #AC7D69;
+    --links: #7477A4;
     --link-hover-color: #5F547B;
-    --secondary-color: #7477A4;
-    --links: var(--secondary-color);
+    --secondary-color: #AFBBD9;
+    
     --transition-normal: 250ms;
 }

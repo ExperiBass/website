@@ -1,5 +1,4 @@
 @import './font.css';
-/* Set variables here */
 @import './variables.css';
 
 html, body {
@@ -11,11 +10,12 @@ body {
     font-family: wipeout;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.25rem;
     align-items: center;
     text-align: center;
     cursor: default;
     overflow-wrap: break-word;
+    line-height: 1.3rem;
 }
 
 hr {
@@ -42,7 +42,7 @@ a {
     color: var(--links);
     transition: color var(--transition-normal);
 }
-a:hover {
+a:hover, a:focus {
     color: var(--link-hover-color);
 }
 
@@ -75,8 +75,11 @@ h2 {
     transition: color var(--transition-normal);
 }
 
-.hov:hover {
+.hov:hover, .hov:focus {
     color: var(--hover-color);
+}
+.hov:active {
+    color: var(--secondary-color);
 }
 
 .emote {
