@@ -48,7 +48,8 @@ a {
 
 a:hover,
 a:focus {
-    color: var(--link-hover-color);
+    /* color: var(--link-hover-color); */
+    filter: brightness(var(--dim));
 }
 
 footer,
@@ -71,7 +72,6 @@ h2, h3 {
         scrollbar-color: var(--secondary-color) var(--background-color);
     }
 }
-
 @supports selector(::-webkit-scrollbar) {
     /* Track */
     ::-webkit-scrollbar, ::-webkit-scrollbar-track {
@@ -92,19 +92,24 @@ h2, h3 {
     margin-bottom: 1rem;
 }
 
-.hov {
-    transition: color var(--transition-normal);
+.hov, a {
+    transition: filter var(--transition-normal);
 }
 
 .hov:hover,
 .hov:focus {
-    color: var(--hover-color);
+    filter: brightness(var(--dim));
 }
 
 .hov:active {
     color: var(--secondary-color);
+    filter: brightness(100%);
 }
 
 .emote {
     padding-inline: 0.1rem;
+}
+
+#pawprint span:nth-child(2n) {
+    color: var(--secondary-color);
 }
