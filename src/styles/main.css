@@ -7,6 +7,8 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     min-height: 100%;
+    background-image: url('../images/tile.png');
+    background-repeat: space;
 }
 
 body {
@@ -25,7 +27,6 @@ hr {
     color: var(--secondary-color);
     border-radius: 12px;
     width: 100%;
-
 }
 
 p {
@@ -44,7 +45,7 @@ pre {
 a {
     text-decoration: unset;
     color: var(--links);
-    transition: color var(--transition-normal);
+    filter: brightness(100%);
 }
 
 a:hover,
@@ -52,20 +53,30 @@ a:focus {
     /* color: var(--link-hover-color); */
     filter: brightness(var(--dim));
 }
+/*
+a > .blink {
+    /* ...is this jank? im clearly not a css guru lol */
+    /* display: none; */
+    /* filter: opacity(0%); *//*
+}
+a:hover > .blink,
+a:focus > .blink {
+    display: inline;
+    /* filter: opacity(100%); *//*
+}*/
 
 footer,
 h2 {
-    color: #8F8299;
+    color: #8f8299;
     font-size: 0.8rem;
 }
 
-h2, h3 {
+h2,
+h3 {
     margin: var(--gap);
 }
 
 /* Style the scrollbar if supported */
-
-
 
 @supports (scrollbar-color: auto) {
     html,
@@ -75,7 +86,8 @@ h2, h3 {
 }
 @supports selector(::-webkit-scrollbar) {
     /* Track */
-    ::-webkit-scrollbar, ::-webkit-scrollbar-track {
+    ::-webkit-scrollbar,
+    ::-webkit-scrollbar-track {
         background: var(--background-color);
     }
 
@@ -93,7 +105,8 @@ h2, h3 {
     margin-bottom: 1rem;
 }
 
-.hov, a {
+.hov,
+a {
     transition: filter var(--transition-normal);
 }
 
@@ -109,6 +122,10 @@ h2, h3 {
 
 .emote {
     padding-inline: 0.1rem;
+}
+
+.blink {
+    animation: blink 1s linear infinite;
 }
 
 #pawprint span:nth-child(2n) {

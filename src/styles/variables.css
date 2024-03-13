@@ -1,13 +1,22 @@
 :root {
     --background-color: #271424;
-    --text-color: #DBB28D;
-    --hover-color: #AC7D69;
-    --links: #7477A4;
-    --link-hover-color: #5F547B;
-    --secondary-color: #AFBBD9;
-    
+    --text-color: #dbb28d;
+    --hover-color: #ac7d69;
+    --links: #7477a4;
+    --link-hover-color: #5f547b;
+    --secondary-color: #afbbd9;
+
     --transition-normal: 250ms;
     --gap: 0.2rem;
     --border-radius: 12px;
     --dim: 63%;
+}
+
+@keyframes blink {
+    100%, 50.01% {
+        opacity: 1;
+    }
+    0.01%, 50% {
+        opacity: 0;
+    }
 }

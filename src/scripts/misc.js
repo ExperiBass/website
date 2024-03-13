@@ -13,9 +13,13 @@ const emoteDims = 15
 function addBlankToLinks() {
     const links = document.getElementsByTagName('a')
     const thisDomain = `${window.location.protocol}//${window.location.host}`
-    for (const link of links) {
-        if (!link.href.startsWith(thisDomain)) {
-            link.target = "_blank" // open external links in a new tab
+    for (const a of links) {
+        // todo: make better lol
+        /*if (!a.innerHTML.includes('<img')) {
+            a.innerHTML = a.innerHTML.trim() + `<span class="blink">_</span>`
+        }*/
+        if (!a.href.startsWith(thisDomain)) {
+            a.target = "_blank" // open external links in a new tab
         }
     }
 }
@@ -46,12 +50,16 @@ function italiciseText() {
     }
 }
 
-async function copy(elm) {
+async function copy(elm, config) {
     if (!elm) {
         return alert("The element to copy doesn't exist.")
     }
     if (navigator.clipboard) {
-        await navigator.clipboard.writeText(elm.innerText)
+        let text = elm.innerText
+        if (config.trimNewlines) {
+            text = text.replace('\n', ' ')
+        }
+        await navigator.clipboard.writeText(text)
         return
     } else {
         return alert("Your browser doesn't support the Clipboard API!")
