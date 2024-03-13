@@ -3,6 +3,5 @@ set -eu
 
 hash=$(git rev-parse HEAD | head -c 7)
 
-mkdir -pv "../$hash"
-cp -rv ./* ./.well-known "../$hash"
-mv -v "../$hash" .
+mkdir -pv "./.out/$hash"
+cp -rv ./* ./.well-known "./.out/$hash"
