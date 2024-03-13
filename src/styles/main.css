@@ -34,12 +34,16 @@ p {
     margin: 0.1rem; /* Why is the margin so BIG???? */
 }
 
+code {
+    color: var(--secondary-color);
+}
 /*
     Used for lists
 */
 pre {
     white-space: pre-line;
     font: inherit;
+    margin: var(--gap);
 }
 
 a {
