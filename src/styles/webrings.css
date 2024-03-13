@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
 }
-/* maybe
+
 .webring-previous::before {
     content: "«";
 }
@@ -14,4 +14,4 @@
 }
 .webring-random::after {
     content: "?";
-}*/
+}
