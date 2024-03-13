@@ -1,5 +1,6 @@
 User-agent: *
 Disallow: /_redirects
 Disallow: /.well-known/
-Disallow: /src/
+Disallow: /files/
 Disallow: /pixelsort-gens/
+Disallow: /src/

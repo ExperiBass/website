@@ -1,0 +1,17 @@
+.webring {
+    display: flex;
+    justify-content: center;
+}
+/* maybe
+.webring-previous::before {
+    content: "«";
+}
+.webring-next::after {
+    content: "»";
+}
+.webring-random::before {
+    content: "¿";
+}
+.webring-random::after {
+    content: "?";
+}*/
