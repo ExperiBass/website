@@ -3,15 +3,29 @@
     justify-content: center;
 }
 
-.webring-previous::before {
+a.webring-prev::before {
     content: "«";
 }
-.webring-next::after {
+a.webring-next::after {
     content: "»";
 }
-.webring-random::before {
+a.webring-random::before {
     content: "¿";
 }
-.webring-random::after {
+a.webring-random::after{
     content: "?";
+}
+
+/* linusring styling */
+#linuxring>table {
+    border: 1px solid var(--text-color);
+    border-radius: var(--border-radius);
+}
+#linuxring .webring-info>br {
+    display: none;
+}
+/* tux */
+#linuxring .webring-info>.webring-links>a>img {
+    width: 1.4rem;
+    margin-bottom: -0.2rem;
 }
