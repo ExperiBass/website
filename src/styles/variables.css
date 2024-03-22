@@ -12,7 +12,7 @@
     --dim: 63%;
 }
 
-@keyframes blink {
+@keyframes cursor-blink {
     100%, 50.01% {
         opacity: 1;
     }

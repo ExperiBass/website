@@ -58,13 +58,13 @@ a:focus {
     filter: brightness(var(--dim));
 }
 /*
-a > .blink {
+a > .cursor-blink {
     /* ...is this jank? im clearly not a css guru lol */
     /* display: none; */
     /* filter: opacity(0%); *//*
 }
-a:hover > .blink,
-a:focus > .blink {
+a:hover > .cursor-blink,
+a:focus > .cursor-blink {
     display: inline;
     /* filter: opacity(100%); *//*
 }*/
@@ -128,10 +128,17 @@ a {
     padding-inline: 0.1rem;
 }
 
-.blink {
-    animation: blink 1s linear infinite;
+.cursor-blink {
+    animation: cursor-blink 1s linear infinite;
 }
 
 #pawprint span:nth-child(2n) {
     color: var(--secondary-color);
+}
+
+/* mobile help */
+@media screen and (max-width: 50rem), (pointer: coarse) {
+    .copyable::after {
+        content: " (tap to copy)"
+    }
 }

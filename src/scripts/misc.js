@@ -16,7 +16,7 @@ function addBlankToLinks() {
     for (const a of links) {
         // todo: make better lol
         /*if (!a.innerHTML.includes('<img')) {
-            a.innerHTML = a.innerHTML.trim() + `<span class="blink">_</span>`
+            a.innerHTML = a.innerHTML.trim() + `<span class="cursor-blink">_</span>`
         }*/
         if (!a.href.startsWith(thisDomain)) {
             a.target = "_blank" // open external links in a new tab

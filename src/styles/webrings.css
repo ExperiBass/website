@@ -16,7 +16,7 @@ a.webring-random::after{
     content: "?";
 }
 
-/* linusring styling */
+/* linuxring styling */
 #linuxring>table {
     border: 1px solid var(--text-color);
     border-radius: var(--border-radius);
