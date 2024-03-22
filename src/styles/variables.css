@@ -6,17 +6,17 @@
     --link-hover-color: #5f547b;
     --secondary-color: #afbbd9;
 
-    --transition-normal: 250ms;
-    --gap: 0.2rem;
+    --transition-normal: 333ms;
+    --gap: 0.3rem;
     --border-radius: 12px;
     --dim: 63%;
 }
 
 @keyframes cursor-blink {
-    100%, 50.01% {
-        opacity: 1;
-    }
-    0.01%, 50% {
+    99.99%, 50.01% {
         opacity: 0;
+    }
+    0%, 50% {
+        opacity: 1;
     }
 }

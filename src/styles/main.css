@@ -4,29 +4,35 @@
 
 html,
 body {
+    font-family: wipeout;
+    display: flex;
+    flex-direction: column;
     background-color: var(--background-color);
     color: var(--text-color);
     min-height: 100%;
     background-image: url('../images/tile.png');
-    background-repeat: space;
+    background-repeat: repeat;
 }
 
 body {
-    font-family: wipeout;
-    display: flex;
-    flex-direction: column;
     gap: var(--gap);
     align-items: center;
-    text-align: center;
+    text-align: left;
     cursor: default;
     overflow-wrap: break-word;
     line-height: 1.3rem;
+    flex: 1;
 }
 
 hr {
     color: var(--secondary-color);
     border-radius: 12px;
     width: 100%;
+}
+
+h1 {
+    line-height: 1.6rem;
+    text-align: center;
 }
 
 p {
@@ -57,17 +63,18 @@ a:focus {
     /* color: var(--link-hover-color); */
     filter: brightness(var(--dim));
 }
-/*
+
+#menu > h3 > .cursor-blink,
 a > .cursor-blink {
     /* ...is this jank? im clearly not a css guru lol */
-    /* display: none; */
-    /* filter: opacity(0%); *//*
+    display: none;
 }
+#menu > h3:hover > .cursor-blink,
+#menu > h3:focus > .cursor-blink,
 a:hover > .cursor-blink,
 a:focus > .cursor-blink {
     display: inline;
-    /* filter: opacity(100%); *//*
-}*/
+}
 
 footer,
 h2 {
@@ -102,13 +109,6 @@ h3 {
     }
 }
 
-.card {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap);
-    margin-bottom: 1rem;
-}
-
 .hov,
 a {
     transition: filter var(--transition-normal);
@@ -136,9 +136,108 @@ a {
     color: var(--secondary-color);
 }
 
+.card {
+    display: none !important;
+}
+.gtainer {
+    display: flex;
+    flex-direction: row;
+    gap: inherit;
+    flex: 1;
+    width: 100%;
+}
+#pane,
+#menu {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: inherit;
+}
+/* menu icon */
+.menu-link::before,
+.menu-link::before {
+    content: '\00a0'; /* non-breaking space */
+}
+.menu-link:hover::before,
+.menu-link:focus::before {
+    content: '›'; /* placeholder */
+    color: var(--secondary-color);
+}
+/* caret blink */
+.menu-link:hover::after,
+.menu-link:focus::after {
+    content: '_';
+    animation: cursor-blink 1s linear infinite;
+}
+#pane {
+    padding: 0rem var(--gap) var(--gap) calc(var(--gap) * 2);
+    border-radius: var(--border-radius);
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='%23AC7D69FF' stroke-width='3' stroke-dasharray='12%2c66%2c3' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e");
+}
+
 /* mobile help */
+/* dropdown */
+#dropdown-container,
+#dropdown {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+#dropdown-container {
+    border-radius: var(--border-radius);
+    padding: 0.1rem calc(var(--gap) * 2);
+}
+#dropdown > input,
+#dropdown > label {
+    display: none;
+}
 @media screen and (max-width: 50rem), (pointer: coarse) {
     .copyable::after {
-        content: " (tap to copy)"
+        content: ' (tap to copy)';
+    }
+}
+/* i hate mobile css */
+@media (max-width: 40rem) {
+    .gtainer {
+        flex-direction: column;
+        gap: calc(var(--gap) * 2);
+        width: unset;
+    }
+    #dropdown-container {
+        background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='%23AC7D69FF' stroke-width='3' stroke-dasharray='12%2c66%2c3' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e");
+    }
+    #dropdown,
+    #dropdown > label {
+        display: flex;
+        flex: 1;
+    }
+    #menu {
+        display: none;
+        z-index: 2;
+    }
+    #menu,
+    #pane {
+        width: unset;
+    }
+
+    /*#dropdown input:checked+label {
+        pointer-events: none;
+    }
+    #dropdown:focus-within input:checked+label {
+        pointer-events: all;
+    }
+    #dropdown label[for="dropdownlow"] {
+        display: block !important;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        cursor: pointer;
+        transition: all var(--transition-quick);
+    }*/
+
+    #dropdown-container/*:focus-within*/ input:checked + label + #menu {
+        display: flex !important;
     }
 }

@@ -26,9 +26,6 @@ function addBlankToLinks() {
 
 function getAllTextElms() {
     // not really *all* text elms, but the ones used on this site lol
-    if (window._gingTextElems) {
-        return window._gingTextElems
-    }
     const textElems = [...document.getElementsByTagName("p"),
         ...document.getElementsByTagName("span"),
         ...document.getElementsByTagName("a"),
@@ -36,7 +33,6 @@ function getAllTextElms() {
         ...document.getElementsByTagName("h2"),
         ...document.getElementsByTagName("h3"),
         ...document.getElementsByTagName("pre")]
-    window._gingTextElems = textElems
     return textElems
 }
 
@@ -74,17 +70,17 @@ function replaceEmotes() {
 }
 
 function replaceEmotesInElm(elm) {
-    const matches = elm.innerHTML.match(emoteRegex)
+    const matches = elm.innerText.match(emoteRegex)
 
     if (!matches) {
         return
     }
     // abusing img tags, fun!
-    const emoteTemplate = `<img width="${emoteDims}px" height="${emoteDims}px" class="emote" alt=":TITLE:" src="src/images/emotes/EMOTE" />`
+    const emoteTemplate = `<img width="${emoteDims}px" height="${emoteDims}px" class="emote" alt=":TITLE:" title=":TITLE:" src="src/images/emotes/EMOTE" />`
     for (const match of matches) {
         const emoteName = match.slice(1, -1) // trim :
-        const emote = emotes.filter((v) => v.startsWith(`${emoteName}.`)) // be sure its actually an emote
-        const img = emoteTemplate.replace("EMOTE", emote).replace("TITLE", emoteName) // replace the placeholders with their contents
+        const emote = emotes.filter((v) => v.startsWith(`${emoteName}.`))[0] // be sure its actually an emote
+        const img = emoteTemplate.replace("EMOTE", emote).replace(/TITLE/g, emoteName) // replace the placeholders with their contents
         elm.innerHTML = elm.innerHTML.replace(match, img)
     }
 }
