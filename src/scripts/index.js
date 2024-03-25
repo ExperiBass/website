@@ -2,7 +2,7 @@
  *
  * @param {MouseEvent} ev
  */
-const click = (ev) => {
+const menuClick = (ev) => {
     const elm = ev.target
     const section = elm.attributes.page?.value
     if (!section) {
@@ -11,7 +11,7 @@ const click = (ev) => {
     const pane = document.getElementById('pane')
     const box = document.getElementById('dropdownlow')
     pane.innerHTML = sections[section]
-    box.checked ? box.checked = false : null
+    box.checked ? (box.checked = false) : null
 
     // re-exec emote and link funcs on change
     addBlankToLinks()
@@ -27,14 +27,14 @@ function activateMenu() {
 
     // apply click listener
     for (const link of links) {
-        link.onclick = click
+        link.onclick = menuClick
     }
     // load default
-    click({target:{attributes:{page:{value:'aboutme'}}}})
+    menuClick({ target: { attributes: { page: { value: 'aboutme' } } } })
 }
 /// there has to be a better way...
 const sections = {
-    "aboutme": `
+    aboutme: `
         <h2>> aboutme</h2>
         <span><strong>Preferred Names:</strong> /Gïng(ka|er){0,1}/ Pepper</span>
         <span><strong>Age:</strong> N/A</span>
@@ -75,7 +75,7 @@ const sections = {
         j5create 7-port USB Hub
         </pre>
     `,
-    "bio": `
+    bio: `
     <h2>> bio</h2>
     <p>
         :GingBlep: Hai! I'm a stimky internet fox! I write code, do crime, and steal your garlic bread
@@ -91,7 +91,7 @@ const sections = {
         My Audius is linked below, along with my other socials!
     </p>
     `,
-    "links": `
+    links: `
     <h2>> links</h2>
     <a href="https://audius.co/experibass">󰠃 Audius</a>
     <a href="https://youtube.com/channel/UCx6VxDU880NuvLbWH8xT2GA">
@@ -114,7 +114,7 @@ const sections = {
     <a href="https://github.com/experibass/cli-pride-flags">Pride Flags in your term~</a>
     <a href="https://github.com/experibass/pixelsort-go">Pixelsorter written in Go</a>
     `,
-    "otherpages": `
+    otherpages: `
     <h2>> otherpages</h2>
     <span>A list of the other pages on this site.</span>
     <a href="key.gpg">pgp key</a>
@@ -123,17 +123,17 @@ const sections = {
     <a href="pixelsort-gens/">Pixelsorting Results</a>
     <a href="cyberspace-independence.html">Declaration of the Independence of Cyberspace</a>
     `,
-    "contact": `
+    contact: `
     <h2>> contact</h2>
     <span><strong>Lemmy:</strong> soon</span>
     <span><strong>Masto:</strong> maybe (likely not)</span>
-    <span><strong>󰘨 Matrix:</strong> @experibassmusic:kde.org</span>
+    <span><strong>󰘨 Matrix:</strong> <span class="hov" onclick="copy(this)">@experibassmusic:kde.org</span></span>
     <span>
         <strong>󰇮 Email:</strong>
         <span class="hov" onclick="copy(this)">gingkagingerpepper [at] icloud [dot] com</span>
     </span>
     `,
-    "comms": `
+    comms: `
     <h2>> commissions</h2>
     <s>
         <h3>Music Commissions<span class="cursor-blink">_</span></h3>
@@ -184,7 +184,7 @@ const sections = {
     <h4>Contacting</h4>
     <p>You can contact me via Matrix, Twitter, or email.</p>
     `,
-    "wallets": `
+    wallets: `
     <h2>> wallets</h2>
     <h3>󰖄 Wallet Addresses<span class="cursor-blink">_</span></h3>
     <p>If you enjoy what I do, feel free to send a bit of crypto :3</p>
@@ -206,5 +206,5 @@ const sections = {
     </p>
     <p>ETH:<br /><span class="hov" onclick="copy(this)">0x8Bb53bC2a63F2bd10B16bd0aD6fCDc1ffd49d114</span></p>
     <p>XMR:<br />ask</p>
-    `
+    `,
 }

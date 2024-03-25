@@ -1,12 +1,5 @@
-const emotes = [
-    'GingBlep.png',
-    'GingCri.png',
-    'GingHappy.png',
-    'GingkaCreep.png',
-    'owo.gif',
-    'eos.png'
-]
-const emoteRegex = /:([\w_-])+:/ig // matches text between two colons (but not numbers)
+const emotes = ['GingBlep.png', 'GingCri.png', 'GingHappy.png', 'GingkaCreep.png', 'owo.gif', 'eos.png']
+const emoteRegex = /:([\w_-])+:/gi // matches text between two colons (but not numbers)
 const emoteDims = 15
 
 // functions
@@ -19,25 +12,27 @@ function addBlankToLinks() {
             a.innerHTML = a.innerHTML.trim() + `<span class="cursor-blink">_</span>`
         }*/
         if (!a.href.startsWith(thisDomain)) {
-            a.target = "_blank" // open external links in a new tab
+            a.target = '_blank' // open external links in a new tab
         }
     }
 }
 
 function getAllTextElms() {
     // not really *all* text elms, but the ones used on this site lol
-    const textElems = [...document.getElementsByTagName("p"),
-        ...document.getElementsByTagName("span"),
-        ...document.getElementsByTagName("a"),
-        ...document.getElementsByTagName("h1"),
-        ...document.getElementsByTagName("h2"),
-        ...document.getElementsByTagName("h3"),
-        ...document.getElementsByTagName("pre")]
+    const textElems = [
+        ...document.getElementsByTagName('p'),
+        ...document.getElementsByTagName('span'),
+        ...document.getElementsByTagName('a'),
+        ...document.getElementsByTagName('h1'),
+        ...document.getElementsByTagName('h2'),
+        ...document.getElementsByTagName('h3'),
+        ...document.getElementsByTagName('pre'),
+    ]
     return textElems
 }
 
 function italiciseText() {
-    const ITALIC_REGEX = /\*(.+)\*/ig
+    const ITALIC_REGEX = /\*(.+)\*/gi
 
     for (const elm of getAllTextElms()) {
         elm.innerHTML = elm.innerHTML.replace(ITALIC_REGEX, (_, p1) => {
@@ -52,7 +47,7 @@ async function copy(elm, config) {
     }
     if (navigator.clipboard) {
         let text = elm.innerText
-        if (config.trimNewlines) {
+        if (config?.trimNewlines) {
             text = text.replace('\n', ' ')
         }
         await navigator.clipboard.writeText(text)
@@ -80,17 +75,15 @@ function replaceEmotesInElm(elm) {
     for (const match of matches) {
         const emoteName = match.slice(1, -1) // trim :
         const emote = emotes.filter((v) => v.startsWith(`${emoteName}.`))[0] // be sure its actually an emote
-        const img = emoteTemplate.replace("EMOTE", emote).replace(/TITLE/g, emoteName) // replace the placeholders with their contents
+        const img = emoteTemplate.replace('EMOTE', emote).replace(/TITLE/g, emoteName) // replace the placeholders with their contents
         elm.innerHTML = elm.innerHTML.replace(match, img)
     }
 }
-
 
 // MAYBE: display different messages for ipfs and clearnet?
 function checkDomain() {
     const url = window.location
 
-    if (url.protocol === "ipfs:") {
-
+    if (url.protocol === 'ipfs:') {
     }
 }

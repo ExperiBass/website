@@ -13,28 +13,39 @@
 }
 
 a.webring-prev::before {
-    content: "«";
+    content: '«';
 }
 a.webring-next::after {
-    content: "»";
+    content: '»';
 }
 a.webring-random::before {
-    content: "¿";
+    content: '¿';
 }
-a.webring-random::after{
-    content: "?";
+a.webring-random::after {
+    content: '?';
 }
 
 /* linuxring styling */
-#linuxring>table {
+#linuxring > table {
     border: 1px solid var(--text-color);
     border-radius: var(--border-radius);
 }
-#linuxring .webring-info>br {
+#linuxring .webring-info > br {
     display: none;
 }
 /* tux */
-#linuxring .webring-info>.webring-links>a>img {
+#linuxring .webring-info > .webring-links > a > img {
     width: 1.4rem;
     margin-bottom: -0.2rem;
+}
+
+/* mobile */
+@media (max-width: 40rem) {
+    .ring-container {
+        text-align: center;
+    }
+    .webring-title {
+        width: 100%;
+        display: inline-block;
+    }
 }

@@ -35,13 +35,24 @@ h1 {
     text-align: center;
 }
 
+footer,
+h2 {
+    color: #8f8299;
+    font-size: 0.8rem;
+}
+
+h2,
+h3 {
+    margin: var(--gap);
+}
+
 p {
     word-wrap: break-word;
     margin: 0.1rem; /* Why is the margin so BIG???? */
 }
 
 code {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
 }
 /*
     Used for lists
@@ -64,35 +75,11 @@ a:focus {
     filter: brightness(var(--dim));
 }
 
-#menu > h3 > .cursor-blink,
-a > .cursor-blink {
-    /* ...is this jank? im clearly not a css guru lol */
-    display: none;
-}
-#menu > h3:hover > .cursor-blink,
-#menu > h3:focus > .cursor-blink,
-a:hover > .cursor-blink,
-a:focus > .cursor-blink {
-    display: inline;
-}
-
-footer,
-h2 {
-    color: #8f8299;
-    font-size: 0.8rem;
-}
-
-h2,
-h3 {
-    margin: var(--gap);
-}
-
 /* Style the scrollbar if supported */
-
 @supports (scrollbar-color: auto) {
     html,
     body {
-        scrollbar-color: var(--secondary-color) var(--background-color);
+        scrollbar-color: var(--tertiary-color) var(--background-color);
     }
 }
 @supports selector(::-webkit-scrollbar) {
@@ -104,7 +91,7 @@ h3 {
 
     /* Handle */
     ::-webkit-scrollbar-thumb {
-        background: var(--secondary-color);
+        background: var(--tertiary-color);
         border-radius: var(--border-radius);
     }
 }
@@ -120,7 +107,7 @@ a {
 }
 
 .hov:active {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     filter: brightness(100%);
 }
 
@@ -128,31 +115,47 @@ a {
     padding-inline: 0.1rem;
 }
 
-.cursor-blink {
-    animation: cursor-blink 1s linear infinite;
-}
-
 #pawprint span:nth-child(2n) {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
 }
 
-.card {
-    display: none !important;
+#header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
 }
-.gtainer {
+#header > h1 {
+    margin: 0px;
+}
+#header > hr {
+    border: 3px solid;
+}
+
+#gtainer {
     display: flex;
     flex-direction: row;
     gap: inherit;
     flex: 1;
     width: 100%;
 }
+
+#pane {
+    max-width: 50%;
+    padding: 0rem var(--gap) var(--gap) calc(var(--gap) * 2);
+    border-radius: var(--border-radius);
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='%23AC7D69FF' stroke-width='3' stroke-dasharray='12%2c66%2c6' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e");
+    /* animated ver */
+    /* background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3cstyle type='text/css'%3e rect %7b stroke-dashoffset: 0; animation: dash 3s linear infinite;%7d %40keyframes dash %7b to %7b stroke-dashoffset: 168;%7d %7d %3c/style%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='%23AC7D69FF' stroke-width='3' stroke-dasharray='12,66,6' stroke-dashoffset='0' stroke-linecap='butt' /%3e%3c/svg%3e"); */
+}
 #pane,
 #menu {
-    width: 50%;
+    flex: 1;
     display: flex;
     flex-direction: column;
     gap: inherit;
 }
+
 /* menu icon */
 .menu-link::before,
 .menu-link::before {
@@ -161,18 +164,28 @@ a {
 .menu-link:hover::before,
 .menu-link:focus::before {
     content: '›'; /* placeholder */
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
 }
-/* caret blink */
 .menu-link:hover::after,
 .menu-link:focus::after {
     content: '_';
     animation: cursor-blink 1s linear infinite;
 }
-#pane {
-    padding: 0rem var(--gap) var(--gap) calc(var(--gap) * 2);
-    border-radius: var(--border-radius);
-    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='%23AC7D69FF' stroke-width='3' stroke-dasharray='12%2c66%2c3' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e");
+
+/* caret blink */
+.cursor-blink {
+    animation: cursor-blink 1s linear infinite;
+}
+#menu > h3 > .cursor-blink,
+a > .cursor-blink {
+    /* ...is this jank? im clearly not a css guru lol */
+    display: none;
+}
+#menu > h3:hover > .cursor-blink,
+#menu > h3:focus > .cursor-blink,
+a:hover > .cursor-blink,
+a:focus > .cursor-blink {
+    display: inline;
 }
 
 /* mobile help */
@@ -198,7 +211,7 @@ a {
 }
 /* i hate mobile css */
 @media (max-width: 40rem) {
-    .gtainer {
+    #gtainer {
         flex-direction: column;
         gap: calc(var(--gap) * 2);
         width: unset;
@@ -215,9 +228,8 @@ a {
         display: none;
         z-index: 2;
     }
-    #menu,
     #pane {
-        width: unset;
+        max-width: unset;
     }
 
     /*#dropdown input:checked+label {
