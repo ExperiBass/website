@@ -5,13 +5,10 @@ const emoteDims = 15
 // functions
 function addBlankToLinks() {
     const links = document.getElementsByTagName('a')
-    const thisDomain = `${window.location.protocol}//${window.location.host}`
+    // MAYBE: ipns as well?
+    const thisDomainRegex = new RegExp(`^https:\/\/(?:.+\.)?experibassmusic\.eth\.limo`)
     for (const a of links) {
-        // todo: make better lol
-        /*if (!a.innerHTML.includes('<img')) {
-            a.innerHTML = a.innerHTML.trim() + `<span class="cursor-blink">_</span>`
-        }*/
-        if (!a.href.startsWith(thisDomain)) {
+        if (!a.href.match(thisDomainRegex)) {
             a.target = '_blank' // open external links in a new tab
         }
     }

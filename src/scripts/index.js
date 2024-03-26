@@ -33,6 +33,8 @@ function activateMenu() {
     menuClick({ target: { attributes: { page: { value: 'aboutme' } } } })
 }
 /// there has to be a better way...
+/// part of me wants to compile all this with some sort of static site genrator
+/// preferably my own
 const sections = {
     aboutme: `
         <h2>> aboutme</h2>
@@ -120,7 +122,7 @@ const sections = {
     <a href="key.gpg">pgp key</a>
     <a href="flags.html">cli-pride-flags flag previews</a>
     <a href="gallery.html">EvE Photo Gallery</a>
-    <a href="pixelsort-gens/">Pixelsorting Results</a>
+    <a href="https://foxuments.experibassmusic.eth.limo/pixelsort-gens/">Pixelsorting Results</a>
     <a href="cyberspace-independence.html">Declaration of the Independence of Cyberspace</a>
     `,
     contact: `
