@@ -1,5 +1,5 @@
-# i wish i could redirect cross-domain...
-/pixelsort-gens/* /redirects/pixelsort-gens.html 308
+/pixelsort-gens/ ipns://k51qzi5uqu5dinu7ivo9iypqapmziyghdp5dlo9gr9eihpnufyrm73oqlx55ey/pixelsort-gens/ 308
+/pixelsort-gens/* ipns://k51qzi5uqu5dinu7ivo9iypqapmziyghdp5dlo9gr9eihpnufyrm73oqlx55ey/pixelsort-gens/:splat 308
 
 # must stay at bottom
 /* /404.html 404
