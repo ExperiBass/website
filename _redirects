@@ -1,4 +1,5 @@
-/pixelsort-gens foxuments.experibassmusic.eth.limo/pixelsort-gens 308
+# i wish i could redirect cross-domain...
+/pixelsort-gens/* /redirects/pixelsort-gens.html 308
 
 # must stay at bottom
 /* /404.html 404
