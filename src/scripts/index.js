@@ -1,10 +1,34 @@
 /**
  *
- * @param {MouseEvent} ev
+ * @param {MouseEvent|KeyboardEvent} ev
  */
 const menuClick = (ev) => {
     const elm = ev.target
     const section = elm.attributes.page?.value
+
+    if (ev?.key) {
+        if (ev.key === "ArrowUp") {
+            if (elm.previousElementSibling) {
+                ev.preventDefault()
+                elm.previousElementSibling.focus()
+            }
+            return
+        }
+        if (ev.key === "ArrowDown") {
+            if (elm.nextElementSibling) {
+                ev.preventDefault()
+                elm.nextElementSibling.focus()
+            }
+            return
+        }
+
+        // TODO: arrow left/right to move from menu to infopanel and back
+
+        if (ev.key !== "Enter") {
+            return
+        }
+    }
+
     if (!section) {
         return
     }
@@ -28,6 +52,7 @@ function activateMenu() {
     // apply click listener
     for (const link of links) {
         link.onclick = menuClick
+        link.onkeydown = menuClick
     }
     // load default
     menuClick({ target: { attributes: { page: { value: 'aboutme' } } } })

@@ -155,7 +155,16 @@ a {
     flex-direction: column;
     gap: inherit;
 }
+/* remove list styling */
+#menu {
+	list-style: none;
+	padding-inline-start: 0px;
+}
 
+.menu-link {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
 /* menu icon */
 .menu-link::before,
 .menu-link::before {
@@ -175,17 +184,6 @@ a {
 /* caret blink */
 .cursor-blink {
     animation: cursor-blink 1s linear infinite;
-}
-#menu > h3 > .cursor-blink,
-a > .cursor-blink {
-    /* ...is this jank? im clearly not a css guru lol */
-    display: none;
-}
-#menu > h3:hover > .cursor-blink,
-#menu > h3:focus > .cursor-blink,
-a:hover > .cursor-blink,
-a:focus > .cursor-blink {
-    display: inline;
 }
 
 /* mobile help */
