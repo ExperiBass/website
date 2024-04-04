@@ -65,7 +65,7 @@ const sections = {
         <h2>> aboutme</h2>
         <span><strong>Preferred Names:</strong> /Gïng(ka|er){0,1}/ Pepper</span>
         <span><strong>Age:</strong> N/A</span>
-        <span><strong>Species:</strong> ??????</span>
+        <span><strong>Species:</strong> ?????? (Lostkin)</span>
         <span><strong>Gender:</strong> Fluid</span>
         <span><strong>Pronouns:</strong> Ask</span>
         <span><strong>Sex:</strong> Not within the Human binary</span>
