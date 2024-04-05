@@ -2,8 +2,7 @@
     display: inline-flex;
     flex-direction: row;
     gap: inherit;
-    width: 100%;
-    /* justify-content: center; */
+    flex:1;
     flex-wrap: wrap;
 }
 .webring {
@@ -45,7 +44,7 @@ a.webring-random::after {
         text-align: center;
     }
     .webring-title {
-        width: 100%;
+        /* width: 100%; */
         display: inline-block;
     }
 }
