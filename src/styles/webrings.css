@@ -1,14 +1,15 @@
 .ring-container {
     display: inline-flex;
     flex-direction: row;
-    gap: inherit;
+    gap: var(--gap);
     flex:1;
     flex-wrap: wrap;
 }
 .webring {
     display: flex;
     justify-content: center;
-    max-width: fit-content;
+    width: fit-content;
+    height: fit-content;
 }
 
 a.webring-prev::before {
@@ -42,9 +43,10 @@ a.webring-random::after {
 @media (max-width: 40rem) {
     .ring-container {
         text-align: center;
+        justify-content: center;
+        flex: 0
     }
     .webring-title {
-        /* width: 100%; */
         display: inline-block;
     }
 }
