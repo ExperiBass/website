@@ -213,7 +213,6 @@ const sections = {
     `,
     wallets: `
     <h2>> wallets</h2>
-    <h3>󰖄 Wallet Addresses<span class="cursor-blink">_</span></h3>
     <p>If you enjoy what I do, feel free to send a bit of crypto :3</p>
     <p>
         Click on an address to insert it into your clipboard! Make sure the addresses are correct, especially on
