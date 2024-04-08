@@ -2,29 +2,32 @@
  *
  * @param {MouseEvent|KeyboardEvent} ev
  */
-const menuClick = (ev) => {
+const menuAction = (ev) => {
     const elm = ev.target
     const section = elm.attributes.page?.value
 
     if (ev?.key) {
-        if (ev.key === "ArrowUp") {
-            if (elm.previousElementSibling) {
-                ev.preventDefault()
-                elm.previousElementSibling.focus()
-            }
+        if (ev.key === 'ArrowUp') {
+            ev.preventDefault()
+            elm.previousElementSibling?.focus()
             return
         }
-        if (ev.key === "ArrowDown") {
-            if (elm.nextElementSibling) {
-                ev.preventDefault()
-                elm.nextElementSibling.focus()
-            }
+        if (ev.key === 'ArrowDown') {
+            ev.preventDefault()
+            elm.nextElementSibling?.focus()
             return
         }
 
         // TODO: arrow left/right to move from menu to infopanel and back
 
-        if (ev.key !== "Enter") {
+        // unfocus
+        if (ev.key === 'Escape') {
+            ev.preventDefault()
+            elm.blur()
+        }
+
+        // ignore everything else
+        if (ev.key !== 'Enter') {
             return
         }
     }
@@ -51,11 +54,12 @@ function activateMenu() {
 
     // apply click listener
     for (const link of links) {
-        link.onclick = menuClick
-        link.onkeydown = menuClick
+        link.onclick = menuAction
+        link.onkeydown = menuAction
     }
     // load default
-    menuClick({ target: { attributes: { page: { value: 'aboutme' } } } })
+    menuAction({ target: { attributes: { page: { value: 'aboutme' } } } })
+    links[0].focus()
 }
 /// there has to be a better way...
 /// part of me wants to compile all this with some sort of static site genrator
