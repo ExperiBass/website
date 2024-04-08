@@ -49,7 +49,6 @@ h3 {
 
 p {
     word-wrap: break-word;
-    margin: 0.1rem; /* Why is the margin so BIG???? */
 }
 
 code {
@@ -141,6 +140,13 @@ a {
     width: 100%;
 }
 
+#pane,
+#menu {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
 #pane {
     max-width: 50%;
     padding: 0rem var(--gap) var(--gap) calc(var(--gap) * 2);
@@ -149,12 +155,8 @@ a {
     /* animated ver */
     /* background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3cstyle type='text/css'%3e rect %7b stroke-dashoffset: 0; animation: dash 3s linear infinite;%7d %40keyframes dash %7b to %7b stroke-dashoffset: 168;%7d %7d %3c/style%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='%23AC7D69FF' stroke-width='3' stroke-dasharray='12,66,6' stroke-dashoffset='0' stroke-linecap='butt' /%3e%3c/svg%3e"); */
 }
-#pane,
-#menu {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap);
+#pane > p {
+    margin: 0.1rem;
 }
 /* remove list styling */
 #menu {
@@ -203,6 +205,7 @@ a {
 #dropdown > label {
     display: none;
 }
+
 @media screen and (max-width: 50rem), (pointer: coarse) {
     .copyable::after {
         content: ' (tap to copy)';
