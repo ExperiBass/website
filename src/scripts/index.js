@@ -72,7 +72,7 @@ const sections = {
         <span><strong>Species:</strong> ?????? (Lostkin)</span>
         <span><strong>Gender:</strong> Fluid</span>
         <span><strong>Pronouns:</strong> Ask</span>
-        <span><strong>Sex:</strong> Not within the Human binary</span>
+        <span><strong>Sex:</strong> Not within the Human trinary</span>
         <span><strong>Orientation:</strong> Bi</span>
         <span>
             <strong>Location:</strong>
