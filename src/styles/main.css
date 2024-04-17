@@ -113,6 +113,7 @@ a {
 
 .emote {
     padding-inline: 0.1rem;
+    max-height: 1rem;
 }
 
 #pawprint span:nth-child(2n) {
