@@ -28,16 +28,6 @@ function getAllTextElms() {
     return textElems
 }
 
-function italiciseText() {
-    const ITALIC_REGEX = /\*(.+)\*/gi
-
-    for (const elm of getAllTextElms()) {
-        elm.innerHTML = elm.innerHTML.replace(ITALIC_REGEX, (_, p1) => {
-            return `<i>${p1}</i>`
-        })
-    }
-}
-
 async function copy(elm, config) {
     if (!elm) {
         return alert("The element to copy doesn't exist.")

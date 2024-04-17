@@ -42,22 +42,19 @@ const menuAction = (ev) => {
 
     // re-exec emote and link funcs on change
     addBlankToLinks()
-    italiciseText()
+    //italiciseText()
     replaceEmotes()
 }
 
 function activateMenu() {
-    // grab everything
-    const menu = document.getElementById('menu')
-    const pane = document.getElementById('pane')
     const links = document.getElementsByClassName('menu-link')
 
-    // apply click listener
+    // apply input listener
     for (const link of links) {
         link.onclick = menuAction
         link.onkeydown = menuAction
     }
-    // load default
+    // load default panel
     menuAction({ target: { attributes: { page: { value: 'aboutme' } } } })
     links[0].focus()
 }
@@ -222,7 +219,7 @@ const sections = {
         Click on an address to insert it into your clipboard! Make sure the addresses are correct, especially on
         Windows, as there is malware that will replace addresses with the address of the attacker.
     </p>
-    <p>All coins:<br /><span class="hov" onclick="copy(this)">*experibassmusic.eth*</span></p>
+    <p>All coins:<br /><span class="hov" onclick="copy(this)"><i>experibassmusic.eth</i></span></p>
     <p>For wallets that do not support ENS resolution, see below.</p>
     <p>
         BTC Lightning (preferred):<br /><span class="hov" onclick="copy(this)"
