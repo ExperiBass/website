@@ -60,7 +60,7 @@ function replaceEmotesInElm(elm) {
     // abusing img tags, fun!
     const emoteTemplate = `<img width="${emoteDims}px" height="${emoteDims}px" class="emote" alt=":TITLE:" title=":TITLE:" src="src/images/emotes/EMOTE" />`
     for (const match of matches) {
-        const emoteName = match.slice(1, -1) // trim :
+        const emoteName = match.slice(1, -1) // trim ':'
         const emote = emotes.filter((v) => v.startsWith(`${emoteName}.`))[0] // be sure its actually an emote
         const img = emoteTemplate.replace('EMOTE', emote).replace(/TITLE/g, emoteName) // replace the placeholders with their contents
         elm.innerHTML = elm.innerHTML.replace(match, img)

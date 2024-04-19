@@ -209,7 +209,7 @@ a {
 
 @media screen and (max-width: 50rem), (pointer: coarse) {
     .copyable::after {
-        content: ' (tap to copy)';
+        content: ' (tap to copy!)';
     }
 }
 /* i hate mobile css */
