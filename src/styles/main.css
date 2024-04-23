@@ -27,7 +27,7 @@ body {
 hr {
     color: var(--secondary-color);
     border-radius: 12px;
-    width: 100%;
+    width: 99%; /* i wish hrs flexed :\ */
     border: 1px solid;
 }
 
