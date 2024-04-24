@@ -71,7 +71,9 @@
                     flagContainer.innerHTML += flagDiv
                 }
             }
-            buildFlags()
+            buildFlags().catch(e => {
+                flagContainer.innerText = e
+            }) 
         </script>
     </body>
 </html>
