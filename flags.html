@@ -61,6 +61,8 @@
         <script>
             const flagContainer = document.getElementById('flag-container')
             async function buildFlags() {
+                let flagHTML = ''
+                flagContainer.innerHTML = "<span>Loading...</span>"
                 const FLAGS = await (await fetch("https://raw.githubusercontent.com/ExperiBass/cli-pride-flags/master/src/flags.json")).json()
                 for (const [name, flag] of Object.entries(FLAGS)) {
                     let flagDiv = `<div class="flag" id="${name}">\n`
@@ -70,8 +72,9 @@
                         flagDiv += `<div class="flag-stripe" style="background-color:${stripe};flex:${weight}"></div>\n`
                     }
                     flagDiv += `<h3>${name}</h3>\n</div>`
-                    flagContainer.innerHTML += flagDiv
+                    flagHTML += flagDiv
                 }
+                flagContainer.innerHTML = flagHTML
             }
             buildFlags().catch(e => {
                 flagContainer.innerText = e
