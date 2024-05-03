@@ -74,3 +74,9 @@ function checkDomain() {
     if (url.protocol === 'ipfs:') {
     }
 }
+
+/// amazing name, eh?
+function errorCleaner(err) {
+    err.stack = err.stack.replace(new RegExp(`${window.location.origin}/`, 'gi'), '')
+    return `${err}\n${err.stack}`
+}

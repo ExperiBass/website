@@ -69,13 +69,13 @@
             </div>
             <div id="linuxring" class="webring">
                 <script
-                    defer
-                    type="text/javascript"
-                    src="https://teethinvitro.neocities.org/webring/linuxring/script/onionring-variables.js"></script>
+                        defer
+                        type="text/javascript"
+                        src="https://teethinvitro.neocities.org/webring/linuxring/script/onionring-variables.js"></script>
                 <script
-                    defer
-                    type="text/javascript"
-                    src="https://teethinvitro.neocities.org/webring/linuxring/script/onionring-widget.js"></script>
+                        defer
+                        type="text/javascript"
+                        src="https://teethinvitro.neocities.org/webring/linuxring/script/onionring-widget.js"></script>
             </div>
             <div>
                 Link to me!
@@ -122,18 +122,22 @@
                          src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" /><img
                          style="height: 1rem !important; margin-left: 3px; vertical-align: text-bottom"
                          src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" />
-		</a></span> and <a href="/LICENSE.txt">AGPL-v3.0
-            <img
-                style="height:1rem !important; vertical-align: text-bottom"
-                src="https://www.gnu.org/graphics/agplv3-88x31.png"
-            />.</a><span class="cursor-blink">_</span>
+                </a></span> and <a href="/LICENSE.txt">AGPL-v3.0
+                <img
+                     style="height:1rem !important; vertical-align: text-bottom"
+                     src="https://www.gnu.org/graphics/agplv3-88x31.png" />.</a><span class="cursor-blink">_</span>
         </footer>
 
         <script>
             // imagine needing to import 10-30mb of js
             // could never be me
-            addBlankToLinks()
-            activateMenu()
+            try {
+                addBlankToLinks()
+                activateMenu()
+            } catch (e) {
+                const pane = document.getElementById('pane')
+                pane.innerText = errorCleaner(e)
+            }
         </script>
     </body>
     <!-- Oi! I'm naked here!! -->
