@@ -20,8 +20,10 @@
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=1" />
 
         <!-- util -->
+        <!-- imagine needing to import 10-30mb of js
+            could never be me -->
         <script src="src/scripts/misc.js" async></script>
-        <script src="src/scripts/index.js" async></script>
+        <script src="src/scripts/index.js" defer></script>
     </head>
     <body>
         <div id="header">
@@ -127,18 +129,7 @@
                      style="height:1rem !important; vertical-align: text-bottom"
                      src="https://www.gnu.org/graphics/agplv3-88x31.png" />.</a><span class="cursor-blink">_</span>
         </footer>
-
-        <script>
-            // imagine needing to import 10-30mb of js
-            // could never be me
-            try {
-                addBlankToLinks()
-                activateMenu()
-            } catch (e) {
-                const pane = document.getElementById('pane')
-                pane.innerText = errorCleaner(e)
-            }
-        </script>
+           
     </body>
     <!-- Oi! I'm naked here!! -->
 </html>

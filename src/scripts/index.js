@@ -235,3 +235,13 @@ const sections = {
     <p>XMR:<br />ask</p>
     `,
 }
+
+
+/// ok now do the thing
+try {
+    addBlankToLinks()
+    activateMenu()
+} catch (e) {
+    const pane = document.getElementById('pane')
+    pane.innerText = errorCleaner(e)
+}
