@@ -63,7 +63,7 @@
             async function buildFlags() {
                 let flagHTML = ''
                 flagContainer.innerHTML = "<span>Loading...</span>"
-                const FLAGS = await (await fetch("https://raw.githubusercontent.com/ExperiBass/cli-pride-flags/master/src/flags.json")).json()
+                const FLAGS = await (await fetch("https://raw.githubusercontent.com/ExperiBass/unified-pride-flags/fluffy/generated/unified-flags.json")).json()
                 for (const [name, flag] of Object.entries(FLAGS)) {
                     let flagDiv = `<div class="flag" id="${name}">\n`
                     for (let i = 0; i < flag.stripes.length; i++) {
