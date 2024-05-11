@@ -139,6 +139,7 @@ const sections = {
     <a href="https://music.apple.com/us/playlist/%CE%B3iddim/pl.u-NpXmza7t4yVpke7">Riddim</a>
     <span>still too lazy to update this</span>
     <h3>󱌣 Tools/Utils<span class="cursor-blink">_</span></h3>
+    <a href="https://github.com/experibass/unified-pride-flags">Unified list for pride flag colors and weights</a>
     <a href="https://github.com/experibass/cli-pride-flags">Pride Flags in your term~</a>
     <a href="https://github.com/experibass/pixelsort-go">Pixelsorter written in Go</a>
     `,
