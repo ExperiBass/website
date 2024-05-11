@@ -146,7 +146,7 @@ const sections = {
     <h2>> otherpages</h2>
     <span>A list of the other pages on this site.</span>
     <a href="key.txt">pgp key</a>
-    <a href="flags.html">cli-pride-flags flag previews</a>
+    <a href="flags.html">unified-pride-flags flag previews</a>
     <a href="gallery.html">EvE Photo Gallery</a>
     <a href="https://foxuments.experibassmusic.eth.limo/pixelsort-gens/">Pixelsorting Results</a>
     <a href="cyberspace-independence.html">Declaration of the Independence of Cyberspace</a>
