@@ -1,0 +1,51 @@
+.ring-container {
+    display: inline-flex;
+    flex-direction: row;
+    gap: var(--gap);
+    flex-wrap: wrap;
+}
+.webring {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+}
+
+a.webring-prev::before {
+    content: '«';
+}
+a.webring-next::after {
+    content: '»';
+}
+a.webring-random::before {
+    content: '¿';
+}
+a.webring-random::after {
+    content: '?';
+}
+
+/* linuxring styling */
+#linuxring > table {
+    border: 1px solid var(--text-color);
+    border-radius: var(--border-radius);
+}
+#linuxring .webring-info > br {
+    display: none;
+}
+/* tux */
+#linuxring .webring-info > .webring-links > a > img {
+    width: 1.4rem;
+    margin-bottom: -0.2rem;
+}
+
+/* mobile */
+@media (max-width: 40rem) {
+    .ring-container {
+        text-align: center;
+        justify-content: center;
+        flex: 0;
+    }
+    .webring-title {
+        display: inline-block;
+    }
+}

@@ -1,0 +1,270 @@
+@import './font.css';
+@import './variables.css';
+
+html,
+body {
+    font-family: wipeout;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    background-image: url('../images/tile.png');
+    background-repeat: repeat;
+}
+
+body {
+    gap: var(--gap);
+    align-items: center;
+    text-align: left;
+    cursor: default;
+    overflow-wrap: break-word;
+    line-height: 1.3rem;
+    flex: 1;
+}
+
+hr {
+    color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    width: 99%; /* i wish hrs flexed :\ */
+    border: 1px solid;
+}
+
+h1 {
+    line-height: 1.6rem;
+    text-align: center;
+}
+
+footer,
+h2 {
+    color: #8f8299;
+    font-size: 0.8rem;
+}
+
+h2,
+h3 {
+    margin: var(--gap);
+}
+
+p {
+    word-wrap: break-word;
+}
+
+code {
+    color: var(--tertiary-color);
+    font-family: inherit;
+}
+/*
+    Used for lists
+*/
+pre {
+    white-space: pre-line;
+    font: inherit;
+    margin: var(--gap);
+}
+
+a {
+    text-decoration: unset;
+    color: var(--links);
+    filter: brightness(100%);
+}
+
+a:hover,
+a:focus {
+    /* color: var(--link-hover-color); */
+    filter: brightness(var(--dim));
+}
+
+/* Style the scrollbar if supported */
+@supports (scrollbar-color: auto) {
+    html,
+    body {
+        scrollbar-color: var(--tertiary-color) var(--background-color);
+    }
+}
+@supports selector(::-webkit-scrollbar) {
+    /* Track */
+    ::-webkit-scrollbar,
+    ::-webkit-scrollbar-track {
+        background: var(--background-color);
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: var(--tertiary-color);
+        border-radius: var(--border-radius);
+    }
+}
+
+.hov,
+a {
+    transition: filter var(--transition-normal);
+}
+
+.hov:hover,
+.hov:focus {
+    filter: brightness(var(--dim));
+}
+
+.hov:active {
+    color: var(--tertiary-color);
+    filter: brightness(100%);
+}
+
+.emote {
+    padding-inline: 0.1rem;
+    max-height: 1rem;
+}
+
+#pawprint span:nth-child(2n) {
+    color: var(--tertiary-color);
+}
+
+#header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+#header > h1 {
+    margin: 0px;
+}
+#header > hr {
+    border: 3px solid;
+}
+
+#gtainer {
+    display: flex;
+    flex-direction: row;
+    gap: var(--gap);
+    flex: 1;
+    width: 100%;
+}
+
+#pane,
+#menu {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+#pane {
+    max-width: 50%;
+    padding: 0rem var(--gap) var(--gap) calc(var(--gap) * 2);
+    border-radius: var(--border-radius);
+    background-image: var(--gapped-border);
+    /* animated ver */
+    /* background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3cstyle type='text/css'%3e rect %7b stroke-dashoffset: 0; animation: dash 3s linear infinite;%7d %40keyframes dash %7b to %7b stroke-dashoffset: 168;%7d %7d %3c/style%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='%23AC7D69FF' stroke-width='3' stroke-dasharray='12,66,6' stroke-dashoffset='0' stroke-linecap='butt' /%3e%3c/svg%3e"); */
+}
+#pane > p {
+    margin: 0.1rem;
+}
+/* remove list styling */
+#menu {
+    list-style: none;
+    padding-inline-start: 0px;
+}
+
+.menu-link {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+/* menu icon */
+.menu-link::before,
+.menu-link::before {
+    content: '\00a0'; /* non-breaking space */
+}
+.menu-link:hover::before,
+.menu-link:focus::before {
+    content: ''; /*'›'; /* placeholder */
+    color: var(--tertiary-color);
+}
+.menu-link:hover::after,
+.menu-link:focus::after {
+    content: '_';
+    animation: cursor-blink 1s linear infinite;
+}
+
+/* caret blink */
+.cursor-blink {
+    animation: cursor-blink 1s linear infinite;
+}
+
+/* mobile help */
+/* dropdown */
+#dropdown-container,
+#dropdown {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+#dropdown-container {
+    border-radius: var(--border-radius);
+    padding: 0.1rem calc(var(--gap) * 2);
+}
+#dropdown > input,
+#dropdown > label {
+    display: none;
+}
+
+@media screen and (max-width: 50rem), (pointer: coarse) {
+    .copyable::after {
+        content: ' (tap to copy!)';
+    }
+}
+/* i hate mobile css */
+@media (max-width: 40rem) {
+    hr {
+        width: 95vw;
+    }
+    #gtainer,
+    #pane,
+    #menu {
+        flex: 0;
+    }
+
+    #gtainer {
+        flex-direction: column;
+        gap: calc(var(--gap) * 2);
+        width: 95vw;
+    }
+    #dropdown-container {
+        background-image: var(--gapped-border);
+    }
+    #dropdown,
+    #dropdown > label {
+        display: flex;
+        flex: 1;
+    }
+    #menu {
+        display: none;
+        z-index: 2;
+    }
+    #pane {
+        max-width: unset;
+    }
+    /*#dropdown input:checked+label {
+        pointer-events: none;
+    }
+    #dropdown:focus-within input:checked+label {
+        pointer-events: all;
+    }
+    #dropdown label[for="dropdownlow"] {
+        display: block !important;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        cursor: pointer;
+        transition: all var(--transition-quick);
+    }*/
+
+    #dropdown-container/*:focus-within*/ input:checked + label + #menu {
+        display: flex !important;
+    }
+    #dropdown-container/*:focus-within*/ input:checked + label::before {
+        content: '›'; /* placeholder */
+        padding-inline-end: 0.2rem;
+    }
+}

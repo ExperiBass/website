@@ -1,0 +1,7 @@
+{
+  "author": "ExperiBass",
+  "license": "AGPL-3.0-or-later",
+  "dependencies": {
+    "handlebars": "^4.7.8"
+  }
+}
