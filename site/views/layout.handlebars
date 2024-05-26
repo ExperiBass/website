@@ -3,17 +3,25 @@
     <head>
         <title>{{tabtitle}}</title>
         {{{stylesheets}}}
-        <!--Meta tags-->
+        {{!-- Meta tags --}}
         <meta charset="UTF-8" />
+        <meta name="number" content="3373" />
+
+        {{!-- OpenGraph --}}
+        <meta name="og:url" content="https://experibassmusic.eth.limo/{{page}}" />
+        <meta name="og:title" content="{{tabtitle}}" />
+        <meta name="og:description" content="{{desc}}" />
+        <meta name="og:type" content="website" />
+        <meta name="theme-color" content="{{themecolor}}" data-react-helmet="true" />
+        
+        {{!-- standard --}}
         <meta name="author" content="{{author}}" />
-        <meta property="og:url" content="https://experibassmusic.eth.limo/{{page}}" />
-        <meta property="og:title" content="{{tabtitle}}" />
-        <meta property="og:description" content="{{desc}}" />
-        <meta property="og:type" content="website" />
-        <meta property="number" content="3373" />
-        <meta content="{{themecolor}}" data-react-helmet="true" name="theme-color" />
+        <meta name="description" content="{{desc}}">
+        <meta name="generator" content="Foxpower">
+        <meta name="keywords" content="{{keywords}}"/>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+        {{!-- favicon --}}
         <link rel="mask-icon" color="{{themecolor}}" href="/safari-pinned-tab.svg?v=1" />
         <link rel="shortcut icon" href="/favicon.ico?v=1" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=1" />

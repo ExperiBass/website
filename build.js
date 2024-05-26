@@ -51,11 +51,13 @@ const ctx = {
         tabtitle: 'Ｔａｎｄｅｍ　ｖｕｌｐｅｓ　ｖｏｃｅｍ　ｓｕａｍ　ｒｅｐｅｒｉｅｔ．',
         desc: 'Stinky Lostkin has Claimed a Corner of the Internet',
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/webrings.css" />'],
+        keywords: [],
     },
     term: {
         tabtitle: 'Ｔａｎｄｅｍ　ｖｕｌｐｅｓ　ｖｏｃｅｍ　ｓｕａｍ　ｒｅｐｅｒｉｅｔ．',
         desc: 'Stinky Lostkin has Claimed a Corner of the Internet',
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/main-term.css" />'],
+        keywords: [],
     },
     'cyberspace-independence': {
         tabtitle: 'A Declaration of the Independence of Cyberspace',
@@ -66,24 +68,28 @@ const ctx = {
             'it was written by John Perry Barlow, a founder of the Electronic Frontier Foundation, ' +
             'and published online on February 8, 1996, from Davos, Switzerland.',
         author: 'John Perry Barlow',
+        keywords: ['cyberspace', 'independence'],
     },
     pixelsorts: {
         tabtitle: 'Pixels Placed in (Dis)Order',
         desc: 'organic Home-grown free-range pixelsorts',
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/gallery.css" />'],
         galleryImages: galleries.pixelsorts,
+        keywords: ['pixelsorting', 'pixelsort', 'glitch', 'art'],
     },
     eve: {
         tabtitle: 'Screenshots in Space',
         desc: "When i'm not dyin, i'm killin\nand then dyin",
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/gallery.css" />'],
         galleryImages: galleries.eve,
+        keywords: ['eve', 'online', 'screenshots'],
     },
     flags: {
         tabtitle: 'Unified-pride-flags Flag Previews',
         desc: 'Previews of the flags included in unified-pride-flags.',
         author: '@KonkenBonken, @ExperiBass (GitHub)',
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/flags.css" />'],
+        keywords: ['unified', 'cli', 'pride', 'flags', 'lgbtqia'],
     },
     404: {
         tabtitle: 'Are You Lost? (404)',
@@ -94,6 +100,7 @@ const ctx = {
         author: 'Rinku Inku',
         themecolor: '#93E9BE',
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/rinku.css" />'],
+        keywords: [],
     },
 }
 function compileToHTML(page) {
@@ -110,6 +117,11 @@ function compileToHTML(page) {
         stylesheets.push(...extra.stylesheets)
     }
     extra.stylesheets = stylesheets.join('')
+    let keywords = ['experibassmusic', 'experibassmusic.eth.limo', 'web3']
+    if (extra.keywords) {
+        keywords.push(...extra.keywords)
+    }
+    extra.keywords = keywords
 
     const body = handlebars.compile(template)
 
