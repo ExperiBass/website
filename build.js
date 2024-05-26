@@ -12,16 +12,19 @@ const outDir = join(__dirname, `./.out/${commitHash}`)
 const layoutFileName = 'layout.handlebars'
 const LAYOUT_FILE = readFileSync(`${viewsDir}/${layoutFileName}`, 'utf-8')
 const LAYOUT = handlebars.compile(LAYOUT_FILE)
+
+const DRY_RUN = false
+
 const ctx = {
     index: {
         tabtitle: 'Ｔａｎｄｅｍ　ｖｕｌｐｅｓ　ｖｏｃｅｍ　ｓｕａｍ　ｒｅｐｅｒｉｅｔ．',
         desc: 'Stinky Foxxo Does Things',
-        stylesheets: ['<link rel="stylesheet" type="text/css" href="src/styles/webrings.css" />'],
+        stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/webrings.css" />'],
     },
     term: {
         tabtitle: 'Ｔａｎｄｅｍ　ｖｕｌｐｅｓ　ｖｏｃｅｍ　ｓｕａｍ　ｒｅｐｅｒｉｅｔ．',
         desc: 'Stinky Foxxo Does Things',
-        stylesheets: ['<link rel="stylesheet" type="text/css" href="src/styles/main-term.css" />'],
+        stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/main-term.css" />'],
     },
     'cyberspace-independence': {
         tabtitle: 'A Declaration of the Independence of Cyberspace',
@@ -36,18 +39,18 @@ const ctx = {
     pixelsorts: {
         tabtitle: '',
         description: 'Glitched Images',
-        stylesheets: ['<link rel="stylesheet" type="text/css" href="src/styles/gallery.css" />'],
+        stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/gallery.css" />'],
     },
     eve: {
         tabtitle: 'Gings EvE Photo Gallery',
         description: 'Gings EvE Online screenshots.',
-        stylesheets: ['<link rel="stylesheet" type="text/css" href="src/styles/gallery.css" />'],
+        stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/gallery.css" />'],
     },
     flags: {
         tabtitle: 'Unified-pride-flags Flag Previews',
         description: 'Previews of the flags included in unified-pride-flags.',
         author: '@KonkenBonken, @ExperiBass (GitHub)',
-        stylesheets: ['<link rel="stylesheet" type="text/css" href="src/styles/flags.css" />'],
+        stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/flags.css" />'],
     },
     404: {
         tabtitle: 'Are You Lost? (404)',
@@ -57,7 +60,7 @@ const ctx = {
         description: "Rinku Inku's commission sheet.",
         author: 'Rinku Inku',
         themecolor: '#93E9BE',
-        stylesheets: ['<link rel="stylesheet" type="text/css" href="src/styles/rinku.css" />'],
+        stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/rinku.css" />'],
     },
 }
 function compileToHTML(page) {
@@ -69,7 +72,7 @@ function compileToHTML(page) {
     }
     extra.themecolor = extra.themecolor || '#5bbad5'
     extra.author = extra.author || 'ΞXPΞRIBΛSS'
-    let stylesheets = ['<link rel="stylesheet" type="text/css" href="src/styles/main.css" />']
+    let stylesheets = ['<link rel="stylesheet" type="text/css" href="/src/styles/main.css" />']
     if (extra.stylesheets) {
         stylesheets.push(...extra.stylesheets)
     }
@@ -87,7 +90,9 @@ function compileToHTML(page) {
 const pages = readdirSync(viewsDir)
 
 try {
-    //mkdirSync(outDir)
+    if (!DRY_RUN) {
+        //mkdirSync(outDir)
+    }
 } catch (e) {
     fatalError(e)
 }
@@ -100,7 +105,9 @@ for (const page of pages) {
     const compiled = compileToHTML(page)
     //console.log(compiled.content)
     try {
-        //writeFileSync(`${outDir}/${compiled.name}`, compiled.content)
+        if (!DRY_RUN) {
+            writeFileSync(`${outDir}/${compiled.name}`, compiled.content)
+        }
     } catch (e) {
         fatalError(e)
     }
