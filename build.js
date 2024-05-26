@@ -68,14 +68,14 @@ const ctx = {
         author: 'John Perry Barlow',
     },
     pixelsorts: {
-        tabtitle: 'Pixels Placed in Order',
+        tabtitle: 'Pixels Placed in (Dis)Order',
         desc: 'organic Home-grown free-range pixelsorts',
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/gallery.css" />'],
         galleryImages: galleries.pixelsorts,
     },
     eve: {
         tabtitle: 'Screenshots in Space',
-        desc: 'When i\'m not dyin, i\'m killin\nand then dyin',
+        desc: "When i'm not dyin, i'm killin\nand then dyin",
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/gallery.css" />'],
         galleryImages: galleries.eve,
     },
