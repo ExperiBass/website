@@ -15,10 +15,12 @@
 }
 
 @keyframes cursor-blink {
-    99.99%, 50.01% {
+    99.99%,
+    50.01% {
         opacity: 0;
     }
-    0%, 50% {
+    0%,
+    50% {
         opacity: 1;
     }
 }

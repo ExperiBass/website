@@ -176,7 +176,7 @@ a {
 }
 .menu-link:hover::before,
 .menu-link:focus::before {
-    content: '';/*'›'; /* placeholder */
+    content: ''; /*'›'; /* placeholder */
     color: var(--tertiary-color);
 }
 .menu-link:hover::after,

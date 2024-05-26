@@ -43,7 +43,7 @@ a.webring-random::after {
     .ring-container {
         text-align: center;
         justify-content: center;
-        flex: 0
+        flex: 0;
     }
     .webring-title {
         display: inline-block;

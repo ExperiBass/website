@@ -1,11 +1,11 @@
-@import url("./main.css");
+@import url('./main.css');
 
 :root {
-    --background-color: #93E9BE;
-    --text-color: #614C79;
-    --links: #D081AA;
-    --visited-links: #BA92E9;
-    --hover-links: #B6ACC2;
+    --background-color: #93e9be;
+    --text-color: #614c79;
+    --links: #d081aa;
+    --visited-links: #ba92e9;
+    --hover-links: #b6acc2;
 }
 * {
     font-family: 'FiraCode Nerd Font';

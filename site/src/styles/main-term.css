@@ -10,7 +10,11 @@ p {
 }
 
 /* term styling */
-@keyframes blinker { to { opacity: 0.2; } }
+@keyframes blinker {
+    to {
+        opacity: 0.2;
+    }
+}
 :root {
     --active-background-color: var(--background-color);
 }
