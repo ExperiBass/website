@@ -39,8 +39,8 @@ handlebars.registerHelper('link', (text, url) => {
 
 process.chdir(__dirname)
 const commitHash = execSync('git rev-parse HEAD | head -c 7')
-const viewsDir = join(__dirname, './views')
-const outDir = join(__dirname, `./.out/${commitHash}`)
+const siteDir = join(__dirname, `./site`)
+const viewsDir = join(siteDir, './views')
 const layoutFileName = 'layout.handlebars'
 const LAYOUT_FILE = readFileSync(`${viewsDir}/${layoutFileName}`, 'utf-8')
 const LAYOUT = handlebars.compile(LAYOUT_FILE)
@@ -50,7 +50,7 @@ const DRY_RUN = false
 const ctx = {
     index: {
         tabtitle: 'Ｔａｎｄｅｍ　ｖｕｌｐｅｓ　ｖｏｃｅｍ　ｓｕａｍ　ｒｅｐｅｒｉｅｔ．',
-        desc: 'Stinky Foxxo Does Things',
+        desc: 'Stinky Lostkin has Claimed a Corner of the Internet',
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/webrings.css" />'],
     },
     term: {
@@ -124,14 +124,6 @@ function compileToHTML(page) {
 
 const pages = readdirSync(viewsDir)
 
-try {
-    if (!DRY_RUN) {
-        //mkdirSync(outDir)
-    }
-} catch (e) {
-    fatalError(e)
-}
-
 for (const page of pages) {
     if (page === layoutFileName) {
         continue
@@ -141,8 +133,8 @@ for (const page of pages) {
     //console.log(compiled.content)
     try {
         if (!DRY_RUN) {
-            //writeFileSync(`${outDir}/${compiled.name}`, compiled.content)
-            writeFileSync(join(__dirname, compiled.name), compiled.content)
+            writeFileSync(`${siteDir}/${compiled.name}`, compiled.content)
+            //writeFileSync(join(__dirname, compiled.name), compiled.content)
         }
     } catch (e) {
         fatalError(e)

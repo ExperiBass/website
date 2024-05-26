@@ -1,18 +1,4 @@
-<div id="header">
-    <h1>Unified-pride-flags Flag Preview</h1>
-    <div id="headerlinks">
-        <span>{{{link "github" "https://github.com/ExperiBass/unified-pride-flags"}}}</span>{{!--
-        --}}
-    </div>
-    <hr />
-</div>
-
-<div id="flag-container"></div>
-
-<hr />
-<footer>Massive thanks to <a href="https://github.com/KonkenBonken">@KonkenBonken</a> on GitHub~</footer>
-<script>
-    const flagContainer = document.getElementById('flag-container')
+const flagContainer = document.getElementById('flag-container')
     async function buildFlags() {
         let flagHTML = ''
         flagContainer.innerHTML = "<span>Loading...</span>"
@@ -30,6 +16,5 @@
         flagContainer.innerHTML = flagHTML
     }
     buildFlags().catch(e => {
-        flagContainer.innerText = e
+        flagContainer.innerText = errorCleaner(e)
     }) 
-</script>
