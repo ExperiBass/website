@@ -25,3 +25,9 @@ img {
     height: auto;
     border-radius: var(--border-radius);
 }
+
+@media (max-width: 40rem) {
+    #gallery {
+        columns: 2;
+    }
+}
