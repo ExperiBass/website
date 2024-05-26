@@ -54,7 +54,7 @@ const ctx = {
     },
     term: {
         tabtitle: 'Ｔａｎｄｅｍ　ｖｕｌｐｅｓ　ｖｏｃｅｍ　ｓｕａｍ　ｒｅｐｅｒｉｅｔ．',
-        desc: 'Stinky Foxxo Does Things',
+        desc: 'Stinky Lostkin has Claimed a Corner of the Internet',
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/main-term.css" />'],
     },
     'cyberspace-independence': {
@@ -68,20 +68,20 @@ const ctx = {
         author: 'John Perry Barlow',
     },
     pixelsorts: {
-        tabtitle: '',
-        description: 'Glitched Images',
+        tabtitle: 'Pixels Placed in Order',
+        desc: 'organic Home-grown free-range pixelsorts',
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/gallery.css" />'],
         galleryImages: galleries.pixelsorts,
     },
     eve: {
-        tabtitle: 'Gings EvE Photo Gallery',
-        description: 'Gings EvE Online screenshots.',
+        tabtitle: 'Screenshots in Space',
+        desc: 'When i\'m not dyin, i\'m killin\nand then dyin',
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/gallery.css" />'],
         galleryImages: galleries.eve,
     },
     flags: {
         tabtitle: 'Unified-pride-flags Flag Previews',
-        description: 'Previews of the flags included in unified-pride-flags.',
+        desc: 'Previews of the flags included in unified-pride-flags.',
         author: '@KonkenBonken, @ExperiBass (GitHub)',
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/flags.css" />'],
     },
@@ -90,7 +90,7 @@ const ctx = {
     },
     rinkucomms: {
         tabtitle: 'Rinku Inku Commission Sheet',
-        description: "Rinku Inku's commission sheet.",
+        desc: "Rinku Inku's commission sheet.",
         author: 'Rinku Inku',
         themecolor: '#93E9BE',
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/rinku.css" />'],
