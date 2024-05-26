@@ -1,7 +1,6 @@
 const handlebars = require('handlebars')
-const { readFileSync, writeFileSync, readdirSync, mkdirSync } = require('node:fs')
+const { readFileSync, writeFileSync, readdirSync } = require('node:fs')
 const { join } = require('node:path')
-const { execSync } = require('node:child_process')
 const galleries = require('./galleries.js')
 const thisDomain = 'https://experibassmusic.eth.limo'
 
@@ -30,15 +29,15 @@ handlebars.registerHelper('link', (text, url) => {
         text = this.text
         url = this.url
     }
-    let target = "_blank"
+    let target = '_blank'
     if (url.startsWith(thisDomain)) {
-        target = ""
+        target = ''
     }
     return `[<a href="${url}" target="${target}">${text}</a>]`
 })
 
 process.chdir(__dirname)
-const commitHash = execSync('git rev-parse HEAD | head -c 7')
+
 const siteDir = join(__dirname, `./site`)
 const viewsDir = join(siteDir, './views')
 const layoutFileName = 'layout.handlebars'
@@ -111,7 +110,6 @@ function compileToHTML(page) {
         stylesheets.push(...extra.stylesheets)
     }
     extra.stylesheets = stylesheets.join('')
-    extra.test = { foo: 'bar', bar: 'baz', baz: 'foo' }
 
     const body = handlebars.compile(template)
 
@@ -120,7 +118,6 @@ function compileToHTML(page) {
         content: LAYOUT({ body: body(extra), ...extra }),
     }
 }
-// console.log(compileToHTML('./views/index.handlebars'))
 
 const pages = readdirSync(viewsDir)
 
@@ -130,11 +127,9 @@ for (const page of pages) {
     }
     console.log(page)
     const compiled = compileToHTML(page)
-    //console.log(compiled.content)
     try {
         if (!DRY_RUN) {
             writeFileSync(`${siteDir}/${compiled.name}`, compiled.content)
-            //writeFileSync(join(__dirname, compiled.name), compiled.content)
         }
     } catch (e) {
         fatalError(e)
