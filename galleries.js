@@ -2,6 +2,11 @@ const pixelsorts = {
     tld: 'https://foxuments.experibassmusic.eth.limo/pixelsort-gens',
     images: [
         { url: '/misc/TheriaNoise.png', desc: '' },
+        {
+            url: '/bridgeskyline/right-then-down.jpg',
+            desc: 'classic pixelsort with the city masked off',
+            sourceURL: 'https://www.pexels.com/photo/concrete-bridge-near-buildings-during-golden-hour-1755683',
+        },
         { url: '/misc/lakepadden-sorted.png', desc: 'some pic of Lake Padden in Washington, USA' },
         {
             url: '/misc/vaporwavegarden-sorted.jpg',
@@ -21,14 +26,15 @@ const pixelsorts = {
             sourceURL: 'https://www.pexels.com/photo/lake-surrounded-with-mountain-629161',
         },
         {
-            url: '/bridgeskyline/right-then-down.jpg',
-            desc: 'classic pixelsort with the city masked off',
-            sourceURL: 'https://www.pexels.com/photo/concrete-bridge-near-buildings-during-golden-hour-1755683',
-        },
-        {
             url: '/bridgeskyline/differential-classic.jpg',
             desc: 'classic pixelsort, but with a mask made by a differential edge detect in GIMP',
             sourceURL: 'https://www.pexels.com/photo/concrete-bridge-near-buildings-during-golden-hour-1755683',
+        },
+        {
+            url: '/potm2310a/webb-reflective.jpg',
+            desc: 'sometimes spiral sorting results in this interesting reflective pattern...',
+            credits: 'ESA/Webb, NASA & CSA, A. Adamo (Stockholm University) and the FEAST JWST team',
+            sourceURL: 'https://esawebb.org/images/potm2310a/',
         },
         { url: '/dark-brandon/sorted.jpeg', desc: 'dark brandooooooooooon' },
         {
@@ -50,12 +56,7 @@ const pixelsorts = {
             desc: 'and a third, i dont remember what i did here but it involved thresholds',
             sourceURL: 'https://www.pexels.com/photo/green-leafed-trees-during-fog-time-167684',
         },
-        {
-            url: '/potm2310a/webb-reflective.jpg',
-            desc: 'sometimes spiral sorting results in this interesting reflective pattern...',
-            credits: 'ESA/Webb, NASA & CSA, A. Adamo (Stockholm University) and the FEAST JWST team',
-            sourceURL: 'https://esawebb.org/images/potm2310a/',
-        },
+        
     ],
 }
 const eve = {
