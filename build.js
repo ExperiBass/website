@@ -8,6 +8,7 @@ handlebars.registerHelper('populategallery', (gallery) => {
     let galleryHTML = ''
     for (const img of gallery.images) {
         const src = `${gallery.tld}${img.url}`
+        const divID = img.url.split('.').reverse().slice(1).join('.')
         let source = img.credits ?? 'source unknown'
         if (img.sourceURL) {
             if (img.sourceURL.startsWith('https')) {
@@ -15,7 +16,7 @@ handlebars.registerHelper('populategallery', (gallery) => {
             }
         }
         galleryHTML +=
-            '<div class="img-container">' +
+            `<div class="img-container" id="${divID}">` +
             `<a href="${src}">` +
             `<img src="${src}" />` + /// loading="lazy" ?
             '</a>' +
