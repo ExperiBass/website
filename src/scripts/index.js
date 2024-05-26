@@ -150,7 +150,7 @@ const sections = {
     <a href="term.html">this page, but in a terminal-like interface</a>
     <a href="flags.html">unified-pride-flags flag previews</a>
     <a href="pixelsorts.html">pixelsorted images i've done</a>
-    <a href="gallery.html">eve photo gallery</a>
+    <a href="eve.html">eve photo gallery</a>
     <a href="cyberspace-independence.html">declaration of the independence of cyberspace</a>
     `,
     contact: `

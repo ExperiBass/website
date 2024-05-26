@@ -2,5 +2,4 @@ User-agent: *
 Disallow: /_redirects
 Disallow: /.well-known/
 Disallow: /files/
-Disallow: /pixelsort-gens/
 Disallow: /src/
