@@ -69,5 +69,5 @@ const eve = {
 }
 module.exports = {
     pixelsorts,
-    eve
+    eve,
 }
