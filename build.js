@@ -2,9 +2,41 @@ const handlebars = require('handlebars')
 const { readFileSync, writeFileSync, readdirSync, mkdirSync } = require('node:fs')
 const { join } = require('node:path')
 const { execSync } = require('node:child_process')
+const galleries = require('./galleries.js')
+const thisDomain = 'https://experibassmusic.eth.limo'
 
-/// TODO
-/// compile views dir
+handlebars.registerHelper('populategallery', (gallery) => {
+    let galleryHTML = ''
+    for (const img of gallery.images) {
+        const src = `${gallery.tld}${img.url}`
+        let source = img.sourceURL ?? 'source unknown'
+        if (img.sourceURL) {
+            if (img.sourceURL.startsWith('https')) {
+                source = `<a href="${img.sourceURL}">${img.credits || 'source'}</a>`
+            }
+        }
+        galleryHTML +=
+            '<div class="img-container">' +
+            `<a href="${src}">` +
+            `<img src="${src}" loading="lazy"/>` +
+            '</a>' +
+            (img.desc ? `<p class="img-desc">${img.desc} [${source}]</p>` : '') +
+            '</div>\n'
+    }
+    return galleryHTML.trim()
+})
+handlebars.registerHelper('link', (text, url) => {
+    if (this.url) {
+        text = this.text
+        url = this.url
+    }
+    let target = "_blank"
+    if (url.startsWith(thisDomain)) {
+        target = ""
+    }
+    return `[<a href="${url}" target="${target}">${text}</a>]`
+})
+
 process.chdir(__dirname)
 const commitHash = execSync('git rev-parse HEAD | head -c 7')
 const viewsDir = join(__dirname, './views')
@@ -40,11 +72,13 @@ const ctx = {
         tabtitle: '',
         description: 'Glitched Images',
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/gallery.css" />'],
+        galleryImages: galleries.pixelsorts,
     },
     eve: {
         tabtitle: 'Gings EvE Photo Gallery',
         description: 'Gings EvE Online screenshots.',
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/gallery.css" />'],
+        galleryImages: galleries.eve,
     },
     flags: {
         tabtitle: 'Unified-pride-flags Flag Previews',
@@ -77,6 +111,7 @@ function compileToHTML(page) {
         stylesheets.push(...extra.stylesheets)
     }
     extra.stylesheets = stylesheets.join('')
+    extra.test = { foo: 'bar', bar: 'baz', baz: 'foo' }
 
     const body = handlebars.compile(template)
 
@@ -106,7 +141,8 @@ for (const page of pages) {
     //console.log(compiled.content)
     try {
         if (!DRY_RUN) {
-            writeFileSync(`${outDir}/${compiled.name}`, compiled.content)
+            //writeFileSync(`${outDir}/${compiled.name}`, compiled.content)
+            writeFileSync(join(__dirname, compiled.name), compiled.content)
         }
     } catch (e) {
         fatalError(e)

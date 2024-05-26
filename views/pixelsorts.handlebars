@@ -1,12 +1,13 @@
 <div id="header">
     <h1>Pixelsorts</h1>
-    <span>[<a href="https://foxuments.experibassmusic.eth.limo/pixelsort-gens/">more pixelsorting results +
-            masks</a>]</span>
+    <div id="headerlinks">
+        {{!-- i really want no whitespace --}}
+        <span>{{{link "home" "/"}}}</span>{{!--
+        --}}<span>{{{link "more pixelsorting results & masks" "https://foxuments.experibassmusic.eth.limo/pixelsort-gens/"}}}</span>
+    </div>
     <hr />
 </div>
 <div id="gallery">
-    <span>Loading...</span>
-    <noscript>Just kidding, you have JS disabled ya dork!</noscript>
-    {{{images}}}
+    {{{populategallery galleryImages}}}
 </div>
-<script defer src="src/scripts/pixelsorts.js"></script>
+<footer>{{{link "home" "/"}}}</footer>
