@@ -33,9 +33,9 @@ class Terminal {
                     helpText += `Commands:\n${[...classThis.#commands.keys()].sort().join(", ")}`
                     return helpText
                 }
-                const command = classThis.#commands.get(args[0]) ?? classThis.#commands.get(findCommandFromAlias(args[0], this.#commands))
+                const command = classThis.#commands.get(args[0]) ?? classThis.#commands.get(findCommandFromAlias(args[0], classThis.#commands))
                 if (!command) {
-                    return `foxsh: Yip! "${command}" not found.`
+                    return `foxsh: Yip! command "${args[0]}" not found.`
                 }
                 return `${command.description || ''}\nAliases: ${command.aliases || 'none'}`
             },
@@ -82,104 +82,22 @@ class Terminal {
                 return output
             }
         },
-        "aboutme": {
-            async execute() {
-                const output =
-                    `<div id="aboutme">
-                    <h3> About Me</h3>
-                    <pre>
-                    <strong>Preferred Names:</strong> /Ging(ka|er){0,1}/ Pepper
-                    <strong>Age:</strong> N/A
-                    <strong>Gender:</strong> Fluid
-                    <strong>Sex:</strong> Male :GingCri:
-                    <strong>Pronouns:</strong> He/Him She/Her (Ask)
-                    <strong>Orientation:</strong> Bi
-                    <strong>Location:</strong> Universe 2, Quadrant C, Sector B
-                    <strong>GPG Pawprint:</strong>
-                    <b id="pawprint" class="hov" onclick="copy(this)" title="Click to copy!">${pawprint}</b>
-                </pre>
-                </div>
-                `
-                return output
-            }
-        },
-        "bio": {
-            execute() {
-                const output =
-                    `<div id="bio">
-                    <h3>龎 Bio</h3>
-                    <p>:GingBlep: Hai! I'm a stimky internet fox! I write code, do crime, and steal your garlic bread :GingkaCreep:
-                        I main JS, although I'm happy in most langs uwu
-                        I like making stupid scripts and bending JS to my will, you can see some samples in the source for this page (one being this emote system :GingHappy:)
-                        I speedrun WipEout Pure, slowly getting into running 2048 too uwu</p>
-                    <p>I also make music! I seem to have stuck with Trap and early 2000s Hardstyle, but I like to dabble in everything :owo:
-                        My Audius is linked below, along with my other socials!</p>
-                </div>
-                `
-                return output
-            }
-        },
-        "links": {
-            execute() {
-                const output =
-                    `<div id="links">
-                    <h3>󰌹 Links</h3>
-                    <a href="https://audius.co/experibass">󰠃 Audius</a>
-                    <a href="https://youtube.com/channel/UCx6VxDU880NuvLbWH8xT2GA">󰗃 YouTube (I upload visuals and speedruns here :owo:)</a>
-                    <a href="https://twitch.tv/experibassmusic">󰕃 Twitch (I stream sometimes :3)</a>
-                    <a href="https://speedrun.com/user/ExperiBass">󰑮 SpeedRun.com</a>
-                    <a href="https://github.com/experibass">󰊤 GitHub</a>
-                    <a href="https://linux-hardware.org/?probe=7b3cdda6e2">󰋊 Hardware Probe</a>
-                    <a href="https://github.com/ExperiBass/linux-dotfiles"> My Dotfiles</a>
-                    <h3>󰲸 Playlists</h3>
-                    <a href="https://music.apple.com/us/playlist/b%CE%B3iddim/pl.u-WabZv4ZieNAvxLY">Briddim</a>
-                    <a href="https://music.apple.com/us/playlist/colo%CE%B3-b%CE%BBss/pl.u-WabZvAVueNAvxLY">Color Bass</a>
-                    <a href="https://music.apple.com/us/playlist/h%CE%BB%CE%B3dstyl%CE%BE/pl.u-NpXmzeWF4yVpke7">Hardstyle</a>
-                    <a href="https://music.apple.com/us/playlist/%CE%B3iddim/pl.u-NpXmza7t4yVpke7">Riddim</a>
-                    <h2>more to come...</h2>
-                </div>
-                `
-                return output
-            }
-        },
-        "contact": {
-            execute() {
-                const output =
-                    `<div id="contact">
-                        <h3>󰛋 Contact</h3>
-                        <p><strong>󰘨 Matrix:</strong> @experibassmusic:kde.org</p>
-                        <p><strong>󰇮 Email:</strong> <span class="hov" onclick="copy(this)">gingkagingerpepper [at] icloud [dot] com</span></p>
-                </div>
-                `
-                return output.split('\n').join('')
-            }
-        },
-        "wallets": {
-            execute() {
-                const output =
-                    `<div id="wallets">
-                    <h3>󰖄 Wallet Addresses</h3>
-                    <p>If you enjoy what I do, feel free to send a bit of crypto :3</p>
-                    <p>Click on an address to insert it into your clipboard!
-                        Make sure the addresses are correct, especially on Windows,
-                        as there is malware that will replace addresses with the address of the attacker.</p>
-                    <p>All coins: <span class="hov" onclick="copy(this)">*experibassmusic.eth*</span></p>
-                    <p>For wallets that do not support ENS resolution, see below.</p>
-                    <p>BTC (preferred): <span class="hov"
-                            onclick="copy(this)">bc1qlxpe2uw7pkdctxghdgvsu47rknvcmz2j27hxvx</span></p>
-                    <p>BTC Lightning (preferred): <span class="hov" onclick="copy(this)">experibassmusic@bitrefill.me</span><br>or ask for invoice</p>
-                    <p>ETH: <span class="hov" onclick="copy(this)">0x8Bb53bC2a63F2bd10B16bd0aD6fCDc1ffd49d114</span></p>
-                    <p>XMR: ask</p>
-                </div>
-                `
-                return output.split('\n').join('')
-            }
-        }
     }
-    #commands = new Map(Object.entries(this.#commandsDef))
+    #commands = null
     constructor(rootElm, motd) {
         this.#root = rootElm
         motd ? this.#motd = motd : ""
+
+        for (const [k,v] of Object.entries(sections)) {
+            console.log(k)
+            this.#commandsDef[k] = {
+                async execute() {
+                    return v.replace(/\n/g, '')
+                }
+            }
+        }
+        this.#commands = new Map(Object.entries(this.#commandsDef))
+
         this.#start()
     }
     #start() {

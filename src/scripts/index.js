@@ -121,36 +121,37 @@ const sections = {
     `,
     links: `
     <h2>> links</h2>
-    <a href="https://audius.co/experibass">󰠃 Audius</a>
+    <a href="https://audius.co/experibass">󰠃 audius</a>
     <a href="https://youtube.com/channel/UCx6VxDU880NuvLbWH8xT2GA">
-        󰗃 YouTube (I upload visuals and speedruns here :owo:)
+        󰗃 youtube (I upload visuals and speedruns here :owo:)
     </a>
-    <a href="https://twitter.com/experibassmusic">󰕄 Twitter (lets see how long this platform lasts)</a>
-    <a href="https://twitch.tv/experibassmusic">󰕃 Twitch (I stream sometimes :3)</a>
-    <a href="https://speedrun.com/user/ExperiBass">󰑮 SpeedRun.com</a>
-    <a href="https://github.com/experibass">󰊤 GitHub</a>
-    <a href="https://linux-hardware.org/?probe=7b3cdda6e2">󰋊 Hardware Probe</a>
-    <a href="https://github.com/ExperiBass/linux-dotfiles"> My Dotfiles</a>
+    <a href="https://twitter.com/experibassmusic">󰕄 twitter (lets see how long this platform lasts)</a>
+    <a href="https://twitch.tv/experibassmusic">󰕃 twitch (I stream sometimes :3)</a>
+    <a href="https://speedrun.com/user/ExperiBass">󰑮 speedrun.com</a>
+    <a href="https://github.com/experibass">󰊤 github</a>
+    <a href="https://linux-hardware.org/?probe=7b3cdda6e2">󰋊 hardware probe</a>
+    <a href="https://github.com/ExperiBass/linux-dotfiles"> my dotfiles</a>
     <h3>󰲸 Playlists<span class="cursor-blink">_</span></h3>
-    <a href="https://music.apple.com/us/playlist/%CF%80utty/pl.u-oZyl3PaCGaB0dxD">Nutty</a>
-    <a href="https://music.apple.com/us/playlist/b%CE%B3iddim/pl.u-WabZv4ZieNAvxLY">Briddim</a>
-    <a href="https://music.apple.com/us/playlist/h%CE%B4%CE%B3dstyl%CE%BE/pl.u-NpXmzeWF4yVpke7">Hardstyle</a>
-    <a href="https://music.apple.com/us/playlist/jvmpstyl%CE%BE/pl.u-2aoqXKDiG20LlDe">Jumpstyle</a>
-    <a href="https://music.apple.com/us/playlist/%CE%B3iddim/pl.u-NpXmza7t4yVpke7">Riddim</a>
+    <a href="https://music.apple.com/us/playlist/%CF%80utty/pl.u-oZyl3PaCGaB0dxD">nutty</a>
+    <a href="https://music.apple.com/us/playlist/b%CE%B3iddim/pl.u-WabZv4ZieNAvxLY">briddim</a>
+    <a href="https://music.apple.com/us/playlist/h%CE%B4%CE%B3dstyl%CE%BE/pl.u-NpXmzeWF4yVpke7">hardstyle</a>
+    <a href="https://music.apple.com/us/playlist/jvmpstyl%CE%BE/pl.u-2aoqXKDiG20LlDe">jumpstyle</a>
+    <a href="https://music.apple.com/us/playlist/%CE%B3iddim/pl.u-NpXmza7t4yVpke7">riddim</a>
     <span>still too lazy to update this</span>
     <h3>󱌣 Tools/Utils<span class="cursor-blink">_</span></h3>
-    <a href="https://github.com/experibass/unified-pride-flags">Unified list for pride flag colors and weights</a>
-    <a href="https://github.com/experibass/cli-pride-flags">Pride Flags in your term~</a>
-    <a href="https://github.com/experibass/pixelsort-go">Pixelsorter written in Go</a>
+    <a href="https://github.com/experibass/unified-pride-flags">unified list for pride flag colors and weights</a>
+    <a href="https://github.com/experibass/cli-pride-flags">pride flags in your term~</a>
+    <a href="https://github.com/experibass/pixelsort-go">pixelsorter written in go</a>
     `,
     otherpages: `
     <h2>> otherpages</h2>
     <span>A list of the other pages on this site.</span>
-    <a href="key.txt">pgp key</a>
+    <a href="key.txt">pgp pubkey</a>
+    <a href="term.html">this page, but in a terminal-like interface</a>
     <a href="flags.html">unified-pride-flags flag previews</a>
-    <a href="gallery.html">EvE Photo Gallery</a>
-    <a href="https://foxuments.experibassmusic.eth.limo/pixelsort-gens/">Pixelsorting Results</a>
-    <a href="cyberspace-independence.html">Declaration of the Independence of Cyberspace</a>
+    <a href="pixelsorts.html">pixelsorted images i've done</a>
+    <a href="gallery.html">eve photo gallery</a>
+    <a href="cyberspace-independence.html">declaration of the independence of cyberspace</a>
     `,
     contact: `
     <h2>> contact</h2>
@@ -196,9 +197,7 @@ const sections = {
     <p>
         I will not use lewd sounds in my comissions. You can do anything you want to the track once it's
         finished <i>except</i> resell without my explicit permission. I do reserve the right to use and edit the
-        finished product for myself if I choose. (<a href="https://creativecommons.org/licenses/by-nc/4.0/"
-            >CC-BY-NC-4.0</a
-        >)
+        finished product for myself if I choose. (<a href="https://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a>)
     </p>
     <h3>Payment</h3>
     <p>Payment in fiat will be conducted through CashApp or Zelle, whichever is easier. USD only.</p>
@@ -223,9 +222,10 @@ const sections = {
     <p>All coins:<br /><span class="hov" onclick="copy(this)"><i>experibassmusic.eth</i></span></p>
     <p>For wallets that do not support ENS resolution, see below.</p>
     <p>
-        BTC Lightning (preferred):<br /><span class="hov" onclick="copy(this)"
-            >experibassmusic@bitrefill.me</span
-        ><br />or ask for invoice
+        BTC Lightning (preferred):<br />
+        <span class="hov" onclick="copy(this)">
+            experibassmusic@bitrefill.me
+        </span><br />or ask for invoice
     </p>
     <p>
         BTC (preferred):<br /><span class="hov" onclick="copy(this)"
@@ -236,7 +236,6 @@ const sections = {
     <p>XMR:<br />ask</p>
     `,
 }
-
 
 /// ok now do the thing
 try {
