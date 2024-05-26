@@ -32,20 +32,11 @@ const pixelsorts = {
         },
         {
             url: '/potm2310a/webb-reflective.jpg',
-            desc: 'sometimes spiral sorting results in this interesting reflective pattern...',
+            desc: 'spiral sorting results in this interesting reflective pattern when you rotate the image...',
             credits: 'ESA/Webb, NASA & CSA, A. Adamo (Stockholm University) and the FEAST JWST team',
             sourceURL: 'https://esawebb.org/images/potm2310a/',
         },
         { url: '/dark-brandon/sorted.jpeg', desc: 'dark brandooooooooooon' },
-        {
-            url: '/dark-brandon/90-deg-spiral-masked.jpeg',
-            desc: '/uj spiral sorting is cool, even cooler when you rotate the image furst<br>/rj dark brandon that was a spice vape!',
-        },
-        {
-            url: '/lumn-forest/heavy-sort.jpg',
-            desc: 'my wallpaper for a little bit, i ended up using this pic a lot to test pixelsort_go :3',
-            sourceURL: 'https://www.pexels.com/photo/green-leafed-trees-during-fog-time-167684',
-        },
         {
             url: '/lumn-forest/superpixel.jpg',
             desc: 'another version, this time using GIMPs superpixel filter to generate the mask',
@@ -56,7 +47,27 @@ const pixelsorts = {
             desc: 'and a third, i dont remember what i did here but it involved thresholds',
             sourceURL: 'https://www.pexels.com/photo/green-leafed-trees-during-fog-time-167684',
         },
-        
+        {
+            url: '/lumn-forest/heavy-sort.jpg',
+            desc: 'my wallpaper for a little bit, i ended up using this pic a lot to test pixelsort_go :3',
+            sourceURL: 'https://www.pexels.com/photo/green-leafed-trees-during-fog-time-167684',
+        },
+        {
+            url: '/dark-brandon/90-deg-spiral-masked.jpeg',
+            desc:
+                '/uj spiral sorting is cool, even cooler when you rotate the image furst' +
+                "<br>/rj dark brandon nooo don't smoke the digital spliff!",
+        },
+        {
+            url: '/sleepysnek/classic.jpg',
+            desc: 'friend wanted one of their pics sorted :3',
+            credits: 'private',
+        },
+        {
+            url: '/sleepysnek/classic-2.jpg',
+            desc: 'i did a second take with more of the city left intact',
+            credits: 'private',
+        },
     ],
 }
 const eve = {
