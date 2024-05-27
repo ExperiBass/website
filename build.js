@@ -76,6 +76,10 @@ const ctx = {
         galleryImages: galleries.pixelsorts,
         keywords: ['pixelsorting', 'pixelsort', 'glitch', 'art'],
         image: 'https://foxuments.experibassmusic.eth.limo/pixelsort-gens/misc/lakepadden-sorted.png',
+        imageDims: {
+            width: 1920,
+            height: 1080
+        }
     },
     eve: {
         tabtitle: 'Screenshots in Space',

@@ -13,6 +13,10 @@
         <meta name="og:url" content="https://experibassmusic.eth.limo/{{page}}" />
         {{#if image}}
             <meta name="og:image" content="{{image}}">
+            {{#if imageDims}}
+            <meta name="og:image:height" content="{{imageDims.height}}">
+            <meta name="og:image:width" content="{{imageDims.width}}">
+            {{/if}}
         {{/if}}
         <meta name="og:type" content="website" />
         <meta name="theme-color" content="{{themecolor}}" data-react-helmet="true" />
