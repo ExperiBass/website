@@ -8,17 +8,20 @@
         <meta name="number" content="3373" />
 
         {{!-- OpenGraph --}}
-        <meta name="og:url" content="https://experibassmusic.eth.limo/{{page}}" />
         <meta name="og:title" content="{{tabtitle}}" />
         <meta name="og:description" content="{{desc}}" />
+        <meta name="og:url" content="https://experibassmusic.eth.limo/{{page}}" />
+        {{#if image}}
+            <meta name="og:image" content="{{image}}">
+        {{/if}}
         <meta name="og:type" content="website" />
         <meta name="theme-color" content="{{themecolor}}" data-react-helmet="true" />
-        
+
         {{!-- standard --}}
         <meta name="author" content="{{author}}" />
         <meta name="description" content="{{desc}}">
         <meta name="generator" content="Foxpower">
-        <meta name="keywords" content="{{keywords}}"/>
+        <meta name="keywords" content="{{keywords}}" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {{!-- favicon --}}

@@ -52,13 +52,11 @@ const ctx = {
         tabtitle: 'Ｔａｎｄｅｍ　ｖｕｌｐｅｓ　ｖｏｃｅｍ　ｓｕａｍ　ｒｅｐｅｒｉｅｔ．',
         desc: 'Stinky Lostkin has Claimed a Corner of the Internet',
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/webrings.css" />'],
-        keywords: [],
     },
     term: {
         tabtitle: 'Ｔａｎｄｅｍ　ｖｕｌｐｅｓ　ｖｏｃｅｍ　ｓｕａｍ　ｒｅｐｅｒｉｅｔ．',
         desc: 'Stinky Lostkin has Claimed a Corner of the Internet',
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/main-term.css" />'],
-        keywords: [],
     },
     'cyberspace-independence': {
         tabtitle: 'A Declaration of the Independence of Cyberspace',
@@ -77,6 +75,7 @@ const ctx = {
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/gallery.css" />'],
         galleryImages: galleries.pixelsorts,
         keywords: ['pixelsorting', 'pixelsort', 'glitch', 'art'],
+        image: 'https://foxuments.experibassmusic.eth.limo/pixelsort-gens/misc/lakepadden-sorted.png',
     },
     eve: {
         tabtitle: 'Screenshots in Space',
@@ -84,6 +83,7 @@ const ctx = {
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/gallery.css" />'],
         galleryImages: galleries.eve,
         keywords: ['eve', 'online', 'screenshots'],
+        image: '',
     },
     flags: {
         tabtitle: 'Unified-pride-flags Flag Previews',
