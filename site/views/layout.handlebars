@@ -12,10 +12,11 @@
         <meta name="og:description" content="{{desc}}" />
         <meta name="og:url" content="https://experibassmusic.eth.limo/{{page}}" />
         {{#if image}}
+            <meta name="twitter:card" content="summary_large_image">
             <meta name="og:image" content="{{image}}">
             {{#if imageDims}}
-            <meta name="og:image:height" content="{{imageDims.height}}">
-            <meta name="og:image:width" content="{{imageDims.width}}">
+                <meta name="og:image:width" content="{{imageDims.width}}">
+                <meta name="og:image:height" content="{{imageDims.height}}">
             {{/if}}
         {{/if}}
         <meta name="og:type" content="website" />
