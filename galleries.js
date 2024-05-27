@@ -68,6 +68,17 @@ const pixelsorts = {
             desc: 'i did a second take with more of the city left intact',
             credits: 'private',
         },
+        {
+            url: '/dubai-at-night/sorted.jpg',
+            desc:
+                'i love shots like these<br>this was a <i>pain</i> to mask, ' +
+                'i did so much tweaking to the brightness of the buildings to get the ' +
+                'edge detection to pick up on enough edges<br>' +
+                'not to mention the manually painting over color bands in the sky ' +
+                'to get a solid block of sorted pixels<br>' +
+                'worth it tho, looks amazing, makes you do a double-take at furst glance',
+            sourceURL: 'https://www.pexels.com/photo/photo-of-buildings-during-nighttime-2603464/',
+        },
     ],
 }
 const eve = {
