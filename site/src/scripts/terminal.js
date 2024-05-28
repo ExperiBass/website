@@ -229,3 +229,7 @@ class Terminal {
         this.#root.append(container)
     }
 }
+
+const promptInput = document.getElementById('activeprompt')
+const promptCompletion = document.getElementById('activepromptcompletion')
+const term = new Terminal(document.getElementById('term'))
