@@ -3,8 +3,8 @@
 /pixelsort-gens/ https://foxuments.experibassmusic.eth.limo/pixelsort-gens/ 308
 /pixelsort-gens/* https://foxuments.experibassmusic.eth.limo/pixelsort-gens/:splat 308
 # eth.limo borked ipns resolves, use http for now :\
-#/pixelsort-gens/ ipns://k51qzi5uqu5dinu7ivo9iypqapmziyghdp5dlo9gr9eihpnufyrm73oqlx55ey/pixelsort-gens/ 308
-#/pixelsort-gens/* ipns://k51qzi5uqu5dinu7ivo9iypqapmziyghdp5dlo9gr9eihpnufyrm73oqlx55ey/pixelsort-gens/:splat 308
+/pixelsorts/ /ipns/k51qzi5uqu5dinu7ivo9iypqapmziyghdp5dlo9gr9eihpnufyrm73oqlx55ey/pixelsort-gens/ 308
+/pixelsorts/* /ipns/k51qzi5uqu5dinu7ivo9iypqapmziyghdp5dlo9gr9eihpnufyrm73oqlx55ey/pixelsort-gens/:splat 308
 
 # must stay at bottom
 /* /404.html 404
