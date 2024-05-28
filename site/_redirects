@@ -2,5 +2,8 @@
 /pixelsort-gens/ https://foxuments.experibassmusic.eth.limo/pixelsort-gens/ 308
 /pixelsort-gens/* https://foxuments.experibassmusic.eth.limo/pixelsort-gens/:splat 308
 
+# eve gallery pics
+/src/images/gallery/* https://foxuments.experibassmusic.eth.limo/eve-screenshots/:splat 308
+
 # must stay at bottom
 /* /404.html 404

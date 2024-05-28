@@ -82,12 +82,12 @@ const pixelsorts = {
     ],
 }
 const eve = {
-    tld: '',
+    tld: 'https://foxuments.experibassmusic.eth.limo/eve-screenshots',
     images: [
-        { url: 'src/images/gallery/Docked.png', source: 'myself' },
-        { url: 'src/images/gallery/CataclysmicVariable.png', source: 'myself' },
-        { url: 'src/images/gallery/DrifterHole1.png', source: 'myself' },
-        { url: 'src/images/gallery/SuccubusOnDrifterHole.png', source: 'myself' },
+        { url: '/Docked.png', source: 'myself' },
+        { url: '/CataclysmicVariable.png', source: 'myself' },
+        { url: '/DrifterHole1.png', source: 'myself' },
+        { url: '/SuccubusOnDrifterHole.png', source: 'myself' },
     ],
 }
 module.exports = {
