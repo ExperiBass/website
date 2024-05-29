@@ -167,12 +167,12 @@ const sections = {
     otherpages: `
     <h2>> otherpages</h2>
     <span>A list of the other pages on this site.</span>
-    <a href="key.txt">pgp pubkey</a>
     <a href="term.html">this page, but in a terminal-like interface</a>
-    <a href="flags.html">unified-pride-flags flag previews</a>
-    <a href="pixelsorts.html">pixelsorted images i've done</a>
+    <a href="pixelsorts.html">pixelsort gallery</a>
     <a href="eve.html">eve photo gallery</a>
+    <a href="flags.html">unified-pride-flags flag previews</a>
     <a href="cyberspace-independence.html">declaration of the independence of cyberspace</a>
+    <a href="key.txt">pgp pubkey</a>
     `,
     contact: `
     <h2>> contact</h2>
