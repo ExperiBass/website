@@ -61,12 +61,12 @@ const pixelsorts = {
         {
             url: '/sleepysnek/classic.jpg',
             desc: 'friend wanted one of their pics sorted :3',
-            credits: 'private',
+            credits: 'source private',
         },
         {
             url: '/sleepysnek/classic-2.jpg',
             desc: 'i did a second take with more of the city left intact',
-            credits: 'private',
+            credits: 'source private',
         },
         {
             url: '/dubai-at-night/sorted.jpg',
@@ -79,6 +79,11 @@ const pixelsorts = {
                 'worth it tho, looks amazing, makes you do a double-take at furst glance',
             sourceURL: 'https://www.pexels.com/photo/photo-of-buildings-during-nighttime-2603464/',
         },
+        {
+            url: '/misc/walking.jpg',
+            desc: 'i really want more pics like this, walking into the glitch is so cool',
+            sourceURL: 'https://www.pexels.com/photo/man-walking-in-solitude-in-yellow-light-on-a-foggy-night-19096790/'
+        }
     ],
 }
 const eve = {
