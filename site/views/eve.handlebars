@@ -1,7 +1,9 @@
 <div id="header">
     <h1>{{tabtitle}}</h1>
-    <span>Gallery of my screenshots.</span>
-    <span>{{{link "home" "/"}}}</span>
+    <div id="headerlinks">
+        <span>{{{link "home" "/"}}}</span>
+        <br><span>licensed under {{{link "cc-by-nc-sa 4.0" "https://creativecommons.org/licenses/by-nc-sa/4.0"}}}</span>
+    </div>
     <hr>
 </div>
 
@@ -9,5 +11,5 @@
 <div id="gallery">
     {{{populategallery galleryImages}}}
 </div>
-
+<hr />
 <footer>{{{link "home" "/"}}}</footer>
