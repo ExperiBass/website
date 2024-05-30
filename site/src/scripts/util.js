@@ -151,7 +151,7 @@ const sections = {
     <a href="https://speedrun.com/user/ExperiBass">󰑮 speedrun.com</a>
     <a href="https://github.com/experibass">󰊤 github</a>
     <a href="https://linux-hardware.org/?probe=7b3cdda6e2">󰋊 hardware probe</a>
-    <a href="https://github.com/ExperiBass/linux-dotfiles"> my dotfiles</a>
+    <a href="https://github.com/ExperiBass/dotfiles"> my dotfiles</a>
     <h3>󰲸 Playlists<span class="cursor-blink">_</span></h3>
     <a href="https://music.apple.com/us/playlist/%CF%80utty/pl.u-oZyl3PaCGaB0dxD">nutty</a>
     <a href="https://music.apple.com/us/playlist/b%CE%B3iddim/pl.u-WabZv4ZieNAvxLY">briddim</a>
