@@ -162,7 +162,7 @@ const sections = {
     <h3>󱌣 Tools/Utils<span class="cursor-blink">_</span></h3>
     <a href="https://github.com/experibass/unified-pride-flags">unified list for pride flag colors and weights</a>
     <a href="https://github.com/experibass/cli-pride-flags">pride flags in your term~</a>
-    <a href="https://github.com/experibass/pixelsort-go">pixelsorter written in go</a>
+    <a href="https://github.com/experibass/pixelsort-go">pixelsorter written in golang</a>
     `,
     otherpages: `
     <h2>> otherpages</h2>
