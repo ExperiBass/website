@@ -100,6 +100,7 @@ const ctx = {
     },
     404: {
         tabtitle: 'Are You Lost? (404)',
+        desc: 'Were you ever found?'
     },
     rinkucomms: {
         tabtitle: 'Rinku Inku Commission Sheet',
