@@ -8,8 +8,9 @@ handlebars.registerHelper('populategallery', (gallery) => {
     let galleryHTML = ''
     for (const img of gallery.images) {
         const src = `${gallery.tld}${img.url}`
+        /// usse the image path without the file ext as the id 
         const divID = img.url.split('.').reverse().slice(1).join('.')
-        let source = img.credits ?? 'source unknown'
+        let source = img.credits || 'source unknown'
         if (img.sourceURL) {
             if (img.sourceURL.startsWith('https')) {
                 source = `<a href="${img.sourceURL}">${img.credits || 'source'}</a>`
@@ -25,14 +26,15 @@ handlebars.registerHelper('populategallery', (gallery) => {
     }
     return galleryHTML.trim()
 })
+
 handlebars.registerHelper('link', (text, url) => {
     if (this.url) {
         text = this.text
         url = this.url
     }
-    let target = '_blank'
-    if (url.startsWith(thisDomain)) {
-        target = ''
+    let target = ''
+    if (url.startsWith('https://') && !url.startsWith(thisDomain)) {
+        target = '_blank' // open external links in a new tab
     }
     return `[<a href="${url}" target="${target}">${text}</a>]`
 })
@@ -78,8 +80,8 @@ const ctx = {
         image: 'https://foxuments.experibassmusic.eth.limo/pixelsort-gens/misc/lakepadden-sorted.png',
         imageDims: {
             width: 1920,
-            height: 1080
-        }
+            height: 1080,
+        },
     },
     eve: {
         tabtitle: 'Screenshots in Space',

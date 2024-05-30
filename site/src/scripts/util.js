@@ -8,7 +8,7 @@ function addBlankToLinks() {
     // MAYBE: ipns as well?
     const thisDomain = 'https://experibassmusic.eth.limo'
     for (const a of links) {
-        if (!a.href.startsWith(thisDomain)) {
+        if (a.href.startsWith('https://') &&!a.href.startsWith(thisDomain)) {
             a.target = '_blank' // open external links in a new tab
         }
     }
