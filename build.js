@@ -4,30 +4,7 @@ const { join } = require('node:path')
 const galleries = require('./galleries.js')
 const thisDomain = 'https://experibassmusic.eth.limo'
 
-handlebars.registerHelper('populategallery', (gallery) => {
-    let galleryHTML = ''
-    for (const img of gallery.images) {
-        const src = `${gallery.tld}${img.url}`
-        /// usse the image path without the file ext as the id 
-        const divID = img.url.split('.').reverse().slice(1).join('.')
-        let source = img.credits || 'source unknown'
-        if (img.sourceURL) {
-            if (img.sourceURL.startsWith('https')) {
-                source = `<a href="${img.sourceURL}">${img.credits || 'source'}</a>`
-            }
-        }
-        galleryHTML +=
-            `<div class="img-container" id="${divID}">` +
-            `<a href="${src}">` +
-            `<img src="${src}" />` + /// loading="lazy" ?
-            '</a>' +
-            (img.desc ? `<p class="img-desc">${img.desc} [${source}]</p>` : '') +
-            '</div>\n'
-    }
-    return galleryHTML.trim()
-})
-
-handlebars.registerHelper('link', (text, url) => {
+const linkHelper = (text, url) => {
     if (this.url) {
         text = this.text
         url = this.url
@@ -36,8 +13,32 @@ handlebars.registerHelper('link', (text, url) => {
     if (url.startsWith('https://') && !url.startsWith(thisDomain)) {
         target = '_blank' // open external links in a new tab
     }
+
     return `[<a href="${url}" target="${target}">${text}</a>]`
+}
+handlebars.registerHelper('populategallery', (gallery) => {
+    let galleryHTML = ''
+    for (const img of gallery.images) {
+        const src = `${gallery.tld}${img.url}`
+        /// usse the image path without the file ext as the id
+        const divID = img.url.split('.').reverse().slice(1).join('.')
+        let source = `[${img.credits || 'source unknown'}]`
+        if (img.sourceURL) {
+            if (img.sourceURL.startsWith('https')) {
+                source = linkHelper(img.credits || 'source', img.sourceURL)
+            }
+        }
+        galleryHTML +=
+            `<div class="img-container" id="${divID}">` +
+            `<a href="${src}">` +
+            `<img src="${src}" />` + /// loading="lazy" ?
+            '</a>' +
+            (img.desc ? `<p class="img-desc">${img.desc} ${source}</p>` : '') +
+            '</div>\n'
+    }
+    return galleryHTML.trim()
 })
+handlebars.registerHelper('link', linkHelper)
 
 process.chdir(__dirname)
 
@@ -78,10 +79,7 @@ const ctx = {
         galleryImages: galleries.pixelsorts,
         keywords: ['pixelsorting', 'pixelsort', 'glitch', 'art'],
         image: 'https://foxuments.experibassmusic.eth.limo/pixelsort-gens/misc/lakepadden-sorted.png',
-        imageDims: {
-            width: 1920,
-            height: 1080,
-        },
+        imageDims: { width: 1920, height: 1080 },
     },
     eve: {
         tabtitle: 'Screenshots in Space',
@@ -98,10 +96,7 @@ const ctx = {
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/flags.css" />'],
         keywords: ['unified', 'cli', 'pride', 'flags', 'lgbtqia'],
     },
-    404: {
-        tabtitle: 'Are You Lost? (404)',
-        desc: 'Were you ever found?'
-    },
+    404: { tabtitle: 'Are You Lost? (404)', desc: 'Were you ever found?' },
     rinkucomms: {
         tabtitle: 'Rinku Inku Commission Sheet',
         desc: "Rinku Inku's commission sheet.",
@@ -125,7 +120,7 @@ function compileToHTML(page) {
         stylesheets.push(...extra.stylesheets)
     }
     extra.stylesheets = stylesheets.join('')
-    let keywords = ['experibassmusic', 'experibassmusic.eth.limo', 'web3']
+    let keywords = ['⎇', 'ΘΔ', 'experibassmusic', 'experibassmusic.eth.limo', 'web3', 'ens', 'alterbeing', 'nonhuman']
     if (extra.keywords) {
         keywords.push(...extra.keywords)
     }
