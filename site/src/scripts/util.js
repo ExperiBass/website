@@ -8,7 +8,7 @@ function addBlankToLinks() {
     // MAYBE: ipns as well?
     const thisDomain = 'https://experibassmusic.eth.limo'
     for (const a of links) {
-        if (a.href.startsWith('https://') &&!a.href.startsWith(thisDomain)) {
+        if (a.href.startsWith('https://') && !a.href.startsWith(thisDomain)) {
             a.target = '_blank' // open external links in a new tab
         }
     }
@@ -82,6 +82,7 @@ function errorCleaner(err) {
 }
 
 /// there has to be a better way...
+/// MAYBE: make .handlebars and compile?
 const sections = {
     aboutme: `
         <h2>> aboutme</h2>
@@ -142,15 +143,17 @@ const sections = {
     `,
     links: `
     <h2>> links</h2>
-    <a href="https://audius.co/experibass">󰠃 audius</a>
+    <a href="https://audius.co/experibass"> audius</a>
     <a href="https://youtube.com/channel/UCx6VxDU880NuvLbWH8xT2GA">
-        󰗃 youtube (I upload visuals and speedruns here :owo:)
+      youtube (I upload visuals and speedruns here :owo:)
     </a>
-    <a href="https://twitter.com/experibassmusic">󰕄 twitter (lets see how long this platform lasts)</a>
-    <a href="https://twitch.tv/experibassmusic">󰕃 twitch (I stream sometimes :3)</a>
-    <a href="https://speedrun.com/user/ExperiBass">󰑮 speedrun.com</a>
-    <a href="https://github.com/experibass">󰊤 github</a>
-    <a href="https://linux-hardware.org/?probe=7b3cdda6e2">󰋊 hardware probe</a>
+    <a href="https://twitter.com/experibassmusic"> twitter (lets see how long this platform lasts)</a>
+    <a href="https://bsky.app/profile/experibassmusic.bsky.social">  bluesky</a>
+    <a href="https://twitch.tv/experibassmusic"> twitch (I stream sometimes :3)</a>
+    <a href="https://speedrun.com/user/ExperiBass"> speedrun.com</a>
+    <a href="https://github.com/experibass"> github (mirror of my repos)</a>
+    <span> forgejo (eventually)</span>
+    <a href="https://linux-hardware.org/?probe=7b3cdda6e2"> hardware probe</a>
     <a href="https://github.com/ExperiBass/dotfiles"> my dotfiles</a>
     <h3>󰲸 Playlists<span class="cursor-blink">_</span></h3>
     <a href="https://music.apple.com/us/playlist/%CF%80utty/pl.u-oZyl3PaCGaB0dxD">nutty</a>
@@ -158,7 +161,7 @@ const sections = {
     <a href="https://music.apple.com/us/playlist/h%CE%B4%CE%B3dstyl%CE%BE/pl.u-NpXmzeWF4yVpke7">hardstyle</a>
     <a href="https://music.apple.com/us/playlist/jvmpstyl%CE%BE/pl.u-2aoqXKDiG20LlDe">jumpstyle</a>
     <a href="https://music.apple.com/us/playlist/%CE%B3iddim/pl.u-NpXmza7t4yVpke7">riddim</a>
-    <span>still too lazy to update this</span>
+    <span><i>still</i> too lazy to update this</span>
     <h3>󱌣 Tools/Utils<span class="cursor-blink">_</span></h3>
     <a href="https://github.com/experibass/unified-pride-flags">unified list for pride flag colors and weights</a>
     <a href="https://github.com/experibass/cli-pride-flags">pride flags in your term~</a>
@@ -180,7 +183,7 @@ const sections = {
     <span><strong>Masto:</strong> maybe (likely not)</span>
     <span><strong>󰘨 Matrix:</strong> <span class="hov" onclick="copy(this)">@experibassmusic:kde.org</span></span>
     <span>
-        <strong>󰇮 Email:</strong>
+        <strong>󱡯 Email:</strong>
         <span class="hov" onclick="copy(this)">gingkagingerpepper [at] icloud [dot] com</span>
     </span>
     `,
