@@ -155,14 +155,14 @@ const sections = {
     <span> forgejo (eventually)</span>
     <a href="https://linux-hardware.org/?probe=7b3cdda6e2"> hardware probe</a>
     <a href="https://github.com/ExperiBass/dotfiles"> my dotfiles</a>
-    <h3>󰲸 Playlists<span class="cursor-blink">_</span></h3>
+    <span> Playlists<span class="cursor-blink">_</span></span>
     <a href="https://music.apple.com/us/playlist/%CF%80utty/pl.u-oZyl3PaCGaB0dxD">nutty</a>
     <a href="https://music.apple.com/us/playlist/b%CE%B3iddim/pl.u-WabZv4ZieNAvxLY">briddim</a>
     <a href="https://music.apple.com/us/playlist/h%CE%B4%CE%B3dstyl%CE%BE/pl.u-NpXmzeWF4yVpke7">hardstyle</a>
     <a href="https://music.apple.com/us/playlist/jvmpstyl%CE%BE/pl.u-2aoqXKDiG20LlDe">jumpstyle</a>
     <a href="https://music.apple.com/us/playlist/%CE%B3iddim/pl.u-NpXmza7t4yVpke7">riddim</a>
     <span><i>still</i> too lazy to update this</span>
-    <h3>󱌣 Tools/Utils<span class="cursor-blink">_</span></h3>
+    <span> Tools/Utils<span class="cursor-blink">_</span></span>
     <a href="https://github.com/experibass/unified-pride-flags">unified list for pride flag colors and weights</a>
     <a href="https://github.com/experibass/cli-pride-flags">pride flags in your term~</a>
     <a href="https://github.com/experibass/pixelsort-go">pixelsorter written in golang</a>
