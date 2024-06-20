@@ -82,8 +82,19 @@ const pixelsorts = {
         {
             url: '/misc/walking.jpg',
             desc: 'i really want more pics like this, walking into the glitch is so cool',
-            sourceURL: 'https://www.pexels.com/photo/man-walking-in-solitude-in-yellow-light-on-a-foggy-night-19096790/'
-        }
+            sourceURL:
+                'https://www.pexels.com/photo/man-walking-in-solitude-in-yellow-light-on-a-foggy-night-19096790/',
+        },
+        {
+            url: '/daisys/sorted.jpg',
+            desc: 'implemented a pixelsmear, this was a test output after debugging :3',
+            sourceURL: 'https://www.pexels.com/photo/a-field-of-white-and-yellow-daisies-25752971/',
+        },
+        {
+            url: '/boat-on-lake/final.jpg',
+            desc: 'after implementing my pixelsmear, i wanted to do something a bit fancier :3<br>it looks so good~',
+            sourceURL: 'https://www.pexels.com/photo/a-boat-is-in-the-water-near-a-mountain-25749272/',
+        },
     ],
 }
 const eve = {
