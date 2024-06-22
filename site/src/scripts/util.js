@@ -102,7 +102,7 @@ const sections = {
             </span>
         </span>
         <span><strong>Looking For:</strong> Webrings to join and others of my species :GingBlep:</span>
-        <span><strong>Do I know you?</strong> No.</span>
+        <span><strong>Do I know you?:</strong> No.</span>
         <strong>PGP Pawprint:</strong>
         <b id="pawprint" class="hov copyable" onclick="copy(this, {trimNewlines: true})" title="Click to copy!">
             <span>33A8</span> <span>1E0A</span> <span>9FD6</span> <span>6E1B</span> <span>5D02</span><br />
@@ -144,28 +144,26 @@ const sections = {
     links: `
     <h2>> links</h2>
     <a href="https://audius.co/experibass"> audius</a>
-    <a href="https://youtube.com/channel/UCx6VxDU880NuvLbWH8xT2GA">
-      youtube (I upload visuals and speedruns here :owo:)
-    </a>
-    <a href="https://twitter.com/experibassmusic"> twitter (lets see how long this platform lasts)</a>
     <a href="https://bsky.app/profile/experibassmusic.bsky.social">  bluesky</a>
-    <a href="https://twitch.tv/experibassmusic"> twitch (I stream sometimes :3)</a>
-    <a href="https://speedrun.com/user/ExperiBass"> speedrun.com</a>
     <a href="https://github.com/experibass"> github (mirror of my repos)</a>
     <span> forgejo (eventually)</span>
-    <a href="https://linux-hardware.org/?probe=7b3cdda6e2"> hardware probe</a>
+    <a href="https://speedrun.com/user/ExperiBass"> speedrun.com</a>
+    <a href="https://twitch.tv/experibassmusic"> twitch (I stream sometimes :3)</a>
+    <a href="https://twitter.com/experibassmusic"> twitter (lets see how long this platform lasts)</a>
+    <a href="https://youtube.com/channel/UCx6VxDU880NuvLbWH8xT2GA">  youtube (I upload visuals and speedruns here :owo:)</a>
     <a href="https://github.com/ExperiBass/dotfiles"> my dotfiles</a>
+    <a href="https://linux-hardware.org/?probe=7b3cdda6e2"> hardware probe</a>
     <span> Playlists<span class="cursor-blink">_</span></span>
+    <a href="https://music.apple.com/us/playlist/%CE%B3iddim/pl.u-NpXmza7t4yVpke7">riddim</a>
     <a href="https://music.apple.com/us/playlist/%CF%80utty/pl.u-oZyl3PaCGaB0dxD">nutty</a>
     <a href="https://music.apple.com/us/playlist/b%CE%B3iddim/pl.u-WabZv4ZieNAvxLY">briddim</a>
     <a href="https://music.apple.com/us/playlist/h%CE%B4%CE%B3dstyl%CE%BE/pl.u-NpXmzeWF4yVpke7">hardstyle</a>
     <a href="https://music.apple.com/us/playlist/jvmpstyl%CE%BE/pl.u-2aoqXKDiG20LlDe">jumpstyle</a>
-    <a href="https://music.apple.com/us/playlist/%CE%B3iddim/pl.u-NpXmza7t4yVpke7">riddim</a>
     <span><i>still</i> too lazy to update this</span>
     <span> Tools/Utils<span class="cursor-blink">_</span></span>
-    <a href="https://github.com/experibass/unified-pride-flags">unified list for pride flag colors and weights</a>
     <a href="https://github.com/experibass/cli-pride-flags">pride flags in your term~</a>
     <a href="https://github.com/experibass/pixelsort-go">pixelsorter written in golang</a>
+    <a href="https://github.com/experibass/unified-pride-flags">unified list for pride flag colors and weights</a>
     `,
     otherpages: `
     <h2>> otherpages</h2>
@@ -182,10 +180,7 @@ const sections = {
     <span><strong>Lemmy:</strong> soon</span>
     <span><strong>Masto:</strong> maybe (likely not)</span>
     <span><strong>󰘨 Matrix:</strong> <span class="hov" onclick="copy(this)">@experibassmusic:kde.org</span></span>
-    <span>
-        <strong>󱡯 Email:</strong>
-        <span class="hov" onclick="copy(this)">gingkagingerpepper [at] icloud [dot] com</span>
-    </span>
+    <span><strong>󱡯 Email:</strong><span class="hov" onclick="copy(this)">gingkagingerpepper [at] icloud [dot] com</span></span>
     `,
     comms: `
     <h2>> commissions</h2>

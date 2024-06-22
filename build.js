@@ -137,7 +137,7 @@ function compileToHTML(page) {
 const pages = readdirSync(viewsDir)
 
 for (const page of pages) {
-    if (page === layoutFileName) {
+    if ([layoutFileName, 'menus.handlebars'].includes(page)) {
         continue
     }
     console.log(page)
