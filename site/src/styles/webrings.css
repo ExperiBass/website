@@ -42,6 +42,7 @@ a.webring-random::after {
 #ahsc {
     margin: unset !important;
     padding: unset !important;
+    width: fit-content !important;
 }
 
 /* mobile */
