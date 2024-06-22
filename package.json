@@ -1,6 +1,10 @@
 {
   "author": "ExperiBass",
   "license": "AGPL-3.0-or-later",
+  "scripts": {
+    "build": "node ./build.js",
+    "package": "./package.sh"
+  },
   "dependencies": {
     "handlebars": "^4.7.8"
   }

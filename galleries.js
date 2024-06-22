@@ -95,6 +95,11 @@ const pixelsorts = {
             desc: 'after implementing my pixelsmear, i wanted to do something a bit fancier :3<br>it looks so good~',
             sourceURL: 'https://www.pexels.com/photo/a-boat-is-in-the-water-near-a-mountain-25749272/',
         },
+        {
+            url: '/dune/dune-sorted.jpg',
+            desc: 'mmmm, angles~',
+            sourceURL: 'https://www.pexels.com/photo/a-boat-is-in-the-water-near-a-mountain-25749272/',
+        },
     ],
 }
 const eve = {
