@@ -38,6 +38,12 @@ a.webring-random::after {
     margin-bottom: -0.2rem;
 }
 
+/* ahsc */
+#ahsc {
+    margin: unset !important;
+    padding: unset !important;
+}
+
 /* mobile */
 @media (max-width: 40rem) {
     .ring-container {
