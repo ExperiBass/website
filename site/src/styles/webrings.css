@@ -38,29 +38,6 @@ a.webring-random::after {
     margin-bottom: -0.2rem;
 }
 
-/* ahsc */
-@font-face {
-    font-family: 'venice_classicmedium';
-    src: url('https://feelingmachine.moe/veniceclassic-webfont.woff2') format('woff2'),
-        url('https://feelingmachine.moe/veniceclassic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-#ahsc .ahsc-prev,
-#ahsc .ahsc-info,
-#ahsc .ahsc-links {
-    font-family: 'venice_classicmedium';
-}
-#ahsc a {
-    color: #bb00ff;
-}
-#ahsc a:hover {
-    color: #ff00ff;
-}
-#ahsc a:visited {
-    color: #8b00c6;
-}
-
 /* mobile */
 @media (max-width: 40rem) {
     .ring-container {
