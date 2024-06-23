@@ -161,6 +161,9 @@ a {
 #pane > p {
     margin: 0.1rem;
 }
+#pane .hov {
+    color: var(--tertiary-color);
+}
 /* remove list styling */
 #menu {
     list-style: none;

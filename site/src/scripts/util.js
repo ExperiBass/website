@@ -233,25 +233,16 @@ const sections = {
     `,
     wallets: `
     <h2>> wallets</h2>
-    <p>If you enjoy what I do, feel free to send a bit of crypto :3</p>
+    <p>If you enjoy what I do and want more, feel free to send some muns :3</p>
     <p>
         Click on an address to insert it into your clipboard! Make sure the addresses are correct, especially on
         Windows, as there is malware that will replace addresses with the address of the attacker.
     </p>
-    <p>All coins:<br /><span class="hov" onclick="copy(this)"><i>experibassmusic.eth</i></span></p>
+    <p>All coins: <span class="hov" onclick="copy(this)"><i>experibassmusic.eth</i></span></p>
     <p>For wallets that do not support ENS resolution, see below.</p>
-    <p>
-        BTC Lightning (preferred):<br />
-        <span class="hov" onclick="copy(this)">
-            experibassmusic@bitrefill.me
-        </span><br />or ask for invoice
-    </p>
-    <p>
-        BTC (preferred):<br /><span class="hov" onclick="copy(this)"
-            >bc1qlxpe2uw7pkdctxghdgvsu47rknvcmz2j27hxvx</span
-        >
-    </p>
-    <p>ETH:<br /><span class="hov" onclick="copy(this)">0x8Bb53bC2a63F2bd10B16bd0aD6fCDc1ffd49d114</span></p>
-    <p>XMR:<br />ask</p>
+    <p>BTC LN: <span class="hov" onclick="copy(this)">experibassmusic@bitrefill.me</span> or ask for invoice</p>
+    <p>BTC: <span class="hov" onclick="copy(this)">bc1qlxpe2uw7pkdctxghdgvsu47rknvcmz2j27hxvx</span></p>
+    <p>ETH: <span class="hov" onclick="copy(this)">0x8Bb53bC2a63F2bd10B16bd0aD6fCDc1ffd49d114</span></p>
+    <p>XMR: ask</p>
     `,
 }
