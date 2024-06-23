@@ -239,10 +239,10 @@ const sections = {
         Windows, as there is malware that will replace addresses with the address of the attacker.
     </p>
     <p>All coins: <span class="hov" onclick="copy(this)"><i>experibassmusic.eth</i></span></p>
-    <p>For wallets that do not support ENS resolution, see below.</p>
+    <p>No ENS resolution? Here's the addresses :3</p>
     <p>BTC LN: <span class="hov" onclick="copy(this)">experibassmusic@bitrefill.me</span> or ask for invoice</p>
-    <p>BTC: <span class="hov" onclick="copy(this)">bc1qlxpe2uw7pkdctxghdgvsu47rknvcmz2j27hxvx</span></p>
+    <p>BTC: <span class="hov" onclick="copy(this)">bc1p4eghgf2jrtpusqxaa9vf2uvyt47atkukqvs4t78af06c50vlf8dstg3f73</span></p>
     <p>ETH: <span class="hov" onclick="copy(this)">0x8Bb53bC2a63F2bd10B16bd0aD6fCDc1ffd49d114</span></p>
-    <p>XMR: ask</p>
+    <p>XMR: 88ucQ7BuEHmUf7SBADsPF6PMwSVLwFAggDW9uj7RSqqZJS23QHxae2Aip5oMjQKKYaG1pirTZJxuQW4sqgXSfJu6DbUXQrc</p>
     `,
 }
