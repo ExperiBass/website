@@ -243,6 +243,6 @@ const sections = {
     <p>BTC LN: <span class="hov" onclick="copy(this)">experibassmusic@bitrefill.me</span> or ask for invoice</p>
     <p>BTC: <span class="hov" onclick="copy(this)">bc1p4eghgf2jrtpusqxaa9vf2uvyt47atkukqvs4t78af06c50vlf8dstg3f73</span></p>
     <p>ETH: <span class="hov" onclick="copy(this)">0x8Bb53bC2a63F2bd10B16bd0aD6fCDc1ffd49d114</span></p>
-    <p>XMR: 88ucQ7BuEHmUf7SBADsPF6PMwSVLwFAggDW9uj7RSqqZJS23QHxae2Aip5oMjQKKYaG1pirTZJxuQW4sqgXSfJu6DbUXQrc</p>
+    <p>XMR: <span class="hov" onclick="copy(this)">88ucQ7BuEHmUf7SBADsPF6PMwSVLwFAggDW9uj7RSqqZJS23QHxae2Aip5oMjQKKYaG1pirTZJxuQW4sqgXSfJu6DbUXQrc</span></p>
     `,
 }
