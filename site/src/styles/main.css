@@ -118,7 +118,10 @@ a {
     border-radius: var(--border-radius);
 }
 
-#pawprint span:nth-child(2n) {
+#pawprint span:nth-child(odd) {
+    color: var(--text-color);
+}
+#pawprint span:nth-child(even) {
     color: var(--tertiary-color);
 }
 
@@ -161,7 +164,13 @@ a {
 #pane > p {
     margin: 0.1rem;
 }
-#pane .hov {
+#pane .hov[onclick] {
+    color: var(--tertiary-color);
+}
+#pane .hov > span:nth-child(odd) {
+    color: var(--text-color);
+}
+#pane .hov > span:nth-child(even) {
     color: var(--tertiary-color);
 }
 /* remove list styling */

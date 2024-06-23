@@ -35,7 +35,10 @@ async function copy(elm, config) {
     if (navigator.clipboard) {
         let text = elm.innerText
         if (config?.trimNewlines) {
-            text = text.replace('\n', ' ')
+            text = text.replace(/\n/g, ' ')
+        }
+        if (config?.removeSpaces) {
+            text = text.replace(/ /g, '')
         }
         await navigator.clipboard.writeText(text)
         return
@@ -180,7 +183,7 @@ const sections = {
     <span><strong>Lemmy:</strong> soon</span>
     <span><strong>Masto:</strong> maybe (likely not)</span>
     <span><strong>󰘨 Matrix:</strong> <span class="hov" onclick="copy(this)">@experibassmusic:kde.org</span></span>
-    <span><strong>󱡯 Email:</strong><span class="hov" onclick="copy(this)">gingkagingerpepper [at] icloud [dot] com</span></span>
+    <span><strong>󱡯 Email:</strong> <span class="hov" onclick="copy(this)">gingkagingerpepper [at] icloud [dot] com</span></span>
     `,
     comms: `
     <h2>> commissions</h2>
@@ -241,8 +244,14 @@ const sections = {
     <p>All coins: <span class="hov" onclick="copy(this)"><i>experibassmusic.eth</i></span></p>
     <p>No ENS resolution? Here's the addresses :3</p>
     <p>BTC LN: <span class="hov" onclick="copy(this)">experibassmusic@bitrefill.me</span> or ask for invoice</p>
-    <p>BTC: <span class="hov" onclick="copy(this)">bc1p4eghgf2jrtpusqxaa9vf2uvyt47atkukqvs4t78af06c50vlf8dstg3f73</span></p>
-    <p>ETH: <span class="hov" onclick="copy(this)">0x8Bb53bC2a63F2bd10B16bd0aD6fCDc1ffd49d114</span></p>
-    <p>XMR: <span class="hov" onclick="copy(this)">88ucQ7BuEHmUf7SBADsPF6PMwSVLwFAggDW9uj7RSqqZJS23QHxae2Aip5oMjQKKYaG1pirTZJxuQW4sqgXSfJu6DbUXQrc</span></p>
+    <p>BTC: <span class="hov" onclick="copy(this, {trimNewlines: true, removeSpaces: true})">
+        <span>bc1p</span> <span>4egh</span> <span>gf2j</span> <span>rtpu</span> <span>sqxa</span> <span>a9vf</span> <span>2uvy</span> <span>t47a</span> <span>tkuk</span> <span>qvs4</span> <span>t78a</span> <span>f06c</span> <span>50vl</span> <span>f8ds</span> <span>tg3f</span> <span>73</span>
+    </span></p>
+    <p>ETH: <span class="hov" onclick="copy(this)">
+        <span>0x8B</span> <span>b53b</span> <span>C2a6</span> <span>3F2b</span> <span>d10B</span> <span>16bd</span> <span>0aD6</span> <span>fCDc</span> <span>1ffd</span> <span>49d1</span> <span>14</span>
+    </span></p>
+    <p>XMR: <span class="hov" onclick="copy(this)">
+        <span>88uc</span> <span>Q7Bu</span> <span>EHmU</span> <span>f7SB</span> <span>ADsP</span> <span>F6PM</span> <span>wSVL</span> <span>wFAg</span> <span>gDW9</span> <span>uj7R</span> <span>SqqZ</span> <span>JS23</span> <span>QHxa</span> <span>e2Ai</span> <span>p5oM</span> <span>jQKK</span> <span>YaG1</span> <span>pirT</span> <span>ZJxu</span> <span>QW4s</span> <span>qgXS</span> <span>fJu6</span> <span>DbUX</span> <span>Qrc</span>
+    </span></p>
     `,
 }
