@@ -2,3 +2,15 @@
     font-family: wipeout;
     src: url(../fonts/SupErphoniX2NFALMDI.woff2)
 }
+@font-face {
+    font-family: Manifold;
+    src: url(../fonts/manifold.otf)
+}
+@font-face {
+    font-family: Kunika;
+    src: url(../fonts/Kunika.otf)
+}
+@font-face {
+    font-family: Unitblock;
+    src: url(../fonts/Unitblock.woff2)
+}

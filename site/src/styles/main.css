@@ -3,7 +3,7 @@
 
 html,
 body {
-    font-family: wipeout;
+    font-family: Unitblock, wipeout;
     display: flex;
     flex-direction: column;
     background-color: var(--background-color);

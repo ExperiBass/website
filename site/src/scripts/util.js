@@ -86,6 +86,7 @@ function errorCleaner(err) {
 
 /// there has to be a better way...
 /// MAYBE: make .handlebars and compile?
+/// TODO: add purchasing
 const sections = {
     aboutme: `
         <h2>> aboutme</h2>
@@ -180,23 +181,28 @@ const sections = {
     `,
     contact: `
     <h2>> contact</h2>
+    <span><strong>BlueSky:</strong> look in Links</span>
     <span><strong>Lemmy:</strong> soon</span>
     <span><strong>Masto:</strong> maybe (likely not)</span>
-    <span><strong>󰘨 Matrix:</strong> <span class="hov" onclick="copy(this)">@experibassmusic:kde.org</span></span>
     <span><strong>󱡯 Email:</strong> <span class="hov" onclick="copy(this)">gingkagingerpepper [at] icloud [dot] com</span></span>
     `,
     comms: `
     <h2>> commissions</h2>
-    <s>
+        <h3>Purchasing Tracks<span class="cursor-blink">_</span></h3>
+        <p>
+            Wanna buy one or more of my tracks/albums? Shoot me an email with
+            the names and your payment method! 
+        </p>
+        <s>
         <h3>Music Commissions<span class="cursor-blink">_</span></h3>
         <p>
-            I do take music commissions. I do Hardstyle, Trap, and Techno, and the price ranges from USD$40 to
-            USD$80 (or the equivalent in an accepted crypto) depending on complexity.
+            I take music commissions! I do Hardstyle, Trap, and Techno, and the price ranges
+            from USD$?? to USD$?? depending on complexity.
         </p>
         <p>
             If you decide to commission me, I'll need a general mood of your track with reference songs. I do
             <b>NOT</b> do vocals, though I <i>can</i> use pre-existing vocals (that would bump the price by
-            USD$25). If you want custom cover art that'll bump the price by whatever the chosen artist to create
+            USD$??). If you want custom cover art that'll bump the price by whatever the chosen artist to create
             the covers prices are.
         </p>
         <p>
@@ -222,20 +228,20 @@ const sections = {
         finished product for myself if I choose. (<a href="https://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a>)
     </p>
     <h3>Payment</h3>
-    <p>Payment in fiat will be conducted through CashApp or Zelle, whichever is easier. USD only.</p>
+    <p>Payment in fiat will be conducted through CashApp. USD only.</p>
     <p>
         With crypto payment, the accepted coins are listed in the
-        <a href="#wallets">Wallets</a> section.
+        <a href="#payment">Payment</a> section.
     </p>
     <p>
         If you're paying in crypto, it will only be accepted after 3 to 6 confirmations, depending on the chain
         used.
     </p>
     <h4>Contacting</h4>
-    <p>You can contact me via Matrix, Twitter, or email.</p>
+    <p>You can contact me via Matrix, BlueSky, or email.</p>
     `,
-    wallets: `
-    <h2>> wallets</h2>
+    payment: `
+    <h2>> payment</h2>
     <p>If you enjoy what I do and want more, feel free to send some muns :3</p>
     <p>
         Click on an address to insert it into your clipboard! Make sure the addresses are correct, especially on
