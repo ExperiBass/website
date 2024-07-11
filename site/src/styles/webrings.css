@@ -34,8 +34,8 @@ a.webring-random::after {
 }
 /* tux */
 #linuxring .webring-info > .webring-links > a > img {
-    width: 1.4rem;
-    margin-bottom: -0.2rem;
+    width: 3ex;
+    margin-bottom: -0.6ex;
 }
 
 /* ahsc */
@@ -43,6 +43,21 @@ a.webring-random::after {
     margin: unset !important;
     padding: unset !important;
     width: fit-content !important;
+}
+#ahsc table {
+    font-size: inherit !important;
+    width: fit-content !important;
+    height: fit-content !important;
+}
+#ahsc table tr td {
+	padding: var(--gap) !important;
+}
+.ahsc-info br {
+    display: none !important;
+}
+.ahsc-links img {
+    max-height: 2ex !important; /* watch this get deprecated */
+    margin-bottom: -0.5ex !important;
 }
 
 /* mobile */
