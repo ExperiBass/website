@@ -9,12 +9,20 @@ const menuAction = (ev) => {
     if (ev?.key) {
         if (ev.key === 'ArrowUp') {
             ev.preventDefault()
-            elm.previousElementSibling?.focus()
+            if (elm.previousElementSibling) {
+                elm.previousElementSibling.focus()
+            } else {
+                elm.parentElement.lastElementChild.focus()
+            }
             return
         }
         if (ev.key === 'ArrowDown') {
             ev.preventDefault()
-            elm.nextElementSibling?.focus()
+            if (elm.nextElementSibling) {
+                elm.nextElementSibling.focus()
+            } else {
+                elm.parentElement.firstElementChild.focus()
+            }
             return
         }
 
@@ -26,6 +34,10 @@ const menuAction = (ev) => {
             elm.blur()
         }
 
+        if (ev.key === 'Tab') {
+            ev.preventDefault()
+            elm.blur()
+        }
         // ignore everything else
         if (ev.key !== 'Enter') {
             return
