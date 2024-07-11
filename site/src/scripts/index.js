@@ -3,6 +3,8 @@
  * @param {MouseEvent|KeyboardEvent} ev
  */
 const menuAction = (ev) => {
+    const pane = document.getElementById('pane')
+    const box = document.getElementById('dropdownlow')
     const elm = ev.target
     const section = elm.attributes.page?.value
 
@@ -29,12 +31,13 @@ const menuAction = (ev) => {
         // TODO: arrow left/right to move from menu to infopanel and back
 
         // unfocus
-        if (ev.key === 'Escape') {
+        console.log(ev.key)
+        if (ev.key === 'ArrowRight') {
             ev.preventDefault()
-            elm.blur()
+            pane.focus()
+            return
         }
-
-        if (ev.key === 'Tab') {
+        if (['Escape','ArrowLeft'].includes(ev.key)) {
             ev.preventDefault()
             elm.blur()
         }
@@ -47,8 +50,6 @@ const menuAction = (ev) => {
     if (!section) {
         return
     }
-    const pane = document.getElementById('pane')
-    const box = document.getElementById('dropdownlow')
     pane.innerHTML = sections[section]
     box.checked ? (box.checked = false) : null
 
@@ -56,6 +57,9 @@ const menuAction = (ev) => {
     addBlankToLinks()
     //italiciseText()
     replaceEmotes()
+}
+const paneAction = (ev) =>{
+    console.log(ev)
 }
 
 function activateMenu() {

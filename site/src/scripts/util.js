@@ -142,7 +142,7 @@ const sections = {
     <p>
         I also make music! I seem to have stuck with Trap and early 2000s Hardstyle, but I like to dabble in
         everything :owo:<br />
-        My Audius is linked below, along with my other socials!
+        My Audius is linked in Links, along with my other socials!
     </p>
     `,
     links: `
@@ -202,8 +202,7 @@ const sections = {
         <p>
             If you decide to commission me, I'll need a general mood of your track with reference songs. I do
             <b>NOT</b> do vocals, though I <i>can</i> use pre-existing vocals (that would bump the price by
-            USD$??). If you want custom cover art that'll bump the price by whatever the chosen artist to create
-            the covers prices are.
+            USD$??). Cover art is out of scope.
         </p>
         <p>
             During the creation of your track, I'll send WIPs for your input, and once it's done to your liking
@@ -213,11 +212,11 @@ const sections = {
     <span>On Hold</span>
     <h3>Code Commissions<span class="cursor-blink">_</span></h3>
     <p>
-        I also write code on commission. I can do just about anything in JavaScript, excluding Discord bots (I
+        I also write code on commission. I can do just about anything in JavaScript and Go, excluding Discord bots (I
         have beef).
     </p>
     <p>
-        My prices start at a base of USD$150, and will increase depending on the complexity of the project. Any
+        My prices start at a base of USD$20 for a <=32KiB script, and will increase depending on the complexity of the project. Any
         updates past the original details will have a USD$50 charge.
     </p>
     <p>When I'm commissioned, I require the details to be fully laid out, preferably in a Trello board.</p>
@@ -230,15 +229,15 @@ const sections = {
     <h3>Payment</h3>
     <p>Payment in fiat will be conducted through CashApp. USD only.</p>
     <p>
-        With crypto payment, the accepted coins are listed in the
-        <a href="#payment">Payment</a> section.
+        With cryptocurrency payment, the accepted coins are listed in the
+        <a href="#pp" onclick="menuAction({ target: { attributes: { page: { value: 'payment' } } } })">Payment</a> section.
     </p>
     <p>
         If you're paying in crypto, it will only be accepted after 3 to 6 confirmations, depending on the chain
         used.
     </p>
     <h4>Contacting</h4>
-    <p>You can contact me via Matrix, BlueSky, or email.</p>
+    <p>You can contact me via BlueSky or email.</p>
     `,
     payment: `
     <h2>> payment</h2>
