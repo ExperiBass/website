@@ -251,6 +251,10 @@ a {
         flex: 0;
     }
 
+    #gtainertainer {
+        max-height: fit-content;
+        min-height: auto;
+    }
     #gtainer {
         flex-direction: column;
         gap: calc(var(--gap) * 2);
@@ -270,6 +274,7 @@ a {
     }
     #pane {
         max-width: unset;
+        overflow: auto;
     }
     /*#dropdown input:checked+label {
         pointer-events: none;

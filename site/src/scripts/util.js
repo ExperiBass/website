@@ -187,13 +187,13 @@ const sections = {
     `,
     comms: `
     <h2>> commissions</h2>
-        <h3>Purchasing Tracks<span class="cursor-blink">_</span></h3>
-        <p>
-            Wanna buy one or more of my tracks/albums? Shoot me an email with
-            the names and your payment method!
-        </p>
+    <h3>Purchasing Tracks<span class="cursor-blink">_</span></h3>
+    <p>
+        Wanna buy one or more of my tracks/albums? Shoot me an email with
+        the names and your payment method!
+    </p>
 
-        <s>
+    <s>
         <h3>Music Commissions<span class="cursor-blink">_</span></h3>
         <p>
             I take music commissions! I do Hardstyle, Trap, and Techno, and the price ranges
@@ -228,20 +228,18 @@ const sections = {
         finished product for myself if I choose. (<a href="https://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a>)
     </p>
     <h3>Payment</h3>
-    <p>Art is a valid currency :3 Shoot me a dm if you wanna trade!</p>
-    <p>Payment in fiat will be conducted through CashApp.</p>
-    <p>
-        With cryptocurrency payment, the accepted coins are listed in the
-        <a href="#pp" onclick="menuAction({ target: { attributes: { page: { value: 'payment' } } } })">Payment</a> section.
-        On-chain payments will be accepted after 3 (BTC)/6 (ETH/XMR) confirmations.
-        You get a 3% discount as well :3
-    </p>
+    <p>See <a href="#pp" onclick="menuAction({target:{attributes:{page:{value:'payment'}}}})">Payment</a> :3</p>
     <h4>Contacting</h4>
-    <p>You can contact me via BlueSky or email.</p>
+    <p>See <a href="#pp" onclick="menuAction({target:{attributes:{page:{value:'contact'}}}})">Contacting</a> :3</p>
     `,
     payment: `
     <h2>> payment</h2>
-    <p>If you enjoy what I do and want more, feel free to send some muns :3</p>
+    <p>Art is a valid currency :3 Shoot me a dm if you wanna trade!</p>
+    <p>Payment in fiat will be conducted through CashApp.</p>
+    <p>
+        Cryptocurrency payments will be accepted after 3 (BTC)/6 (ETH/XMR) confirmations.
+        You get a 3% discount as well :3
+    </p>
     <p>
         Click on an address to insert it into your clipboard! Make sure the addresses are correct, especially on
         Windows, as there is malware that will replace addresses with the address of the attacker.
