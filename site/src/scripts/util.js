@@ -223,14 +223,14 @@ const sections = {
     <p>When I'm commissioned, I require the details to be fully laid out, preferably in a Trello board.</p>
     <h4>Terms and Conditions</h4>
     <p>
-        I will not use lewd sounds in my comissions. You can do anything you want to the track once it's
+        I will not do nsfw comissions. You can do anything you want to the track once it's
         finished <i>except</i> resell without my explicit permission. I do reserve the right to use and edit the
         finished product for myself if I choose. (<a href="https://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a>)
     </p>
     <h3>Payment</h3>
-    <p>See <a href="#pp" onclick="menuAction({target:{attributes:{page:{value:'payment'}}}})">Payment</a> :3</p>
-    <h4>Contacting</h4>
-    <p>See <a href="#pp" onclick="menuAction({target:{attributes:{page:{value:'contact'}}}})">Contacting</a> :3</p>
+    <p>See <a onclick="menuAction({target:{attributes:{page:{value:'payment'}}}})">Payment</a> :3</p>
+    <h3>Contacting</h3>
+    <p>See <a onclick="menuAction({target:{attributes:{page:{value:'contact'}}}})">Contacting</a> :3</p>
     `,
     payment: `
     <h2>> payment</h2>
