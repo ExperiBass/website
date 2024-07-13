@@ -95,7 +95,13 @@ a:focus {
     }
 
     /* Handle */
-    ::-webkit-scrollbar-thumb {
+    ::-webkit-scrollbar-thu
+    #pawprint span:nth-child(even) {
+        color: var(--text-color);
+    }
+    #pawprint span:nth-child(odd) {
+        color: var(--tertiary-color);
+    }mb {
         background: var(--tertiary-color);
         border-radius: var(--border-radius);
     }
@@ -120,13 +126,6 @@ a {
     padding-inline: 0.1rem;
     max-height: 1rem;
     border-radius: var(--border-radius);
-}
-
-#pawprint span:nth-child(odd) {
-    color: var(--text-color);
-}
-#pawprint span:nth-child(even) {
-    color: var(--tertiary-color);
 }
 
 #header {
@@ -181,10 +180,10 @@ a {
 #pane .hov[onclick] {
     color: var(--tertiary-color);
 }
-#pane .hov > span:nth-child(odd) {
+#pane .hov > span:nth-child(even) {
     color: var(--text-color);
 }
-#pane .hov > span:nth-child(even) {
+#pane .hov > span:nth-child(odd) {
     color: var(--tertiary-color);
 }
 /* remove list styling */
