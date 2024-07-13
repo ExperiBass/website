@@ -86,7 +86,6 @@ function errorCleaner(err) {
 
 /// there has to be a better way...
 /// MAYBE: make .handlebars and compile?
-/// TODO: add purchasing
 const sections = {
     aboutme: `
         <h2>> aboutme</h2>
@@ -100,9 +99,9 @@ const sections = {
         <span>
             <strong>Location:</strong>
             <span
-                title="Universe 2, Layer 7, Sector T-584, Galaxy Kii, Ring 6, Planet Nosdun, Region Tundem"
+                title="Region Tundem on Planet Nosdun, orbiting Star 6 in Galaxy 4604B"
                 class="hov">
-                U2|L7|ST-584|GKii|R6|PNosdun|RTundem
+                Tundem, 4604B-6A (Nosdun)
             </span>
         </span>
         <span><strong>Looking For:</strong> Webrings to join and others of my species :GingBlep:</span>
@@ -149,7 +148,7 @@ const sections = {
     <h2>> links</h2>
     <a href="https://audius.co/experibass"> audius</a>
     <a href="https://bsky.app/profile/experibassmusic.bsky.social">  bluesky</a>
-    <a href="https://github.com/experibass"> github (mirror of my repos)</a>
+    <a href="https://github.com/experibass"> github (i mirror out my repos to here)</a>
     <span> forgejo (eventually)</span>
     <a href="https://speedrun.com/user/ExperiBass"> speedrun.com</a>
     <a href="https://twitch.tv/experibassmusic"> twitch (I stream sometimes :3)</a>
@@ -166,18 +165,18 @@ const sections = {
     <span><i>still</i> too lazy to update this</span>
     <span> Tools/Utils<span class="cursor-blink">_</span></span>
     <a href="https://github.com/experibass/cli-pride-flags">pride flags in your term~</a>
-    <a href="https://github.com/experibass/pixelsort-go">pixelsorter written in golang</a>
     <a href="https://github.com/experibass/unified-pride-flags">unified list for pride flag colors and weights</a>
+    <a href="https://github.com/experibass/pixelsort-go">pixelsorter written in golang</a>
     `,
     otherpages: `
     <h2>> otherpages</h2>
     <span>A list of the other pages on this site.</span>
-    <a href="term.html">this page, but in a terminal-like interface</a>
-    <a href="pixelsorts.html">pixelsort gallery</a>
+    <a href="cyberspace-independence.html">declaration of the independence of cyberspace</a>
     <a href="eve.html">eve photo gallery</a>
     <a href="flags.html">unified-pride-flags flag previews</a>
-    <a href="cyberspace-independence.html">declaration of the independence of cyberspace</a>
     <a href="key.txt">pgp pubkey</a>
+    <a href="pixelsorts.html">pixelsort gallery</a>
+    <a href="term.html">this page, but in a terminal-like interface</a>
     `,
     contact: `
     <h2>> contact</h2>
@@ -191,8 +190,9 @@ const sections = {
         <h3>Purchasing Tracks<span class="cursor-blink">_</span></h3>
         <p>
             Wanna buy one or more of my tracks/albums? Shoot me an email with
-            the names and your payment method! 
+            the names and your payment method!
         </p>
+
         <s>
         <h3>Music Commissions<span class="cursor-blink">_</span></h3>
         <p>
@@ -210,10 +210,11 @@ const sections = {
         </p>
     </s>
     <span>On Hold</span>
+
     <h3>Code Commissions<span class="cursor-blink">_</span></h3>
     <p>
-        I also write code on commission. I can do just about anything in JavaScript and Go, excluding Discord bots (I
-        have beef).
+        I also write code on commission. I can do just about anything in JavaScript and Go, excluding Discord bots
+        (I have beef).
     </p>
     <p>
         My prices start at a base of USD$20 for a <=32KiB script, and will increase depending on the complexity of the project. Any
@@ -227,14 +228,13 @@ const sections = {
         finished product for myself if I choose. (<a href="https://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a>)
     </p>
     <h3>Payment</h3>
-    <p>Payment in fiat will be conducted through CashApp. USD only.</p>
+    <p>Art is a valid currency :3 Shoot me a dm if you wanna trade!</p>
+    <p>Payment in fiat will be conducted through CashApp.</p>
     <p>
         With cryptocurrency payment, the accepted coins are listed in the
         <a href="#pp" onclick="menuAction({ target: { attributes: { page: { value: 'payment' } } } })">Payment</a> section.
-    </p>
-    <p>
-        If you're paying in crypto, it will only be accepted after 3 to 6 confirmations, depending on the chain
-        used.
+        On-chain payments will be accepted after 3 (BTC)/6 (ETH/XMR) confirmations.
+        You get a 3% discount as well :3
     </p>
     <h4>Contacting</h4>
     <p>You can contact me via BlueSky or email.</p>
@@ -246,17 +246,27 @@ const sections = {
         Click on an address to insert it into your clipboard! Make sure the addresses are correct, especially on
         Windows, as there is malware that will replace addresses with the address of the attacker.
     </p>
-    <p>All coins: <span class="hov" onclick="copy(this)"><i>experibassmusic.eth</i></span></p>
+    <p>BTC-LN: <span class="hov" onclick="copy(this)">experibassmusic@bitrefill.me</span></p>
+    <p>BTC/ETH/XMR: <span class="hov" onclick="copy(this)">experibassmusic.eth</span></p>
     <p>No ENS resolution? Here's the addresses :3</p>
-    <p>BTC LN: <span class="hov" onclick="copy(this)">experibassmusic@bitrefill.me</span> or ask for invoice</p>
     <p>BTC: <span class="hov" onclick="copy(this, {trimNewlines: true, removeSpaces: true})">
-        <span>bc1p</span> <span>4egh</span> <span>gf2j</span> <span>rtpu</span> <span>sqxa</span> <span>a9vf</span> <span>2uvy</span> <span>t47a</span> <span>tkuk</span> <span>qvs4</span> <span>t78a</span> <span>f06c</span> <span>50vl</span> <span>f8ds</span> <span>tg3f</span> <span>73</span>
+        <span>bc1p</span> <span>4egh</span> <span>gf2j</span> <span>rtpu</span>
+        <span>sqxa</span> <span>a9vf</span> <span>2uvy</span> <span>t47a</span>
+        <span>tkuk</span> <span>qvs4</span> <span>t78a</span> <span>f06c</span>
+        <span>50vl</span> <span>f8ds</span> <span>tg3f</span> <span>73</span>
     </span></p>
     <p>ETH: <span class="hov" onclick="copy(this)">
-        <span>0x8B</span> <span>b53b</span> <span>C2a6</span> <span>3F2b</span> <span>d10B</span> <span>16bd</span> <span>0aD6</span> <span>fCDc</span> <span>1ffd</span> <span>49d1</span> <span>14</span>
+        <span>0x8B</span> <span>b53b</span> <span>C2a6</span> <span>3F2b</span>
+        <span>d10B</span> <span>16bd</span> <span>0aD6</span> <span>fCDc</span>
+        <span>1ffd</span> <span>49d1</span> <span>14</span>
     </span></p>
     <p>XMR: <span class="hov" onclick="copy(this)">
-        <span>88uc</span> <span>Q7Bu</span> <span>EHmU</span> <span>f7SB</span> <span>ADsP</span> <span>F6PM</span> <span>wSVL</span> <span>wFAg</span> <span>gDW9</span> <span>uj7R</span> <span>SqqZ</span> <span>JS23</span> <span>QHxa</span> <span>e2Ai</span> <span>p5oM</span> <span>jQKK</span> <span>YaG1</span> <span>pirT</span> <span>ZJxu</span> <span>QW4s</span> <span>qgXS</span> <span>fJu6</span> <span>DbUX</span> <span>Qrc</span>
+        <span>88uc</span> <span>Q7Bu</span> <span>EHmU</span> <span>f7SB</span>
+        <span>ADsP</span> <span>F6PM</span> <span>wSVL</span> <span>wFAg</span>
+        <span>gDW9</span> <span>uj7R</span> <span>SqqZ</span> <span>JS23</span>
+        <span>QHxa</span> <span>e2Ai</span> <span>p5oM</span> <span>jQKK</span>
+        <span>YaG1</span> <span>pirT</span> <span>ZJxu</span> <span>QW4s</span>
+        <span>qgXS</span> <span>fJu6</span> <span>DbUX</span> <span>Qrc</span>
     </span></p>
     `,
 }

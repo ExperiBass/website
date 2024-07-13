@@ -1,9 +1,10 @@
+const pane = document.getElementById('pane')
+const menu = document.getElementById('menu')
 /**
  *
  * @param {MouseEvent|KeyboardEvent} ev
  */
 const menuAction = (ev) => {
-    const pane = document.getElementById('pane')
     const box = document.getElementById('dropdownlow')
     const elm = ev.target
     const section = elm.attributes.page?.value
@@ -28,18 +29,16 @@ const menuAction = (ev) => {
             return
         }
 
-        // TODO: arrow left/right to move from menu to infopanel and back
-
         // unfocus
-        console.log(ev.key)
         if (ev.key === 'ArrowRight') {
             ev.preventDefault()
             pane.focus()
             return
         }
-        if (['Escape','ArrowLeft'].includes(ev.key)) {
+        if (ev.key === 'Escape') {
             ev.preventDefault()
             elm.blur()
+            return
         }
         // ignore everything else
         if (ev.key !== 'Enter') {
@@ -58,8 +57,15 @@ const menuAction = (ev) => {
     //italiciseText()
     replaceEmotes()
 }
-const paneAction = (ev) =>{
-    console.log(ev)
+const paneAction = (ev) => {
+    if (ev?.key) {
+        if (ev.key === 'ArrowLeft') {
+            ev.preventDefault()
+            console.log(ev)
+            menu.firstElementChild.focus()
+            return
+        }
+    }
 }
 
 function activateMenu() {
@@ -70,6 +76,7 @@ function activateMenu() {
         link.onclick = menuAction
         link.onkeydown = menuAction
     }
+    pane.onkeydown = paneAction
     // load default panel
     menuAction({ target: { attributes: { page: { value: 'aboutme' } } } })
     links[0].focus()
@@ -80,6 +87,5 @@ try {
     addBlankToLinks()
     activateMenu()
 } catch (e) {
-    const pane = document.getElementById('pane')
     pane.innerText = errorCleaner(e)
 }

@@ -31,6 +31,9 @@ hr {
     width: 99%; /* i wish hrs flexed :\ */
     border: 1px solid;
 }
+footer {
+    width: 100%;
+}
 
 h1 {
     line-height: 1.6rem;
@@ -139,12 +142,19 @@ a {
     border: 3px solid;
 }
 
+#gtainertainer {
+    width: 100%;
+    min-height: 64vh;
+    max-height: 64vh;
+}
 #gtainer {
     display: flex;
     flex-direction: row;
     gap: var(--gap);
     flex: 1;
     width: 100%;
+    min-height: inherit;
+    max-height: inherit;
 }
 
 #pane,
@@ -153,12 +163,15 @@ a {
     display: flex;
     flex-direction: column;
     gap: var(--gap);
+    min-height: inherit;
+    max-height: inherit;
 }
 #pane {
     max-width: 50%;
     padding: 0rem var(--gap) var(--gap) calc(var(--gap) * 2);
     border-radius: var(--border-radius);
     background-image: var(--gapped-border);
+    overflow-y: scroll;
     /* animated ver */
     /* background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3cstyle type='text/css'%3e rect %7b stroke-dashoffset: 0; animation: dash 3s linear infinite;%7d %40keyframes dash %7b to %7b stroke-dashoffset: 168;%7d %7d %3c/style%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='%23AC7D69FF' stroke-width='3' stroke-dasharray='12,66,6' stroke-dashoffset='0' stroke-linecap='butt' /%3e%3c/svg%3e"); */
 }
