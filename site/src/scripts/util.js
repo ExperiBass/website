@@ -99,7 +99,7 @@ const sections = {
         <span>
             <strong>Location:</strong>
             <span
-                title="Region Tundem on Planet Nosdun, orbiting Star 6 in Galaxy 4604B"
+                title="Region Tundem on Planet A ("Nosdun"), orbiting Star 6 in Galaxy 4604B"
                 class="hov">
                 Tundem, 4604B-6A (Nosdun)
             </span>
@@ -213,7 +213,7 @@ const sections = {
 
     <h3>Code Commissions<span class="cursor-blink">_</span></h3>
     <p>
-        I also write code on commission. I can do just about anything in JavaScript and Go, excluding Discord bots
+        I also write code on commission. I can do just about anything non-frontend in JavaScript and Go, excluding Discord bots
         (I have beef).
     </p>
     <p>
