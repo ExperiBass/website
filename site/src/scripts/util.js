@@ -232,7 +232,7 @@ const sections = {
     `,
     payment: `
     <h2>> payment</h2>
-    <p>Art is a valid currency :3 Shoot me a dm if you wanna trade!</p>
+    <p>Art is valid currency :3 Shoot me a dm if you wanna trade!</p>
     <p>Payment in fiat will be conducted through CashApp.</p>
     <p>
         Cryptocurrency payments will be accepted after 3 (BTC)/6 (ETH/XMR) confirmations.
