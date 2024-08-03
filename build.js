@@ -43,7 +43,7 @@ handlebars.registerHelper('link', linkHelper)
 process.chdir(__dirname)
 
 const siteDir = join(__dirname, `./site`)
-const viewsDir = join(siteDir, './views')
+const viewsDir = join(siteDir, './src/views')
 const layoutFileName = 'layout.handlebars'
 const LAYOUT_FILE = readFileSync(`${viewsDir}/${layoutFileName}`, 'utf-8')
 const LAYOUT = handlebars.compile(LAYOUT_FILE)
