@@ -7,4 +7,4 @@ out="./.out/$hash"
 node ./build.js
 mkdir -pv "./.out/$hash"
 cp -rv ./site/* ./site/.* "$out"
-rm -rv "$out/views"
+rm -rv "$out/src/views"
