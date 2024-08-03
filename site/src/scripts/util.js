@@ -1,6 +1,7 @@
 const emotes = ['GingBlep.png', 'GingCri.png', 'GingHappy.png', 'GingkaCreep.png', 'owo.gif', 'eos.png']
 const emoteRegex = /:([\w_-])+:/gi // matches text between two colons (but not numbers)
 const emoteDims = 15
+const pawprint = '33A8 1E0A 9FD6 6E1B 5D02 7649 5F47 E26A 5D22 1AEC'
 
 // functions
 function addBlankToLinks() {
@@ -99,7 +100,7 @@ const sections = {
         <span>
             <strong>Location:</strong>
             <span
-                title="Region Tundem on Planet A ("Nosdun"), orbiting Star 6 in Galaxy 4604B"
+                title="Region Tundem on Planet A ('Nosdun'), orbiting Star 6 in Galaxy 4604B"
                 class="hov">
                 Tundem, 4604B-6A (Nosdun)
             </span>
@@ -108,14 +109,11 @@ const sections = {
         <span><strong>Do I know you?:</strong> No.</span>
         <strong>PGP Pawprint:</strong>
         <b id="pawprint" class="hov copyable" onclick="copy(this, {trimNewlines: true})" title="Click to copy!">
-            <span>33A8</span> <span>1E0A</span> <span>9FD6</span> <span>6E1B</span> <span>5D02</span><br />
-            <span>7649</span> <span>5F47</span> <span>E26A</span> <span>5D22</span> <span>1AEC</span>
+            ${pawprint.split(' ').map((chunk,i) => `<span>${chunk}</span>${(i+1)%5 ? '' : '<br>'}`).join(' ')}
         </b>
         <h2>> currentsetup</h2>
         <pre>
-        <strong>2020 MacBook Pro (13"):</strong>
-        16GB RAM
-        Intel Core i5
+        <strong>2020 MBP (13"):</strong>
         <a href="https://endeavouros.com/">EndeavourOS :eos: (btw)</a>
 
         <strong>MIDI Devices:</strong>
@@ -131,17 +129,17 @@ const sections = {
     bio: `
     <h2>> bio</h2>
     <p>
-        :GingBlep: Hai! I'm a stimky internet fox! I write code, do crime, and steal your garlic bread
+        :GingBlep: Hai! I'm a stimky internet fox-like creature! I write code, do crime, and steal your garlic bread
         :GingkaCreep:<br />
         I main JS, although I'm happy in most langs except C/C++ uwu<br />
         I like making stupid scripts and bending JS to my will, you can see some samples in the source for this
         page (one being this emote system :GingHappy:)<br />
-        I speedrun WipEout Pure, I want to do 2048 runs too uwu
+        I speedrun WipEout Pure, I need to do 2048 runs too uwu
     </p>
     <p>
         I also make music! I seem to have stuck with Trap and early 2000s Hardstyle, but I like to dabble in
         everything :owo:<br />
-        My Audius is linked in Links, along with my other socials!
+        My Audius is linked in <a onclick="menuAction({target:{attributes:{page:{value:'links'}}}})">Links</a>, along with my other socials!
     </p>
     `,
     links: `
@@ -151,11 +149,14 @@ const sections = {
     <a href="https://github.com/experibass"> github (i mirror out my repos to here)</a>
     <span> forgejo (eventually)</span>
     <a href="https://speedrun.com/user/ExperiBass"> speedrun.com</a>
-    <a href="https://twitch.tv/experibassmusic"> twitch (I stream sometimes :3)</a>
-    <a href="https://twitter.com/experibassmusic"> twitter (lets see how long this platform lasts)</a>
+    <span>  peertube (soon)</span>
     <a href="https://youtube.com/channel/UCx6VxDU880NuvLbWH8xT2GA">  youtube (I upload visuals and speedruns here :owo:)</a>
     <a href="https://github.com/ExperiBass/dotfiles"> my dotfiles</a>
     <a href="https://linux-hardware.org/?probe=7b3cdda6e2"> hardware probe</a>
+    <span> Tools/Utils<span class="cursor-blink">_</span></span>
+    <a href="https://github.com/experibass/cli-pride-flags">pride flags in your term~</a>
+    <a href="https://github.com/experibass/unified-pride-flags">unified list for pride flag colors and weights</a>
+    <a href="https://github.com/experibass/pixelsort-go">pixelsorter written in golang</a>
     <span> Playlists<span class="cursor-blink">_</span></span>
     <a href="https://music.apple.com/us/playlist/%CE%B3iddim/pl.u-NpXmza7t4yVpke7">riddim</a>
     <a href="https://music.apple.com/us/playlist/%CF%80utty/pl.u-oZyl3PaCGaB0dxD">nutty</a>
@@ -163,10 +164,6 @@ const sections = {
     <a href="https://music.apple.com/us/playlist/h%CE%B4%CE%B3dstyl%CE%BE/pl.u-NpXmzeWF4yVpke7">hardstyle</a>
     <a href="https://music.apple.com/us/playlist/jvmpstyl%CE%BE/pl.u-2aoqXKDiG20LlDe">jumpstyle</a>
     <span><i>still</i> too lazy to update this</span>
-    <span> Tools/Utils<span class="cursor-blink">_</span></span>
-    <a href="https://github.com/experibass/cli-pride-flags">pride flags in your term~</a>
-    <a href="https://github.com/experibass/unified-pride-flags">unified list for pride flag colors and weights</a>
-    <a href="https://github.com/experibass/pixelsort-go">pixelsorter written in golang</a>
     `,
     otherpages: `
     <h2>> otherpages</h2>
@@ -174,13 +171,14 @@ const sections = {
     <a href="cyberspace-independence.html">declaration of the independence of cyberspace</a>
     <a href="eve.html">eve photo gallery</a>
     <a href="flags.html">unified-pride-flags flag previews</a>
-    <a href="key.txt">pgp pubkey</a>
+    <a href="experibass.gpg">pgp pubkey</a>
+    <a href="key.txt">pgp pubkey, armored</a>
     <a href="pixelsorts.html">pixelsort gallery</a>
     <a href="term.html">this page, but in a terminal-like interface</a>
     `,
     contact: `
     <h2>> contact</h2>
-    <span><strong>BlueSky:</strong> look in Links</span>
+    <span><strong>BlueSky:</strong> look in <a onclick="menuAction({target:{attributes:{page:{value:'links'}}}})">Links</a></span>
     <span><strong>Lemmy:</strong> soon</span>
     <span><strong>Masto:</strong> maybe (likely not)</span>
     <span><strong>󱡯 Email:</strong> <span class="hov" onclick="copy(this)">gingkagingerpepper [at] icloud [dot] com</span></span>
@@ -190,7 +188,7 @@ const sections = {
     <h3>Purchasing Tracks<span class="cursor-blink">_</span></h3>
     <p>
         Wanna buy one or more of my tracks/albums? Shoot me an email with
-        the names and your payment method!
+        the name(s) and your payment method!
     </p>
 
     <s>
@@ -217,7 +215,7 @@ const sections = {
         (I have beef).
     </p>
     <p>
-        My prices start at a base of USD$20 for a <=32KiB script, and will increase depending on the complexity of the project. Any
+        My prices start at a base of USD$20 for a simple <=32KiB script, and will increase depending on the complexity of the project. Any
         updates past the original details will have a USD$50 charge.
     </p>
     <p>When I'm commissioned, I require the details to be fully laid out, preferably in a Trello board.</p>
@@ -238,7 +236,7 @@ const sections = {
     <p>Payment in fiat will be conducted through CashApp.</p>
     <p>
         Cryptocurrency payments will be accepted after 3 (BTC)/6 (ETH/XMR) confirmations.
-        You get a 3% discount as well :3
+        You get a 10% discount as well :3
     </p>
     <p>
         Click on an address to insert it into your clipboard! Make sure the addresses are correct, especially on
