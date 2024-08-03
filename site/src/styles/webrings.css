@@ -7,8 +7,10 @@
 .webring {
     display: flex;
     justify-content: center;
-    width: fit-content;
-    height: fit-content;
+    /* you know who else is important? */
+    width: fit-content !important;
+    height: fit-content !important;
+    margin: inherit !important;
 }
 
 a.webring-prev::before {
