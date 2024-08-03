@@ -113,7 +113,7 @@ function compileToHTML(page) {
         page: `${templateName}.html`,
         ...ctx[templateName],
     }
-    extra.themecolor = extra.themecolor || '#5bbad5'
+    extra.themecolor = extra.themecolor || '#262640'
     extra.author = extra.author || 'ΞXPΞRIBΛSS'
     let stylesheets = ['<link rel="stylesheet" type="text/css" href="/src/styles/main.css" />']
     if (extra.stylesheets) {
@@ -136,16 +136,16 @@ function compileToHTML(page) {
 
 const pages = readdirSync(viewsDir)
 
-for (const page of pages) {
+for (const page of pages.filter(v => v.endsWith('.handlebars'))) {
     if ([layoutFileName, 'menus.handlebars'].includes(page)) {
         continue
     }
-    console.log(page)
     const compiled = compileToHTML(page)
     try {
         if (!DRY_RUN) {
             writeFileSync(`${siteDir}/${compiled.name}`, compiled.content)
         }
+        console.log(page)
     } catch (e) {
         fatalError(e)
     }

@@ -137,8 +137,7 @@ const sections = {
         I speedrun WipEout Pure, I need to do 2048 runs too uwu
     </p>
     <p>
-        I also make music! I seem to have stuck with Trap and early 2000s Hardstyle, but I like to dabble in
-        everything :owo:<br />
+        I also make music! I've developed a smooth, deep style, with big purring basses and emotions from beyond this realm :owo:<br />
         My Audius is linked in <a onclick="menuAction({target:{attributes:{page:{value:'links'}}}})">Links</a>, along with my other socials!
     </p>
     `,
