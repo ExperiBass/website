@@ -138,7 +138,7 @@ const sections = {
     </p>
     <p>
         I also make music! I've developed a smooth, deep style, with big purring basses and emotions from beyond this realm :owo:<br />
-        My Audius is linked in <a onclick="menuAction({target:{attributes:{page:{value:'links'}}}})">Links</a>, along with my other socials!
+        My Audius is linked in <a onclick="menuAction({target:{attributes:{page:{value:'links'}}}})">External Links</a>, along with my other socials!
     </p>
     `,
     links: `
@@ -177,7 +177,7 @@ const sections = {
     `,
     contact: `
     <h2>> contact</h2>
-    <span><strong>BlueSky:</strong> look in <a onclick="menuAction({target:{attributes:{page:{value:'links'}}}})">Links</a></span>
+    <span><strong>BlueSky:</strong> look in <a onclick="menuAction({target:{attributes:{page:{value:'links'}}}})">External Links</a></span>
     <span><strong>Lemmy:</strong> soon</span>
     <span><strong>Masto:</strong> maybe (likely not)</span>
     <span><strong>󱡯 Email:</strong> <span class="hov" onclick="copy(this)">gingkagingerpepper [at] icloud [dot] com</span></span>

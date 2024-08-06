@@ -62,6 +62,11 @@ a.webring-random::after {
     margin-bottom: -0.5ex !important;
 }
 
+/* pls dont ab00s !important */
+body #xenicRing {
+    margin: inherit !important;
+}
+
 /* mobile */
 @media (max-width: 40rem) {
     .ring-container {
