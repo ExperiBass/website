@@ -121,8 +121,12 @@ a {
 }
 
 .hov:hover,
-.hov:focus {
+.hov:focus,
+.hov:focus-visible {
     filter: brightness(var(--dim));
+}
+.hov:focus-visible {
+    outline: none;
 }
 
 .hov:active {
