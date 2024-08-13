@@ -1,5 +1,7 @@
 const pane = document.getElementById('pane')
+const panecmd = document.getElementById('panecmd')
 const menu = document.getElementById('menu')
+let activePane = 'loading'
 /**
  *
  * @param {MouseEvent|KeyboardEvent} ev
@@ -49,7 +51,14 @@ const menuAction = (ev) => {
     if (!section) {
         return
     }
-    pane.innerHTML = sections[section]
+    if (activePane) {
+        /// TODO: store elements?
+        document.getElementById(activePane).className = "hidden"
+    }
+    document.getElementById(section).className = ""
+    activePane = section
+    panecmd.innerText = section
+    //pane.innerHTML = sections[section]
     box.checked ? (box.checked = false) : null
 
     // re-exec emote and link funcs on change

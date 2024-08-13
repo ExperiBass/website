@@ -3,6 +3,15 @@
     columns: 3;
     column-gap: var(--gap);
 }
+/* #headerlinks {
+    display: inline-block !important;
+}
+#headerlinks > .section::after {
+    content: ' ¦';
+}
+#headerlinks > .section:last-child::after {
+    content: unset;
+} */
 
 .img-desc {
     font-size: 0.8rem;

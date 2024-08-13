@@ -25,13 +25,233 @@
         </div>
     </div>
     <div id='pane'>
-        <h2>> loading</h2>
-        <p>Loading...</p>
-        <p>If this fails, clear your cache</p>
-        <noscript>or you have js disabled, pls enable (i don't bite <s>hard</s> :3)</noscript>
+        <h2>> ./<span id='panecmd'>loading</span></h2>
+        <div id='loading'>
+            <p>Loading...</p>
+            <p>If this fails, clear your cache</p>
+            <noscript>or you have js disabled, pls enable (i don't bite <s>hard</s> :3)</noscript>
+        </div>
+
+        <div class='hidden' id='aboutme'>
+            <span><strong>Preferred Names:</strong> /Gïng(ka|er){0,1}/ Pepper</span>
+            <span><strong>Age:</strong> �����</span>
+            <span><strong>Species:</strong> ?????? (Lostkin)</span>
+            <span><strong>Gender:</strong> Fluid</span>
+            <span><strong>Pronouns:</strong> Ask</span>
+            <span><strong>Sex:</strong> Not within the Human trinary</span>
+            <span><strong>Orientation:</strong> Bi</span>
+            <span>
+                <strong>Location:</strong>
+                <span title="Region Tundem on Planet A ('Nosdun'), orbiting Star 6 in Galaxy 4604B" class='hov'>
+                    Tundem, 4604B-6A (Nosdun)
+                </span>
+            </span>
+            <span><strong>Looking For:</strong> Webrings to join and others of my species :GingBlep:</span>
+            <span><strong>Do I know you?:</strong> No.</span>
+            <strong>PGP Pawprint:</strong>
+            <b id='pawprint' class='hov copyable' onclick='copy(this, {trimNewlines: true})' title='Click to copy!'>
+                {{{pawprint}}}
+            </b>
+            <h3>Setup</h3>
+            <pre>
+                <strong>2020 MBP (13"):</strong>
+                <a href='https://endeavouros.com/'>EndeavourOS :eos: (btw)</a>
+
+                <strong>MIDI Devices:</strong>
+                Akai Pro MPK Mini MKII Korg NanoKontrol2
+
+                <strong>Misc:</strong>
+                4TB Western Digital easyStore HDD Logitech g502 HERO (wired) j5create 7-port USB Hub
+            </pre>
+        </div>
+        <div class='hidden' id='bio'>
+            <p>
+                :GingBlep: Hai! I'm a stimky internet fox-like creature! I write code, do crime, and steal your garlic
+                bread :GingkaCreep:<br />
+                I main JS, although I'm happy in most langs except C/C++ uwu<br />
+                I like making stupid scripts and bending JS to my will, you can see some samples in the source for this
+                page (one being this emote system :GingHappy:)<br />
+                I speedrun WipEout Pure, I need to do 2048 runs too uwu
+            </p>
+            <p>
+                I also make music! I've developed a smooth, deep style, with big purring basses and emotions from beyond
+                this realm<br />
+                My Audius is linked in
+                <a onclick="menuAction({target:{attributes:{page:{value:'links'}}}})">External Links</a>, along with my
+                other socials!
+            </p>
+        </div>
+
+        <div class='hidden' id='links'>
+            <a href='https://audius.co/experibass'> audius</a>
+            <a href='https://bsky.app/profile/experibassmusic.bsky.social'> bluesky</a>
+            <a href='https://github.com/experibass'> github (i mirror out my repos to here)</a>
+            <span> forgejo (eventually)</span>
+            <a href='https://speedrun.com/user/ExperiBass'> speedrun.com</a>
+            <span> peertube (soon)</span>
+            <a href='https://youtube.com/channel/UCx6VxDU880NuvLbWH8xT2GA'> youtube (I upload visuals and speedruns
+                here :owo:)</a>
+            <a href='https://github.com/ExperiBass/dotfiles'> my dotfiles</a>
+            <a href='https://linux-hardware.org/?probe=7b3cdda6e2'> hardware probe</a>
+            <h3> Tools/Utils<span class='cursor-blink'>_</span></h3>
+            <a href='https://github.com/experibass/cli-pride-flags'>pride flags in your term~</a>
+            <a href='https://github.com/experibass/unified-pride-flags'>unified list for pride flag colors and weights</a>
+            <a href='https://github.com/experibass/pixelsort-go'>pixelsorter written in golang</a>
+            <h3> Playlists<span class='cursor-blink'>_</span></h3>
+            <a href='https://music.apple.com/us/playlist/%CE%B3iddim/pl.u-NpXmza7t4yVpke7'>riddim</a>
+            <a href='https://music.apple.com/us/playlist/%CF%80utty/pl.u-oZyl3PaCGaB0dxD'>nutty</a>
+            <a href='https://music.apple.com/us/playlist/b%CE%B3iddim/pl.u-WabZv4ZieNAvxLY'>briddim</a>
+            <a href='https://music.apple.com/us/playlist/h%CE%B4%CE%B3dstyl%CE%BE/pl.u-NpXmzeWF4yVpke7'>hardstyle</a>
+            <a href='https://music.apple.com/us/playlist/jvmpstyl%CE%BE/pl.u-2aoqXKDiG20LlDe'>jumpstyle</a>
+            <span><i>still</i> too lazy to update this</span>
+        </div>
+
+        <div class='hidden' id='otherpages'>
+            <a href='cyberspace-independence.html'>declaration of the independence of cyberspace</a>
+            <a href='flags.html'>unified-pride-flags flag previews</a>
+            <a href='key.txt'>[armored] pgp pubkey</a>
+            <a href='experibass.gpg'>[file] pgp pubkey</a>
+            <a href='pixelsorts.html'>pixelsort gallery</a>
+            <a href='eve.html'>eve photo gallery</a>
+            <a href='term.html'>this page, but in a terminal-like interface</a>
+        </div>
+
+        <div class='hidden' id='contact'>
+            <span><strong>BlueSky:</strong>
+                look in
+                <a onclick="menuAction({target:{attributes:{page:{value:'links'}}}})">External Links</a></span>
+            <span><strong>Lemmy:</strong> soon</span>
+            <span><strong>Masto:</strong> maybe (likely not)</span>
+            <span><strong>󱡯 Email:</strong>
+                <span class='hov' onclick='copy(this)'>gingkagingerpepper [at] icloud [dot] com</span></span>
+        </div>
+
+        <div class='hidden' id='comms'>
+            <h3>Purchasing Tracks<span class='cursor-blink'>_</span></h3>
+            <p>
+                Wanna buy one or more of my tracks/albums? Shoot me an email with the name(s) and your payment method!
+            </p>
+
+            <s>
+                <h3>Music Commissions<span class='cursor-blink'>_</span></h3>
+                <p>
+                    I take music commissions! I do Hardstyle, Trap, and Techno, and the price ranges from USD$?? to
+                    USD$?? depending on complexity.
+                </p>
+                <p>
+                    If you decide to commission me, I'll need a general mood of your track with reference songs. I do
+                    <b>NOT</b>
+                    do vocals, though I
+                    <i>can</i>
+                    use pre-existing vocals (that would bump the price by USD$??). Cover art is out of scope.
+                </p>
+                <p>
+                    During the creation of your track, I'll send WIPs for your input, and once it's done to your liking
+                    and I receive payment I'll send the .mp3 (320 kbps) and .wav.
+                </p>
+            </s>
+            <span>On Hold</span>
+
+            <h3>Code Commissions<span class='cursor-blink'>_</span></h3>
+            <p>
+                I also write code on commission. I can do just about anything non-frontend in JavaScript and Go,
+                excluding Discord bots (I have beef).
+            </p>
+            <p>
+                My prices start at a base of USD$20 for a simple &gt;=32KiB script, and will increase depending on the
+                complexity of the project. Any updates past the original details will have a USD$50 charge.
+            </p>
+            <p>When I'm commissioned, I require the details to be fully laid out, preferably in a Trello board.</p>
+            <h4>Terms and Conditions</h4>
+            <p>
+                I will not do nsfw comissions. You can do anything you want to the track once it's finished
+                <i>except</i>
+                resell without my explicit permission. I do reserve the right to use and edit the finished product for
+                myself if I choose. (<a href='https://creativecommons.org/licenses/by-nc/4.0/'>CC-BY-NC-4.0</a>)
+            </p>
+            <h3><a onclick="menuAction({target:{attributes:{page:{value:'payment'}}}})">Payment</a></h3>
+            <h3><a onclick="menuAction({target:{attributes:{page:{value:'contact'}}}})">Contacting</a></h3>
+        </div>
+
+        <div class='hidden' id='payment'>
+            <p>Art is valid currency :3 Shoot me a dm if you wanna trade!</p>
+            <p>Payment in fiat will be conducted through CashApp.</p>
+            <p>
+                Cryptocurrency payments will be accepted after 3 (BTC)/6 (ETH/XMR) confirmations. You get a 10% discount
+                as well :3
+            </p>
+            <p>
+                Click on an address to insert it into your clipboard! Make sure the addresses are correct, especially on
+                Windows, as there is malware that will replace addresses with the address of the attacker.
+            </p>
+            <p>BTC-LN: <span class='hov' onclick='copy(this)'>experibassmusic@bitrefill.me</span></p>
+            <p>BTC/ETH/XMR: <span class='hov' onclick='copy(this)'>experibassmusic.eth</span></p>
+            <p>No ENS resolution? Here's the addresses :3</p>
+            <p>BTC:
+                <span class='hov' onclick='copy(this, {trimNewlines: true, removeSpaces: true})'>
+                    <span>bc1p</span>
+                    <span>4egh</span>
+                    <span>gf2j</span>
+                    <span>rtpu</span>
+                    <span>sqxa</span>
+                    <span>a9vf</span>
+                    <span>2uvy</span>
+                    <span>t47a</span>
+                    <span>tkuk</span>
+                    <span>qvs4</span>
+                    <span>t78a</span>
+                    <span>f06c</span>
+                    <span>50vl</span>
+                    <span>f8ds</span>
+                    <span>tg3f</span>
+                    <span>73</span>
+                </span></p>
+            <p>ETH:
+                <span class='hov' onclick='copy(this)'>
+                    <span>0x8B</span>
+                    <span>b53b</span>
+                    <span>C2a6</span>
+                    <span>3F2b</span>
+                    <span>d10B</span>
+                    <span>16bd</span>
+                    <span>0aD6</span>
+                    <span>fCDc</span>
+                    <span>1ffd</span>
+                    <span>49d1</span>
+                    <span>14</span>
+                </span></p>
+            <p>XMR:
+                <span class='hov' onclick='copy(this)'>
+                    <span>88uc</span>
+                    <span>Q7Bu</span>
+                    <span>EHmU</span>
+                    <span>f7SB</span>
+                    <span>ADsP</span>
+                    <span>F6PM</span>
+                    <span>wSVL</span>
+                    <span>wFAg</span>
+                    <span>gDW9</span>
+                    <span>uj7R</span>
+                    <span>SqqZ</span>
+                    <span>JS23</span>
+                    <span>QHxa</span>
+                    <span>e2Ai</span>
+                    <span>p5oM</span>
+                    <span>jQKK</span>
+                    <span>YaG1</span>
+                    <span>pirT</span>
+                    <span>ZJxu</span>
+                    <span>QW4s</span>
+                    <span>qgXS</span>
+                    <span>fJu6</span>
+                    <span>DbUX</span>
+                    <span>Qrc</span>
+                </span></p>
+        </div>
     </div>
 </div>
 <hr />
+
 <div class='ring-container'>
     <div class='devring webring'>
         <div class='devring-container'>

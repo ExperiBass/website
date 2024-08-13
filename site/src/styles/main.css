@@ -88,7 +88,7 @@ a:focus {
 @supports (scrollbar-color: auto) {
     html,
     body {
-        scrollbar-color: var(--tertiary-color) var(--background-color);
+        scrollbar-color: var(--secondary-color) var(--background-color);
     }
 }
 @supports selector(::-webkit-scrollbar) {
@@ -99,20 +99,14 @@ a:focus {
     }
 
     /* Handle */
-    ::-webkit-scrollbar-thu #pawprint span:nth-child(even) {
-        color: var(--text-color);
-    }
-    #pawprint span:nth-child(odd) {
-        color: var(--tertiary-color);
-    }
-    mb {
-        background: var(--tertiary-color);
+    ::-webkit-scrollbar-thumb {
+        background: var(--secondary-color);
         border-radius: var(--border-radius);
     }
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .hov,
@@ -203,7 +197,12 @@ a {
     /* animated ver */
     /* background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3cstyle type='text/css'%3e rect %7b stroke-dashoffset: 0; animation: dash 3s linear infinite;%7d %40keyframes dash %7b to %7b stroke-dashoffset: 168;%7d %7d %3c/style%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='%23AC7D69FF' stroke-width='3' stroke-dasharray='12,66,6' stroke-dashoffset='0' stroke-linecap='butt' /%3e%3c/svg%3e"); */
 }
-#pane > p {
+#pane > div {
+    display: inherit;
+    flex-direction: column;
+    gap: inherit;
+}
+#pane p {
     margin: 0.1rem;
 }
 #pane .hov[onclick] {
@@ -262,6 +261,13 @@ a {
 #dropdown > input,
 #dropdown > label {
     display: none;
+}
+
+#pawprint span:nth-child(even) {
+    color: var(--text-color);
+}
+#pawprint span:nth-child(odd) {
+    color: var(--tertiary-color);
 }
 
 footer > .section::after {

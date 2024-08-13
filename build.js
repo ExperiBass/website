@@ -31,7 +31,7 @@ handlebars.registerHelper('populategallery', (gallery) => {
         galleryHTML +=
             `<div class="img-container" id="${divID}">` +
             `<a href="${src}">` +
-            `<img src="${src}" />` + /// loading="lazy" ?
+            `<img src="${src}" loading="lazy"/>` + /// loading="lazy" ?
             '</a>' +
             (img.desc ? `<p class="img-desc">${img.desc} ${source}</p>` : '') +
             '</div>\n'
@@ -39,6 +39,9 @@ handlebars.registerHelper('populategallery', (gallery) => {
     return galleryHTML.trim()
 })
 handlebars.registerHelper('link', linkHelper)
+handlebars.registerHelper('pawprint', () => {
+    return pawprint.split(' ').map((chunk,i) => `<span>${chunk}</span>${(i+1)%5 ? '' : '<br />'}`).join(' ')
+})
 
 process.chdir(__dirname)
 
@@ -47,6 +50,7 @@ const viewsDir = join(siteDir, './src/views')
 const layoutFileName = 'layout.handlebars'
 const LAYOUT_FILE = readFileSync(`${viewsDir}/${layoutFileName}`, 'utf-8')
 const LAYOUT = handlebars.compile(LAYOUT_FILE)
+const pawprint = '33A8 1E0A 9FD6 6E1B 5D02 7649 5F47 E26A 5D22 1AEC'
 
 const DRY_RUN = false
 
