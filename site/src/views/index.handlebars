@@ -25,7 +25,7 @@
         </div>
     </div>
     <div id='pane'>
-        <h2>> ./<span id='panecmd'>loading</span></h2>
+        <h2>> ./<span id='panecmd'>loading</span><span class='cursor-blink'>_</span></h2>
         <div id='loading'>
             <p>Loading...</p>
             <p>If this fails, clear your cache</p>
@@ -52,16 +52,19 @@
             <b id='pawprint' class='hov copyable' onclick='copy(this, {trimNewlines: true})' title='Click to copy!'>
                 {{{pawprint}}}
             </b>
-            <h3>Setup</h3>
+            <h3>Setup<span class='cursor-blink'>_</span></h3>
             <pre>
-                <strong>2020 MBP (13"):</strong>
+                2020 MBP (13")
                 <a href='https://endeavouros.com/'>EndeavourOS :eos: (btw)</a>
 
                 <strong>MIDI Devices:</strong>
-                Akai Pro MPK Mini MKII Korg NanoKontrol2
+                Akai Pro MPK Mini MKII
+                Korg NanoKontrol2
 
                 <strong>Misc:</strong>
-                4TB Western Digital easyStore HDD Logitech g502 HERO (wired) j5create 7-port USB Hub
+                4TB Western Digital easyStore HDD
+                Logitech g502 HERO (wired)
+                j5create 7-port USB Hub
             </pre>
         </div>
         <div class='hidden' id='bio'>
@@ -304,6 +307,16 @@
         <script src='https://xandra.cc/safonts/webring.js'></script>
         <ring-900 site='https://experibassmusic.eth.limo/'></ring-900>
     </div>
+    <div class='otswebring'>
+        <a href='https://webring.obeythesystem.com/page?=previous' rel='nofollow'>&lt;</a>
+        <a href='https://webring.obeythesystem.com/' rel='nofollow'>
+            <img
+                style='vertical-align: middle;'
+                src='https://webring.obeythesystem.com/ots_webring_button_1.gif'
+                alt='OTS Webring Button'
+            /></a>
+        <a href='https://webring.obeythesystem.com/page?=next' rel='nofollow'>&gt;</a>
+    </div>
 
     <div>
         Link to me!
@@ -367,8 +380,10 @@
         </a>
     </span>
     <span class='section'>
-        <a href='https://docs.lumeweb.com/problems/better-web/'>the term 'web3' has been hijacked by vcs</a>
+        <a href='https://docs.lumeweb.com/problems/better-web/'>the term 'web3' has been hijacked by vcs</a>{{!
+        }}<span
+            class='cursor-blink'
+        >_</span>
     </span>
-
 </footer>
 <script src='src/scripts/index.js' defer></script>

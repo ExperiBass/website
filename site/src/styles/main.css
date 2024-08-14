@@ -52,7 +52,7 @@ h2 {
 
 h2,
 h3 {
-    margin: var(--gap);
+    margin: var(--gap) 0px;
 }
 
 p {
@@ -69,7 +69,7 @@ code {
 pre {
     white-space: pre-line;
     font: inherit;
-    margin: var(--gap);
+    margin: var(--gap) 0px;
 }
 
 a {
@@ -238,12 +238,12 @@ a {
 .menu-link:hover::after,
 .menu-link:focus::after {
     content: '_';
-    animation: cursor-blink 1s linear infinite;
+    animation: cursor-blink 1.5s linear infinite;
 }
 
 /* caret blink */
 .cursor-blink {
-    animation: cursor-blink 1s linear infinite;
+    animation: cursor-blink 1.5s linear infinite;
 }
 
 /* mobile help */
