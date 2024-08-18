@@ -66,6 +66,9 @@ a.webring-random::after {
 body #xenicRing {
     margin: inherit !important;
 }
+body #xenicRing .webring-head {
+    display: none !important;
+}
 
 /* mobile */
 @media (max-width: 40rem) {
