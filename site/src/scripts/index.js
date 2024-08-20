@@ -53,9 +53,9 @@ const menuAction = (ev) => {
     }
     if (activePane) {
         /// TODO: store elements?
-        document.getElementById(activePane).className = "hidden"
+        document.getElementById(activePane).className = 'hidden'
     }
-    document.getElementById(section).className = ""
+    document.getElementById(section).className = ''
     activePane = section
     panecmd.innerText = section
     //pane.innerHTML = sections[section]

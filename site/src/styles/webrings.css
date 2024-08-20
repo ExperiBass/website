@@ -52,7 +52,7 @@ a.webring-random::after {
     height: fit-content !important;
 }
 #ahsc table tr td {
-	padding: var(--gap) !important;
+    padding: var(--gap) !important;
 }
 .ahsc-info br {
     display: none !important;

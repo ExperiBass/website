@@ -4,22 +4,23 @@
         <h1>{{tabtitle}}</h1>
         <span id='headerlinks'>
             {{! i really want no whitespace }}
-            <span class='section'>{{{link 'home' '/'}}}{{{link
+            <span class='section'>{{{wrappedlink 'home' '/'}}}{{{wrappedlink
                     'more pixelsorting results & masks'
                     'https://foxuments.experibassmusic.eth.limo/pixelsort-gens/'
-                }}}</span><br>
+                }}}</span><br />
             <span class='section'>other sorters
-                <span>{{{link 'ikatch.net' 'https://ikatch.net/pixelsort'}}}</span>{{!
-        }}<span>{{{link
+                <span>{{{wrappedlink 'ikatch.net' 'https://ikatch.net/pixelsort'}}}</span>{{!
+        }}<span
+                >{{{wrappedlink
                         'jeffreythompson.org'
                         'https://jeffreythompson.org/blog/?s=pixel+sort'
                     }}}</span>{{!
-        }}<span>{{{link
+        }}<span>{{{wrappedlink
                         'r/pixelsorting'
                         'https://troddit.com/r/pixelsorting'
                     }}}</span>{{!
-        }}</span><br>
-            <span class='section'>{{{link
+        }}</span><br />
+            <span class='section'>{{{wrappedlink
                     'cc-by-nc-sa 4.0'
                     'https://creativecommons.org/licenses/by-nc-sa/4.0'
                 }}}</span>
@@ -32,4 +33,4 @@
     {{{populategallery galleryImages}}}
 </div>
 <hr />
-<footer>{{{link 'home' '/'}}}</footer>
+<footer>{{{wrappedlink 'home' '/'}}}</footer>

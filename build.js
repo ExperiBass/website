@@ -4,7 +4,7 @@ const { join } = require('node:path')
 const galleries = require('./galleries.js')
 const thisDomain = 'https://experibassmusic.eth.limo'
 
-const linkHelper = (text, url) => {
+const wrappedLinkHelper = (text, url) => {
     if (this.url) {
         text = this.text
         url = this.url
@@ -16,6 +16,19 @@ const linkHelper = (text, url) => {
 
     return `[<a href="${url}" target="${target}">${text}</a>]`
 }
+const prefixedLinkHelper = (text, url) => {
+    if (this.url) {
+        text = this.text
+        url = this.url
+    }
+    let target = ''
+    let prefix = '//'
+    if (url.startsWith('https://') && !url.startsWith(thisDomain)) {
+        target = '_blank' // open external links in a new tab
+        //prefix += '/'
+    }
+    return `<a href="${url}" target="${target}">${prefix}${text}</a>`
+}
 handlebars.registerHelper('populategallery', (gallery) => {
     let galleryHTML = ''
     for (const img of gallery.images) {
@@ -25,7 +38,7 @@ handlebars.registerHelper('populategallery', (gallery) => {
         let source = `[${img.credits || 'source unknown'}]`
         if (img.sourceURL) {
             if (img.sourceURL.startsWith('https')) {
-                source = linkHelper(img.credits || 'source', img.sourceURL)
+                source = wrappedLinkHelper(img.credits || 'source', img.sourceURL)
             }
         }
         galleryHTML +=
@@ -38,9 +51,13 @@ handlebars.registerHelper('populategallery', (gallery) => {
     }
     return galleryHTML.trim()
 })
-handlebars.registerHelper('link', linkHelper)
+handlebars.registerHelper('wrappedlink', wrappedLinkHelper)
+handlebars.registerHelper('hyperlink', prefixedLinkHelper)
 handlebars.registerHelper('pawprint', () => {
-    return pawprint.split(' ').map((chunk,i) => `<span>${chunk}</span>${(i+1)%5 ? '' : '<br />'}`).join(' ')
+    return pawprint
+        .split(' ')
+        .map((chunk, i) => `<span>${chunk}</span>${(i + 1) % 5 ? '' : '<br />'}`)
+        .join(' ')
 })
 
 process.chdir(__dirname)
@@ -100,7 +117,7 @@ const ctx = {
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/flags.css" />'],
         keywords: ['unified', 'cli', 'pride', 'flags', 'lgbtqia'],
     },
-    404: { tabtitle: 'Are You Lost? (404)', desc: 'Were you ever found?' },
+    404: { tabtitle: 'Are You Lost? (404)', desc: 'Were you even Found?' },
     rinkucomms: {
         tabtitle: 'Rinku Inku Commission Sheet',
         desc: "Rinku Inku's commission sheet.",
@@ -140,7 +157,7 @@ function compileToHTML(page) {
 
 const pages = readdirSync(viewsDir)
 
-for (const page of pages.filter(v => v.endsWith('.handlebars'))) {
+for (const page of pages.filter((v) => v.endsWith('.handlebars'))) {
     if ([layoutFileName, 'menus.handlebars'].includes(page)) {
         continue
     }
