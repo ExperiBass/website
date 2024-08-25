@@ -44,7 +44,7 @@ handlebars.registerHelper('populategallery', (gallery) => {
         galleryHTML +=
             `<div class="img-container" id="${divID}">` +
             `<a href="${src}">` +
-            `<img src="${src}" loading="lazy"/>` + /// loading="lazy" ?
+            `<img src="${src}"/>` +
             '</a>' +
             (img.desc ? `<p class="img-desc">${img.desc} ${source}</p>` : '') +
             '</div>\n'

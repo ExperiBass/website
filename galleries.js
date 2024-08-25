@@ -43,11 +43,6 @@ const pixelsorts = {
             sourceURL: 'https://www.pexels.com/photo/green-leafed-trees-during-fog-time-167684',
         },
         {
-            url: '/lumn-forest/matrixisfailing.jpg',
-            desc: 'and a third, i dont remember what i did here but it involved thresholds',
-            sourceURL: 'https://www.pexels.com/photo/green-leafed-trees-during-fog-time-167684',
-        },
-        {
             url: '/lumn-forest/heavy-sort.jpg',
             desc: 'my wallpaper for a little bit, i ended up using this pic a lot to test pixelsort_go :3',
             sourceURL: 'https://www.pexels.com/photo/green-leafed-trees-during-fog-time-167684',
@@ -99,6 +94,16 @@ const pixelsorts = {
             url: '/dune/dune-sorted.jpg',
             desc: 'mmmm, angles~',
             sourceURL: 'https://www.pexels.com/photo/a-boat-is-in-the-water-near-a-mountain-25749272/',
+        },
+        {
+            url: '/clouds/clouds.png',
+            desc: "friend wanted some pics sorted, here's one of em",
+            credits: 'source private',
+        },
+        {
+            url: '/clouds/clouds-smeared.png',
+            desc: 'smeared variant',
+            credits: 'source private',
         },
     ],
 }
