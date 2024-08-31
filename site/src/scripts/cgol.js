@@ -2,7 +2,9 @@
     conways game of life in a favicon
 **/
 
-function cgol(field = null, dims) {
+function cgol(field = null, dims, wrap = false) {
+    /// TODO: wrapping
+    /// ugh
     if (!field) {
         throw 'no field'
     }
@@ -122,7 +124,7 @@ function seedField(seed, field) {
     fieldseed = seeder(seed)
     while (fieldseed.length < cellCount) {
         /// expand
-        seed = btoa(seed)
+        seed = btoa(seed).replace(/=+/g, '')
         fieldseed = seeder(seed)
         console.log(fieldseed.length, seed)
     }
