@@ -138,19 +138,29 @@ async function seedField(seed, field) {
     const fieldHeight = field[0].length
     const cellCount = fieldWidth * fieldHeight
 
-    /// hex alone results in repeating patterns
-    seed = seeder(btoa(await digestMessage(seed)))
     /// TODO: find a different seeding algo?
     function seeder(seed) {
         let fieldseed = ''
         for (const idx in seed) {
             const code = seed.charCodeAt(parseInt(idx))
             /// something gets weird, this << 5 works to clear it up
-            const bin = (((code ^ seed) << 5) >>> 0).toString(2)
+            const bin = decToBin(
+                (code ^
+                    parseInt(
+                        seed
+                            .split('')
+                            .map((v, i) => seed.charCodeAt(i))
+                            .join('')
+                    )) <<
+                    5
+            )
             fieldseed += bin
         }
         return fieldseed
     }
+
+    /// hex alone results in repeating patterns
+    seed = seeder(btoa(await digestMessage(seed)))
 
     while (seed.length < cellCount) {
         /// expand
@@ -204,15 +214,15 @@ if (navigator) {
     seedstring += navigator.language
     seedstring += navigator.buildID
 }
-let field = seedField(seedstring, generateEmptyField(dims)).then(field => {
+let field = seedField(seedstring, generateEmptyField(dims)).then((field) => {
     printField(field)
-    
+
     let state = field
     let i = 0
     const MAX_ITERATIONS = 100
     /// lower thresh = less alive at the end
     const stopThreshold = Math.ceil(dims * dims * 0.06)
-    
+
     document.addEventListener(
         'DOMContentLoaded',
         () => {
@@ -231,7 +241,7 @@ let field = seedField(seedstring, generateEmptyField(dims)).then(field => {
                 i++
             }, 700)
             //console.log(`iterations: ${MAX_ITERATIONS}`)
-    
+
             /// draw
             printField(state)
             const drawn = drawField(state, ctx)
