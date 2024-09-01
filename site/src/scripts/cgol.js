@@ -3,8 +3,6 @@
 **/
 
 function cgol(field = null, dims, wrap = false) {
-    /// TODO: wrapping
-    /// ugh
     if (!field) {
         throw 'no field'
     }
@@ -17,18 +15,42 @@ function cgol(field = null, dims, wrap = false) {
         for (let ii = 0; ii < fieldWidth; ii++) {
             /// cell check!
             let liveNeighbors = 0
-            /// furst, check corners
-            /// top and bottom
-            liveNeighbors += field[ii]?.[i - 1] === undefined ? 0 : field[ii][i - 1]
-            liveNeighbors += field[ii]?.[i + 1] === undefined ? 0 : field[ii][i + 1]
-            /// left and right
-            liveNeighbors += field[ii - 1]?.[i] === undefined ? 0 : field[ii - 1][i]
-            liveNeighbors += field[ii + 1]?.[i] === undefined ? 0 : field[ii + 1][i]
-            /// and now diagonals
-            liveNeighbors += field[ii - 1]?.[i - 1] === undefined ? 0 : field[ii - 1][i - 1]
-            liveNeighbors += field[ii - 1]?.[i + 1] === undefined ? 0 : field[ii - 1][i + 1]
-            liveNeighbors += field[ii + 1]?.[i - 1] === undefined ? 0 : field[ii + 1][i - 1]
-            liveNeighbors += field[ii + 1]?.[i + 1] === undefined ? 0 : field[ii + 1][i + 1]
+            /// furst, check neighbors
+            if (wrap) {
+                /// top and bottom
+                liveNeighbors += field[ii]?.[i - 1] === undefined ? field[ii][fieldHeight - 1] : field[ii][i - 1]
+                liveNeighbors += field[ii]?.[i + 1] === undefined ? field[ii][0] : field[ii][i + 1]
+                /// left and right
+                liveNeighbors += field[ii - 1]?.[i] === undefined ? field[fieldWidth - 1][i] : field[ii - 1][i]
+                liveNeighbors += field[ii + 1]?.[i] === undefined ? field[0][i] : field[ii + 1][i]
+                /// and now diagonals
+                let negIdx = ii - 1
+                if (negIdx === -1) {
+                    negIdx = fieldWidth - 1
+                }
+                let posIdx = ii + 1
+                if (posIdx === fieldWidth) {
+                    posIdx = 0
+                }
+                liveNeighbors +=
+                    field[negIdx]?.[i - 1] === undefined ? field[negIdx][fieldHeight - 1] : field[negIdx][i - 1]
+                liveNeighbors += field[negIdx]?.[i + 1] === undefined ? field[negIdx][0] : field[negIdx][i + 1]
+                liveNeighbors +=
+                    field[posIdx]?.[i - 1] === undefined ? field[posIdx][fieldHeight - 1] : field[posIdx][i - 1]
+                liveNeighbors += field[posIdx]?.[i + 1] === undefined ? field[posIdx][0] : field[posIdx][i + 1]
+            } else {
+                /// top and bottom
+                liveNeighbors += field[ii]?.[i - 1] === undefined ? 0 : field[ii][i - 1]
+                liveNeighbors += field[ii]?.[i + 1] === undefined ? 0 : field[ii][i + 1]
+                /// left and right
+                liveNeighbors += field[ii - 1]?.[i] === undefined ? 0 : field[ii - 1][i]
+                liveNeighbors += field[ii + 1]?.[i] === undefined ? 0 : field[ii + 1][i]
+                /// and now diagonals
+                liveNeighbors += field[ii - 1]?.[i - 1] === undefined ? 0 : field[ii - 1][i - 1]
+                liveNeighbors += field[ii - 1]?.[i + 1] === undefined ? 0 : field[ii - 1][i + 1]
+                liveNeighbors += field[ii + 1]?.[i - 1] === undefined ? 0 : field[ii + 1][i - 1]
+                liveNeighbors += field[ii + 1]?.[i + 1] === undefined ? 0 : field[ii + 1][i + 1]
+            }
 
             /// guess i'll Optional<die>
             const isAlive = !!field[ii][i]
@@ -147,8 +169,7 @@ function compareStates(A, B) {
     const fieldHeight = A[0].length
     let res = true
     let diff = 0
-    compareLoop:
-    for (let i = 0; i < fieldHeight; i++) {
+    compareLoop: for (let i = 0; i < fieldHeight; i++) {
         for (let ii = 0; ii < fieldWidth; ii++) {
             if (A[ii][i] !== B[ii][i]) {
                 res = false
@@ -168,34 +189,40 @@ const ctx = canvas.getContext('2d')
 canvas.width = dims * pixelSize
 canvas.height = dims * pixelSize
 
-let field = seedField(navigator?.userAgent || 'foobar', generateEmptyField(dims))
+let field = seedField(navigator?.userAgent || '0', generateEmptyField(dims))
 printField(field)
 
 let state = field
 let i = 0
 const MAX_ITERATIONS = 200
-const stopThreshold = Math.ceil((dims*dims) * 0.03)
-const inter = setInterval(() => {
-    let oldstate = state
-    state = cgol(state, dims, dims)
-    drawField(state, ctx)
-    updateFavicon(canvas.toDataURL())
-    const compare = compareStates(oldstate, state)
-    printField(state)
-    /// keep going until we stabilize
-    if (compare < stopThreshold && i > MAX_ITERATIONS) {
-        console.log('stable')
-        clearInterval(inter)
-    }
-    i++
-}, 100)
-//console.log(`iterations: ${MAX_ITERATIONS}`)
+/// lower thresh = less alive at the end
+const stopThreshold = Math.ceil(dims * dims * 0.08)
 
-/// draw
-printField(state)
-const drawn = drawField(state, ctx)
-document.body.appendChild(canvas)
-updateFavicon(canvas.toDataURL())
+document.addEventListener('DOMContentLoaded', () => {
+
+    const inter = setInterval(() => {
+        let oldstate = state
+        state = cgol(state, dims, dims, true)
+        drawField(state, ctx)
+        updateFavicon(canvas.toDataURL())
+        const compare = compareStates(oldstate, state)
+        printField(state)
+        /// keep going until we stabilize
+        if (compare < stopThreshold || i > MAX_ITERATIONS) {
+            console.log('stable')
+            clearInterval(inter)
+        }
+        i++
+    }, 700)
+    //console.log(`iterations: ${MAX_ITERATIONS}`)
+    
+    /// draw
+    printField(state)
+    const drawn = drawField(state, ctx)
+    //document.body.appendChild(canvas)
+    updateFavicon(canvas.toDataURL())
+}, false);
+
 function updateFavicon(newImg) {
     if (!newImg) {
         return
