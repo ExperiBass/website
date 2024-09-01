@@ -213,6 +213,9 @@ if (navigator) {
     seedstring = navigator.userAgent
     seedstring += navigator.language
     seedstring += navigator.buildID
+    seedstring += navigator.oscpu
+    seedstring += navigator.hardwareConcurrency
+    seedstring += navigator.maxTouchPoints
 }
 let field = seedField(seedstring, generateEmptyField(dims)).then((field) => {
     printField(field)
