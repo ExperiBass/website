@@ -1,5 +1,6 @@
 /**
     conways game of life in a favicon
+    shoot me a email if you make tweaks, i want ideas :3
 **/
 
 function cgol(field = null, dims, wrap = false) {
@@ -77,6 +78,7 @@ function cgol(field = null, dims, wrap = false) {
     return newField
 }
 function printField(field) {
+    return
     const fieldWidth = field.length
     const fieldHeight = field[0].length
     let str = ''
@@ -123,42 +125,48 @@ function generateEmptyField(dims) {
 function decToBin(dec) {
     return (dec >>> 0).toString(2)
 }
-function seedField(seed, field) {
+async function digestMessage(message) {
+    const encoder = new TextEncoder()
+    const data = encoder.encode(message)
+    const hashBuffer = await window.crypto.subtle.digest('SHA-256', data)
+    const hashArray = Array.from(new Uint8Array(hashBuffer)) // convert buffer to byte array
+    const hashHex = hashArray.map((b) => b.toString(16).padStart(2, '0')).join('') // convert bytes to hex string
+    return hashHex
+}
+async function seedField(seed, field) {
     const fieldWidth = field.length
     const fieldHeight = field[0].length
     const cellCount = fieldWidth * fieldHeight
 
-    let fieldseed = ''
+    /// hex alone results in repeating patterns
+    seed = seeder(btoa(await digestMessage(seed)))
     /// TODO: find a different seeding algo?
     function seeder(seed) {
         let fieldseed = ''
-        let prevcode = 0
         for (const idx in seed) {
             const code = seed.charCodeAt(parseInt(idx))
-            const bin = ((code ^ prevcode) >>> 0).toString(2)
+            /// something gets weird, this << 5 works to clear it up
+            const bin = (((code ^ seed) << 5) >>> 0).toString(2)
             fieldseed += bin
-            prevcode = code
         }
         return fieldseed
     }
 
-    seed = btoa(seed.replace(' ', ''))
-    fieldseed = seeder(seed)
-    while (fieldseed.length < cellCount) {
+    while (seed.length < cellCount) {
         /// expand
+        console.log(seed.length, seed)
         seed = btoa(seed).replace(/=+/g, '')
-        fieldseed = seeder(seed)
-        console.log(fieldseed.length, seed)
+        seed = seeder(seed)
     }
-    if (fieldseed > cellCount) {
+    if (seed > cellCount) {
         /// truncate
-        fieldseed = fieldseed.slice(0, cellCount)
+        seed = seed.slice(0, cellCount)
     }
 
     for (let i = 0; i < fieldHeight; i++) {
         for (let ii = 0; ii < fieldWidth; ii++) {
             let idx = i * fieldWidth + ii
-            let bit = fieldseed[idx]
+            let bit = seed[idx]
             field[ii][i] = parseInt(bit)
         }
     }
@@ -189,39 +197,50 @@ const ctx = canvas.getContext('2d')
 canvas.width = dims * pixelSize
 canvas.height = dims * pixelSize
 
-let field = seedField(navigator?.userAgent || '0', generateEmptyField(dims))
-printField(field)
-
-let state = field
-let i = 0
-const MAX_ITERATIONS = 200
-/// lower thresh = less alive at the end
-const stopThreshold = Math.ceil(dims * dims * 0.08)
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    const inter = setInterval(() => {
-        let oldstate = state
-        state = cgol(state, dims, dims, true)
-        drawField(state, ctx)
-        updateFavicon(canvas.toDataURL())
-        const compare = compareStates(oldstate, state)
-        printField(state)
-        /// keep going until we stabilize
-        if (compare < stopThreshold || i > MAX_ITERATIONS) {
-            console.log('stable')
-            clearInterval(inter)
-        }
-        i++
-    }, 700)
-    //console.log(`iterations: ${MAX_ITERATIONS}`)
+/// not tracking you i swear, this is for unique favicons
+let seedstring = '0'
+if (navigator) {
+    seedstring = navigator.userAgent
+    seedstring += navigator.language
+    seedstring += navigator.buildID
+}
+let field = seedField(seedstring, generateEmptyField(dims)).then(field => {
+    printField(field)
     
-    /// draw
-    printField(state)
-    const drawn = drawField(state, ctx)
-    //document.body.appendChild(canvas)
-    updateFavicon(canvas.toDataURL())
-}, false);
+    let state = field
+    let i = 0
+    const MAX_ITERATIONS = 100
+    /// lower thresh = less alive at the end
+    const stopThreshold = Math.ceil(dims * dims * 0.06)
+    
+    document.addEventListener(
+        'DOMContentLoaded',
+        () => {
+            const inter = setInterval(() => {
+                let oldstate = state
+                state = cgol(state, dims, dims, true)
+                drawField(state, ctx)
+                updateFavicon(canvas.toDataURL())
+                const compare = compareStates(oldstate, state)
+                printField(state)
+                /// keep going until we stabilize
+                if (compare < stopThreshold || i > MAX_ITERATIONS) {
+                    console.log('stable')
+                    clearInterval(inter)
+                }
+                i++
+            }, 700)
+            //console.log(`iterations: ${MAX_ITERATIONS}`)
+    
+            /// draw
+            printField(state)
+            const drawn = drawField(state, ctx)
+            //document.body.appendChild(canvas)
+            updateFavicon(canvas.toDataURL())
+        },
+        false
+    )
+})
 
 function updateFavicon(newImg) {
     if (!newImg) {
