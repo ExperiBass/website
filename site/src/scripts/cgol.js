@@ -219,7 +219,6 @@ let field = seedField(seedstring, generateEmptyField(dims)).then((field) => {
 
     let state = field
     let i = 0
-    const MAX_ITERATIONS = 100
     /// lower thresh = less alive at the end
     const stopThreshold = Math.ceil(dims * dims * 0.06)
 
@@ -234,17 +233,15 @@ let field = seedField(seedstring, generateEmptyField(dims)).then((field) => {
                 const compare = compareStates(oldstate, state)
                 printField(state)
                 /// keep going until we stabilize
-                if (compare < stopThreshold || i > MAX_ITERATIONS) {
+                if (compare < stopThreshold) {
                     console.log('stable')
                     clearInterval(inter)
                 }
                 i++
             }, 700)
-            //console.log(`iterations: ${MAX_ITERATIONS}`)
-
             /// draw
             printField(state)
-            const drawn = drawField(state, ctx)
+            drawField(state, ctx)
             //document.body.appendChild(canvas)
             updateFavicon(canvas.toDataURL())
         },
