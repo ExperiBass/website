@@ -78,7 +78,6 @@ function cgol(field = null, dims, wrap = false) {
     return newField
 }
 function printField(field) {
-    return
     const fieldWidth = field.length
     const fieldHeight = field[0].length
     let str = ''
@@ -122,8 +121,8 @@ function generateEmptyField(dims) {
     }
     return field
 }
-function decToBin(dec) {
-    return (dec >>> 0).toString(2)
+function bigintToBin(bigint) {
+    return (bigint >> 0n).toString(2)
 }
 async function digestMessage(message) {
     const encoder = new TextEncoder()
@@ -138,39 +137,20 @@ async function seedField(seed, field) {
     const fieldHeight = field[0].length
     const cellCount = fieldWidth * fieldHeight
 
-    /// TODO: find a different seeding algo?
-    function seeder(seed) {
-        let fieldseed = ''
-        for (const idx in seed) {
-            const code = seed.charCodeAt(parseInt(idx))
-            /// something gets weird, this << 5 works to clear it up
-            const bin = decToBin(
-                (code ^
-                    parseInt(
-                        seed
-                            .split('')
-                            .map((v, i) => seed.charCodeAt(i))
-                            .join('')
-                    )) <<
-                    5
-            )
-            fieldseed += bin
-        }
-        return fieldseed
-    }
 
-    /// hex alone results in repeating patterns
-    seed = seeder(btoa(await digestMessage(seed)))
+    seed = await digestMessage(seed)
 
-    while (seed.length < cellCount) {
+    while (seed.length <= Math.ceil(cellCount / 4)) {
         /// expand
         console.log(seed.length, seed)
-        seed = btoa(seed).replace(/=+/g, '')
-        seed = seeder(seed)
+        seed += await digestMessage(seed)
     }
-    if (seed > cellCount) {
+    /// turn into binary string
+    seed = bigintToBin(BigInt('0x'+ seed))
+    console.log(seed.length, cellCount)
+    if (seed.length > cellCount) {
         /// truncate
-        seed = seed.slice(0, cellCount)
+        seed = seed.slice(-cellCount)
     }
 
     for (let i = 0; i < fieldHeight; i++) {
@@ -217,7 +197,8 @@ if (navigator) {
     seedstring += navigator.hardwareConcurrency
     seedstring += navigator.maxTouchPoints
 }
-let field = seedField(seedstring, generateEmptyField(dims)).then((field) => {
+seedstring = seedstring.replace(/\s/g, '')
+seedField(seedstring, generateEmptyField(dims)).then((field) => {
     printField(field)
 
     let state = field
@@ -225,8 +206,8 @@ let field = seedField(seedstring, generateEmptyField(dims)).then((field) => {
     /// lower thresh = less alive at the end
     const stopThreshold = Math.ceil(dims * dims * 0.06)
 
-    document.addEventListener(
-        'DOMContentLoaded',
+    window.addEventListener(
+        'load',
         () => {
             const inter = setInterval(() => {
                 let oldstate = state
@@ -238,6 +219,7 @@ let field = seedField(seedstring, generateEmptyField(dims)).then((field) => {
                 /// keep going until we stabilize
                 if (compare < stopThreshold) {
                     console.log('stable')
+                    console.log(`seed: ${seedstring}`)
                     clearInterval(inter)
                 }
                 i++
