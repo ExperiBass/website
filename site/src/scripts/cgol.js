@@ -125,12 +125,16 @@ function bigintToBin(bigint) {
     return (bigint >> 0n).toString(2)
 }
 async function digestMessage(message) {
+    if (!window.crypto) {
+        /// bruh, are you a dinosaur?
+        console.error("window.crypto doesn't exist, use a modern browser ya dingus!")
+        return undefined /// make sure everything breaks too
+    }
     const encoder = new TextEncoder()
     const data = encoder.encode(message)
     const hashBuffer = await window.crypto.subtle.digest('SHA-256', data)
     const hashArray = Array.from(new Uint8Array(hashBuffer)) // convert buffer to byte array
-    const hashHex = hashArray.map((b) => b.toString(16).padStart(2, '0')).join('') // convert bytes to hex string
-    return hashHex
+    return hashArray.map((b) => b.toString(16).padStart(2, '0')).join('') // convert bytes to hex string
 }
 async function seedField(seed, field) {
     const fieldWidth = field.length
@@ -140,16 +144,17 @@ async function seedField(seed, field) {
 
     seed = await digestMessage(seed)
 
+    /// expand
     while (seed.length <= Math.ceil(cellCount / 4)) {
-        /// expand
-        console.log(seed.length, seed)
+        //console.log(seed.length, seed)
         seed += await digestMessage(seed)
     }
+
     /// turn into binary string
     seed = bigintToBin(BigInt('0x'+ seed))
-    console.log(seed.length, cellCount)
+    //console.log(seed.length, cellCount)
     if (seed.length > cellCount) {
-        /// truncate
+        /// grab the last bytes
         seed = seed.slice(-cellCount)
     }
 
@@ -179,15 +184,18 @@ function compareStates(A, B) {
     return diff
 }
 
-const dims = 32
+const params = new URLSearchParams(window.location.search)
+const dims = 64
 const pixelSize = 1
+const tickMS = parseInt(params.get('cgoltickms')) || 300
 
 const canvas = document.createElement('canvas')
 const ctx = canvas.getContext('2d')
 canvas.width = dims * pixelSize
 canvas.height = dims * pixelSize
 
-/// not tracking you i swear, this is for unique favicons
+/// not tracking you i swear, this is for seeding the game
+/// if you havent seen already, look in the favicon
 let seedstring = '0'
 if (navigator) {
     seedstring = navigator.userAgent
@@ -196,13 +204,17 @@ if (navigator) {
     seedstring += navigator.oscpu
     seedstring += navigator.hardwareConcurrency
     seedstring += navigator.maxTouchPoints
+    seedstring += window.devicePixelRatio
+    /// see, do we want these? firefox uses privacy mitigations, so its not useful for seeding the game
+    // seedstring += Intl.DateTimeFormat().resolvedOptions().timeZone
+    // seedstring += ((new Date()).getTimezoneOffset() / 60)
 }
 seedstring = seedstring.replace(/\s/g, '')
 seedField(seedstring, generateEmptyField(dims)).then((field) => {
     printField(field)
 
     let state = field
-    let i = 0
+    let iters = 0
     /// lower thresh = less alive at the end
     const stopThreshold = Math.ceil(dims * dims * 0.06)
 
@@ -212,18 +224,17 @@ seedField(seedstring, generateEmptyField(dims)).then((field) => {
             const inter = setInterval(() => {
                 let oldstate = state
                 state = cgol(state, dims, dims, true)
+                /// keep going until we stabilize
                 drawField(state, ctx)
                 updateFavicon(canvas.toDataURL())
-                const compare = compareStates(oldstate, state)
                 printField(state)
-                /// keep going until we stabilize
-                if (compare < stopThreshold) {
-                    console.log('stable')
+                if (compareStates(oldstate, state) < stopThreshold) {
+                    console.log(`stable after ${iters} iterations (${(iters * tickMS) / 1000}s)`)
                     console.log(`seed: ${seedstring}`)
                     clearInterval(inter)
                 }
-                i++
-            }, 700)
+                iters++
+            }, tickMS)
             /// draw
             printField(state)
             drawField(state, ctx)

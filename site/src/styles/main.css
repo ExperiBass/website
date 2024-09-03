@@ -5,13 +5,12 @@
 html,
 body {
     font-family: Unitblock, wipeout;
+
     display: flex;
     flex-direction: column;
-
     background-color: var(--background-color);
     color: var(--text-color);
 
-    min-height: calc(100vh - (var(--gap) * 2));
     max-height: calc(100vh - (var(--gap) * 2));
     margin: var(--gap);
 
@@ -21,19 +20,19 @@ body {
 }
 
 body {
-    gap: var(--gap);
-    align-items: center;
+    display: flex;
+    min-height: calc(100vh - (var(--gap) * 2));
+    max-height: inherit;
     text-align: left;
     cursor: default;
     overflow-wrap: break-word;
     line-height: 1.3rem;
-    flex: 1;
 }
 
 hr {
     color: var(--secondary-color);
     border-radius: var(--border-radius);
-    width: 99%; /* i wish hrs flexed :\ */
+    width: 100%; /* i wish hrs flexed :\ */
     border: 1px solid;
 }
 footer {
@@ -159,7 +158,9 @@ a {
     margin: 0px;
     flex: 1;
 }
-#header span {
+#header h2 {
+    margin: 0px;
+    font-weight: normal;
     font-size: 0.6rem;
     line-height: 0.9rem;
     max-width: 30%;
@@ -175,13 +176,14 @@ a {
     gap: var(--gap);
     flex: 1;
     width: 100%;
-    min-height: 64vh;
-    max-height: 64vh;
+    min-height: 44vh;
+    max-height: 58.6vh; /* help me */
 }
 
 #pane,
 #menu {
     flex: 1;
+    margin: 0;
     display: flex;
     flex-direction: column;
     gap: var(--gap);
@@ -292,15 +294,11 @@ footer > .section:last-child::after {
     #menu {
         flex: 0;
     }
-
-    #gtainertainer {
-        max-height: fit-content;
-        min-height: auto;
-    }
     #gtainer {
         flex-direction: column;
         gap: calc(var(--gap) * 2);
         width: 95vw;
+        min-height: auto;
     }
     #dropdown-container {
         background-image: var(--gapped-border);
