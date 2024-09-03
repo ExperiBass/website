@@ -84,7 +84,3 @@ function errorCleaner(err) {
     err.stack = err.stack.replace(new RegExp(`${window.location.origin}/`, 'gi'), '')
     return `${err}\n${err.stack}`
 }
-
-function typer(msg) {
-    const split = msg.split('')
-}

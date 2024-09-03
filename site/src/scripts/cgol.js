@@ -141,7 +141,6 @@ async function seedField(seed, field) {
     const fieldHeight = field[0].length
     const cellCount = fieldWidth * fieldHeight
 
-
     seed = await digestMessage(seed)
 
     /// expand
@@ -151,7 +150,7 @@ async function seedField(seed, field) {
     }
 
     /// turn into binary string
-    seed = bigintToBin(BigInt('0x'+ seed))
+    seed = bigintToBin(BigInt('0x' + seed))
     //console.log(seed.length, cellCount)
     if (seed.length > cellCount) {
         /// grab the last bytes
@@ -189,6 +188,7 @@ const dims = 64
 const pixelSize = 1
 const tickMS = parseInt(params.get('cgoltickms')) || 300
 
+const icon = document.querySelector('link[rel="icon"]')
 const canvas = document.createElement('canvas')
 const ctx = canvas.getContext('2d')
 canvas.width = dims * pixelSize
@@ -249,8 +249,5 @@ function updateFavicon(newImg) {
     if (!newImg) {
         return
     }
-    const icon = document.querySelector('link[rel="icon"]')
-    if (icon) {
-        icon.href = newImg
-    }
+    icon.href = newImg
 }
