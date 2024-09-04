@@ -150,8 +150,8 @@ async function seedField(seed, field) {
     }
 
     /// turn into binary string
-    seed = bigintToBin(BigInt('0x' + seed))
     //console.log(seed.length, cellCount)
+    seed = bigintToBin(BigInt('0x' + seed))
     if (seed.length > cellCount) {
         /// grab the last bytes
         seed = seed.slice(-cellCount)
@@ -212,6 +212,7 @@ if (navigator) {
 seedstring = seedstring.replace(/\s/g, '')
 seedField(seedstring, generateEmptyField(dims)).then((field) => {
     printField(field)
+    appendCanvas ? document.body.appendChild(canvas) : null
 
     let state = field
     let iters = 0
@@ -238,7 +239,6 @@ seedField(seedstring, generateEmptyField(dims)).then((field) => {
             /// draw
             printField(state)
             drawField(state, ctx)
-            //document.body.appendChild(canvas)
             updateFavicon(canvas.toDataURL())
         },
         false
