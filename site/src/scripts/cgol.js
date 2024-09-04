@@ -212,7 +212,7 @@ if (navigator) {
 seedstring = seedstring.replace(/\s/g, '')
 seedField(seedstring, generateEmptyField(dims)).then((field) => {
     printField(field)
-    appendCanvas ? document.body.appendChild(canvas) : null
+    // document.body.appendChild(canvas)
 
     let state = field
     let iters = 0
