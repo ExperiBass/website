@@ -1,7 +1,7 @@
 const pixelsorts = {
     tld: 'https://foxuments.experibassmusic.eth.limo/pixelsort-gens',
     images: [
-        { url: '/misc/TheriaNoise.png', desc: '⎇' },
+        { url: '/misc/TheriaNoise.png', desc: '&#xe000;⎇' },
         {
             url: '/bridgeskyline/right-then-down.jpg',
             desc: 'classic pixelsort with the city masked off',

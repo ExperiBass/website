@@ -59,6 +59,9 @@ handlebars.registerHelper('pawprint', () => {
         .map((chunk, i) => `<span>${chunk}</span>${(i + 1) % 5 ? '' : '<br />'}`)
         .join(' ')
 })
+handlebars.registerHelper('cursorblink', () => {
+    return "<span class='cursor-blink'>&#xe006;</span>"
+})
 
 process.chdir(__dirname)
 

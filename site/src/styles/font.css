@@ -1,8 +1,8 @@
 @font-face {
-    font-family: wipeout;
-    src: url(../fonts/SupErphoniX2NFALMDI.woff2);
-}
-@font-face {
     font-family: Unitblock;
     src: url(../fonts/Unitblock.woff2);
+}
+@font-face {
+    font-family: Alterbeing;
+    src: url(../fonts/alterbeing.woff2);
 }

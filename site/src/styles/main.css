@@ -4,7 +4,7 @@
 
 html,
 body {
-    font-family: Unitblock, wipeout;
+    font-family: Unitblock, Alterbeing;
 
     display: flex;
     flex-direction: column;
@@ -135,10 +135,7 @@ a {
 .icon {
     height: 1rem !important;
     vertical-align: text-bottom;
-    margin-inline-end: var(--gap);
-}
-.icon:first-child {
-    margin-inline: var(--gap);
+    margin-inline-end: calc(var(--gap) / 2);
 }
 .icon:last-child {
     margin-inline-end: 0px;
@@ -226,26 +223,25 @@ a {
     font-size: 1.2rem;
     font-weight: bold;
 }
-/* menu icon */
-.menu-link::before,
-.menu-link::before {
-    content: '\00a0'; /* non-breaking space */
+.menu-link > .cursor-blink,
+.menu-link > .cursor-blink {
+    display: none;
 }
+.menu-link:hover > .cursor-blink,
+.menu-link:focus > .cursor-blink {
+    display: inline;
+}
+/* menu icon */
 .menu-link:hover::before,
 .menu-link:focus::before {
-    content: ' '; /*'›'; /* placeholder */
+    /* content: '\e005\00a0'; */
     color: var(--tertiary-color);
     margin-left: -1rem;
-}
-.menu-link:hover::after,
-.menu-link:focus::after {
-    content: '_';
-    animation: cursor-blink 1.5s linear infinite;
 }
 
 /* caret blink */
 .cursor-blink {
-    animation: cursor-blink 1.5s linear infinite;
+    animation: cursor-blink 1.2s linear infinite;
 }
 
 /* mobile help */
@@ -273,7 +269,7 @@ a {
 }
 
 footer > .section::after {
-    content: '';
+    content: '\e000';
 }
 footer > .section:last-child::after {
     content: unset;
