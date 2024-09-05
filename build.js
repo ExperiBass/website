@@ -53,6 +53,21 @@ handlebars.registerHelper('populategallery', (gallery) => {
 })
 handlebars.registerHelper('wrappedlink', wrappedLinkHelper)
 handlebars.registerHelper('hyperlink', prefixedLinkHelper)
+handlebars.registerHelper('header', (maintext, subtext) => {
+    if (typeof subtext === 'string') {
+        subtext = subtext.trim().replace(/\n/, '<br>')
+    }
+    maintext = maintext.trim().replace(/\n/, '<br>')
+    return `
+    <div id='header'>
+    <div>
+        <h1>${handlebars.compile(maintext)()}</h1>
+        ${typeof subtext === 'string' ? `<h2>${handlebars.compile(subtext)()}</h2>` : ''}
+    </div>
+    <hr />
+    </div>
+    `.trim()
+})
 handlebars.registerHelper('pawprint', () => {
     return pawprint
         .split(' ')
