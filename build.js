@@ -5,22 +5,15 @@ const galleries = require('./galleries.js')
 const thisDomain = 'https://experibassmusic.eth.limo'
 
 const wrappedLinkHelper = (text, url) => {
-    if (this.url) {
-        text = this.text
-        url = this.url
-    }
     let target = ''
     if (url.startsWith('https://') && !url.startsWith(thisDomain)) {
         target = '_blank' // open external links in a new tab
     }
 
-    return `[<a href="${url}" target="${target}">${text}</a>]`
+    
+    return `&#xe007;<a href="${url}" target="${target}">${text}</a>&#xe008;`
 }
 const prefixedLinkHelper = (text, url) => {
-    if (this.url) {
-        text = this.text
-        url = this.url
-    }
     let target = ''
     let prefix = '//'
     if (url.startsWith('https://') && !url.startsWith(thisDomain)) {
@@ -35,7 +28,7 @@ handlebars.registerHelper('populategallery', (gallery) => {
         const src = `${gallery.tld}${img.url}`
         /// usse the image path without the file ext as the id
         const divID = img.url.split('.').reverse().slice(1).join('.')
-        let source = `[${img.credits || 'source unknown'}]`
+        let source = `&#xe007;${img.credits || 'source unknown'}&#xe008;`
         if (img.sourceURL) {
             if (img.sourceURL.startsWith('https')) {
                 source = wrappedLinkHelper(img.credits || 'source', img.sourceURL)
@@ -55,9 +48,9 @@ handlebars.registerHelper('wrappedlink', wrappedLinkHelper)
 handlebars.registerHelper('hyperlink', prefixedLinkHelper)
 handlebars.registerHelper('header', (maintext, subtext) => {
     if (typeof subtext === 'string') {
-        subtext = subtext.trim().replace(/\n/, '<br>')
+        subtext = subtext.trim().replace(/\\n/g, '<br>')
     }
-    maintext = maintext.trim().replace(/\n/, '<br>')
+    maintext = maintext.trim().replace(/\\n/g, '<br>')
     return `
     <div id='header'>
     <div>
