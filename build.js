@@ -95,11 +95,6 @@ const ctx = {
         desc: 'Stinky Lostkin has Claimed a Corner of the Internet',
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/webrings.css" />'],
     },
-    term: {
-        tabtitle: 'Ｔａｎｄｅｍ　ｖｕｌｐｅｓ　ｖｏｃｅｍ　ｓｕａｍ　ｒｅｐｅｒｉｅｔ．',
-        desc: 'Stinky Lostkin has Claimed a Corner of the Internet',
-        stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/main-term.css" />'],
-    },
     'cyberspace-independence': {
         tabtitle: 'A Declaration of the Independence of Cyberspace',
         desc:
@@ -159,7 +154,8 @@ function compileToHTML(page) {
         stylesheets.push(...extra.stylesheets)
     }
     extra.stylesheets = stylesheets.join('')
-    let keywords = ['⎇', 'ΘΔ', 'experibassmusic', 'experibassmusic.eth.limo', 'web3', 'ens', 'alterbeing', 'nonhuman']
+    let keywords = ['⎇', 'ΘΔ', 'experibassmusic', 'experibassmusic.eth.limo',
+        'web3', 'ens', 'alterbeing', 'nonhuman', 'assegai', 'cypherpunk']
     if (extra.keywords) {
         keywords.push(...extra.keywords)
     }
