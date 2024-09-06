@@ -10,7 +10,6 @@ const wrappedLinkHelper = (text, url) => {
         target = '_blank' // open external links in a new tab
     }
 
-    
     return `&#xe007;<a href="${url}" target="${target}">${text}</a>&#xe008;`
 }
 const prefixedLinkHelper = (text, url) => {
@@ -105,16 +104,17 @@ const ctx = {
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/gallery.css" />'],
         galleryImages: galleries.pixelsorts,
         keywords: ['pixelsorting', 'pixelsort', 'glitch', 'art'],
-        image: 'https://foxuments.experibassmusic.eth.limo/pixelsort-gens/misc/lakepadden-sorted.png',
-        imageDims: { width: 1920, height: 1080 },
+        image: 'https://foxuments.experibassmusic.eth.limo/pixelsort-gens/boat-on-lake/final.jpg',
+        imageDims: { width: 1000, height: 1500 },
     },
     eve: {
         tabtitle: 'Screenshots in Space',
-        desc: "When i'm not dyin, i'm killin\nand then dyin",
+        desc: "When i'm not dyin, i'm killin and then dyin",
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/gallery.css" />'],
         galleryImages: galleries.eve,
         keywords: ['eve', 'online', 'screenshots'],
-        image: '',
+        image: 'https://foxuments.experibassmusic.eth.limo/eve-screenshots/CataclysmicVariable.png',
+        imageDims: { width: 1280, height: 800 },
     },
     flags: {
         tabtitle: 'Unified-pride-flags Flag Previews',
@@ -147,8 +147,18 @@ function compileToHTML(page) {
         stylesheets.push(...extra.stylesheets)
     }
     extra.stylesheets = stylesheets.join('')
-    let keywords = ['⎇', 'ΘΔ', 'experibassmusic', 'experibassmusic.eth.limo',
-        'web3', 'ens', 'alterbeing', 'nonhuman', 'assegai', 'cypherpunk']
+    let keywords = [
+        '⎇',
+        'ΘΔ',
+        'experibassmusic',
+        'experibassmusic.eth.limo',
+        'web3',
+        'ens',
+        'alterbeing',
+        'nonhuman',
+        'assegai',
+        'cypherpunk',
+    ]
     if (extra.keywords) {
         keywords.push(...extra.keywords)
     }
