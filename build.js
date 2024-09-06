@@ -140,7 +140,7 @@ function compileToHTML(page) {
         page: `${templateName}.html`,
         ...ctx[templateName],
     }
-    extra.themecolor = extra.themecolor || '#262640'
+    extra.themecolor = extra.themecolor || '#262638'
     extra.author = extra.author || 'ΞXPΞRIBΛSS'
     let stylesheets = ['<link rel="stylesheet" type="text/css" href="/src/styles/main.css" />']
     if (extra.stylesheets) {
@@ -151,8 +151,8 @@ function compileToHTML(page) {
         '⎇',
         'ΘΔ',
         'experibassmusic',
-        'experibassmusic.eth.limo',
         'web3',
+        'true web3',
         'ens',
         'alterbeing',
         'nonhuman',
