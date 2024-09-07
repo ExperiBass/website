@@ -79,8 +79,12 @@ const LAYOUT_FILE = readFileSync(`${viewsDir}/${layoutFileName}`, 'utf-8')
 const LAYOUT = handlebars.compile(LAYOUT_FILE)
 const pawprint = '33A8 1E0A 9FD6 6E1B 5D02 7649 5F47 E26A 5D22 1AEC'
 
-const DRY_RUN = false
+const DRY_RUN = process.env['DRY_RUN']
 
+const DEFAULT_CTX = {
+    themecolor: '#262638',
+    author: 'ΞXPΞRIBΛSS'
+}
 const ctx = {
     index: {
         tabtitle: 'Ｔａｎｄｅｍ　ｖｕｌｐｅｓ　ｖｏｃｅｍ　ｓｕａｍ　ｒｅｐｅｒｉｅｔ．',
@@ -103,7 +107,7 @@ const ctx = {
         desc: 'organic Home-grown free-range pixelsorts',
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/gallery.css" />'],
         galleryImages: galleries.pixelsorts,
-        keywords: ['pixelsorting', 'pixelsort', 'glitch', 'art'],
+        keywords: ['pixelsorting', 'pixelsort', 'glitch art'],
         image: 'https://foxuments.experibassmusic.eth.limo/pixelsort-gens/boat-on-lake/final.jpg',
         imageDims: { width: 1000, height: 1500 },
     },
@@ -112,7 +116,7 @@ const ctx = {
         desc: "When i'm not dyin, i'm killin and then dyin",
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/gallery.css" />'],
         galleryImages: galleries.eve,
-        keywords: ['eve', 'online', 'screenshots'],
+        keywords: ['eve online', 'screenshots'],
         image: 'https://foxuments.experibassmusic.eth.limo/eve-screenshots/CataclysmicVariable.png',
         imageDims: { width: 1280, height: 800 },
     },
@@ -121,7 +125,7 @@ const ctx = {
         desc: 'Previews of the flags included in unified-pride-flags.',
         author: '@KonkenBonken, @ExperiBass (GitHub)',
         stylesheets: ['<link rel="stylesheet" type="text/css" href="/src/styles/flags.css" />'],
-        keywords: ['unified', 'cli', 'pride', 'flags', 'lgbtqia'],
+        keywords: ['unified', 'cli', 'pride flags', 'lgbtqia'],
     },
     404: { tabtitle: 'Are You Lost? (404)', desc: 'Were you even Found?' },
     rinkucomms: {
@@ -137,25 +141,20 @@ function compileToHTML(page) {
     const template = readFileSync(`${viewsDir}/${page}`, 'utf-8')
     const templateName = page.split('.')[0]
     const extra = {
+        ...DEFAULT_CTX,
         page: `${templateName}.html`,
         ...ctx[templateName],
     }
-    extra.themecolor = extra.themecolor || '#262638'
-    extra.author = extra.author || 'ΞXPΞRIBΛSS'
-    let stylesheets = ['<link rel="stylesheet" type="text/css" href="/src/styles/main.css" />']
-    if (extra.stylesheets) {
-        stylesheets.push(...extra.stylesheets)
-    }
-    extra.stylesheets = stylesheets.join('')
+    extra.stylesheets ? extra.stylesheets = extra.stylesheets.join('') : null
     let keywords = [
         '⎇',
         'ΘΔ',
-        'experibassmusic',
-        'web3',
-        'true web3',
-        'ens',
         'alterbeing',
         'nonhuman',
+        'experibassmusic',
+        'ens',
+        'web3',
+        'true web3',
         'assegai',
         'cypherpunk',
     ]
