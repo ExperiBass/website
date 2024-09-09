@@ -150,6 +150,7 @@ function compileToHTML(page) {
         '⎇',
         'ΘΔ',
         'alterbeing',
+        'theriomythic',
         'nonhuman',
         'experibassmusic',
         'ens',
