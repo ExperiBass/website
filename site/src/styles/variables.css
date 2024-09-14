@@ -7,6 +7,7 @@
     --tertiary-color: #afbbd9;
 
     --transition-normal: 333ms;
+    --transition-quick: 200ms;
     --gap: 0.3rem;
     --border-radius: 4px;
     --dim: 63%;
