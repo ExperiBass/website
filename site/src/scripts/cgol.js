@@ -144,6 +144,8 @@ async function seedField(seed, field) {
     seed = await digestMessage(seed)
 
     /// expand
+    /// this very quickly breaks the BigInt limit at scale,
+    ///  good thing this is only for a favicon
     while (seed.length <= Math.ceil(cellCount / 4)) {
         //console.log(seed.length, seed)
         seed += await digestMessage(seed)
@@ -169,14 +171,11 @@ async function seedField(seed, field) {
 function compareStates(A, B) {
     const fieldWidth = A.length
     const fieldHeight = A[0].length
-    let res = true
     let diff = 0
-    compareLoop: for (let i = 0; i < fieldHeight; i++) {
+    for (let i = 0; i < fieldHeight; i++) {
         for (let ii = 0; ii < fieldWidth; ii++) {
             if (A[ii][i] !== B[ii][i]) {
-                res = false
                 diff++
-                //break compareLoop
             }
         }
     }
@@ -196,6 +195,7 @@ canvas.height = dims * pixelSize
 
 /// not tracking you i swear, this is for seeding the game
 /// if you havent seen already, look in the favicon
+/// most visitors get a unique favicon :3 
 let seedstring = '0'
 if (navigator) {
     seedstring = navigator.userAgent
@@ -205,9 +205,6 @@ if (navigator) {
     seedstring += navigator.hardwareConcurrency
     seedstring += navigator.maxTouchPoints
     seedstring += window.devicePixelRatio
-    /// see, do we want these? firefox uses privacy mitigations, so its not useful for seeding the game
-    // seedstring += Intl.DateTimeFormat().resolvedOptions().timeZone
-    // seedstring += ((new Date()).getTimezoneOffset() / 60)
 }
 seedstring = seedstring.replace(/\s/g, '')
 seedField(seedstring, generateEmptyField(dims)).then((field) => {
